@@ -1,53 +1,64 @@
 import streamlit as st
-import plotly.graph_objects as go
-import numpy as np
+import pandas as pd
 
-st.set_page_config(page_title="Professor G Companion", layout="wide")
-st.title("📟 Professor G: CFA Master v1.6")
+st.set_page_config(page_title="Professor G: CFA Study Portal", layout="wide")
 
-# --- SIDEBAR: GAME THEORY CONTROLS ---
-st.sidebar.header("🕹️ Game Theory: Market Moves")
-st.sidebar.write("Simulate player actions to see the shift:")
+# --- INITIALIZATION (The Database) ---
+if 'db' not in st.session_state:
+    st.session_state.db = []
+if 'scores' not in st.session_state:
+    st.session_state.scores = {"Correct": 0, "Total": 0}
+if 'notes' not in st.session_state:
+    st.session_state.notes = ""
 
-# Toggles for AD and AS shifts
-ad_shift = st.sidebar.slider("Aggregate Demand (Government/Fed Move)", -3.0, 3.0, 0.0)
-as_shift = st.sidebar.slider("Short-Run Supply (Energy/Wage Shock)", -3.0, 3.0, 0.0)
+# --- SIDEBAR: PERFORMANCE & TOOLS ---
+st.sidebar.title("📊 Study Dashboard")
+st.sidebar.metric("Accuracy", f"{(st.session_state.scores['Correct']/st.session_state.scores['Total']*100 if st.session_state.scores['Total'] > 0 else 0):.1f}%")
+st.sidebar.write(f"Questions Attempted: {st.session_state.scores['Total']}")
 
-# --- GRAPH LOGIC ---
-x = np.linspace(0, 10, 100)
-ad_base = 10 - x
-sras_base = x
+if st.sidebar.button("🔄 Reset All Progress"):
+    st.session_state.scores = {"Correct": 0, "Total": 0}
+    st.session_state.db = []
+    st.rerun()
 
-# New Shifted Curves
-ad_new = (10 + ad_shift) - x
-sras_new = x - as_shift
+# --- MAIN INTERFACE ---
+tabs = st.tabs(["📝 Practice Quiz", "🗂️ Flashcards", "📓 LOS Notes", "📈 Performance Review"])
 
-fig = go.Figure()
-# Static base lines for reference
-fig.add_trace(go.Scatter(x=x, y=ad_base, name='Base AD', line=dict(color='lightgrey', dash='dot')))
-fig.add_trace(go.Scatter(x=x, y=sras_base, name='Base SRAS', line=dict(color='lightgrey', dash='dot')))
-# Dynamic lines that move with your sliders
-fig.add_trace(go.Scatter(x=x, y=ad_new, name='Active AD', line=dict(color='blue', width=4)))
-fig.add_trace(go.Scatter(x=x, y=sras_new, name='Active SRAS', line=dict(color='red', width=4)))
-
-fig.update_layout(title='Interactive AD/AS Model', xaxis_title='Output (Y)', yaxis_title='Price (P)', height=500)
-
-# --- DISPLAY ---
-col1, col2 = st.columns([1.5, 1])
-
-with col1:
-    st.plotly_chart(fig, use_container_width=True)
-
-with col2:
-    st.subheader("CFA Level 1: Economics Analysis")
-    st.info("Goal: Simulate a 'Corporate Tax Increase.' (Move AD to the left)")
+# 1. PRACTICE QUIZ TAB
+with tabs[0]:
+    st.header("CFA Level 1 Exam Simulation")
+    # Example Question Logic
+    st.subheader("Topic: Ethics - Standard I(A) Knowledge of the Law")
+    st.write("An analyst is covered by stricter local laws than the Code and Standards. Which should they follow?")
     
-    st.write("**Scenario:** The government significantly increases corporate tax rates. Which shift occurred?")
-    choice = st.radio("Selection:", ["AD shifts Left", "SRAS shifts Right", "AD shifts Right"])
+    choice = st.radio("Select Answer:", ["The Code and Standards", "The stricter local law", "The less strict law"])
     
     if st.button("📡 Submit to Professor G"):
-        # Correct if choice is AD Left AND the slider is actually moved left
-        if choice == "AD shifts Left" and ad_shift < 0:
-            st.success("✔️ CORRECT: You simulated the shift perfectly. Higher taxes reduce investment.")
+        st.session_state.scores["Total"] += 1
+        if choice == "The stricter local law":
+            st.success("✔️ CORRECT: You must follow the stricter of the two.")
+            st.session_state.scores["Correct"] += 1
+            st.session_state.db.append({"Topic": "Ethics", "Status": "Correct"})
         else:
-            st.error("❌ RE-CALIBRATE: Adjust the slider to the left to see the correct economic impact.")
+            st.error("❌ INCORRECT: Always adhere to the stricter law.")
+            st.session_state.db.append({"Topic": "Ethics", "Status": "Incorrect"})
+
+# 2. LOS NOTES TAB
+with tabs[2]:
+    st.header("LOS Study Notes")
+    st.info("Generating notes for: LOS 1.a - Describe the structure of the CFA Institute Professional Conduct Program.")
+    new_note = st.text_area("Add your observations here:", placeholder="Type insights from our chat here...")
+    if st.button("💾 Save to Study Guide"):
+        st.session_state.notes += f"\n- {new_note}"
+        st.toast("Note Saved!")
+    st.markdown("### Your Compiled Study Guide")
+    st.write(st.session_state.notes)
+
+# 3. PERFORMANCE REVIEW TAB
+with tabs[3]:
+    st.header("Session History")
+    if st.session_state.db:
+        df = pd.DataFrame(st.session_state.db)
+        st.table(df)
+    else:
+        st.write("No questions attempted yet.")
