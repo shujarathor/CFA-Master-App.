@@ -1,64 +1,49 @@
 import streamlit as st
 import pandas as pd
 
-st.set_page_config(page_title="Professor G: CFA Study Portal", layout="wide")
+st.set_page_config(page_title="Professor G: CFA Master Portal", layout="wide")
 
-# --- INITIALIZATION (The Database) ---
-if 'db' not in st.session_state:
-    st.session_state.db = []
-if 'scores' not in st.session_state:
-    st.session_state.scores = {"Correct": 0, "Total": 0}
-if 'notes' not in st.session_state:
-    st.session_state.notes = ""
+# --- THE PERMANENT DATABASE STRUCTURE ---
+if 'master_db' not in st.session_state:
+    # This will hold ALL questions for ALL standards eventually
+    st.session_state.master_db = {
+        "Standard I": [], 
+        "Standard II": [],
+        "Standard III": []
+    }
+if 'performance' not in st.session_state:
+    st.session_state.performance = [] # Records: {Standard, Level, Correct, QuestionID}
+if 'revision_deck' not in st.session_state:
+    st.session_state.revision_deck = []
 
-# --- SIDEBAR: PERFORMANCE & TOOLS ---
-st.sidebar.title("📊 Study Dashboard")
-st.sidebar.metric("Accuracy", f"{(st.session_state.scores['Correct']/st.session_state.scores['Total']*100 if st.session_state.scores['Total'] > 0 else 0):.1f}%")
-st.sidebar.write(f"Questions Attempted: {st.session_state.scores['Total']}")
+# --- SIDEBAR: NAVIGATION & PROGRESS ---
+st.sidebar.title("📟 Command Center")
+selected_std = st.sidebar.selectbox("Active Standard", list(st.session_state.master_db.keys()))
+mode = st.sidebar.radio("Mode", ["Hard-Learning", "Above-Exam Level", "Revision Deck"])
 
-if st.sidebar.button("🔄 Reset All Progress"):
-    st.session_state.scores = {"Correct": 0, "Total": 0}
-    st.session_state.db = []
-    st.rerun()
+# Performance Analytics
+if st.session_state.performance:
+    perf_df = pd.DataFrame(st.session_state.performance)
+    accuracy = (perf_df['Correct'].sum() / len(perf_df)) * 100
+    st.sidebar.metric("Overall Accuracy", f"{accuracy:.1f}%")
 
-# --- MAIN INTERFACE ---
-tabs = st.tabs(["📝 Practice Quiz", "🗂️ Flashcards", "📓 LOS Notes", "📈 Performance Review"])
+# --- MAIN INTERFACE: TABS ---
+tabs = st.tabs(["🎯 Practice Tank", "📈 Performance Lab", "📔 LOS Notes"])
 
-# 1. PRACTICE QUIZ TAB
 with tabs[0]:
-    st.header("CFA Level 1 Exam Simulation")
-    # Example Question Logic
-    st.subheader("Topic: Ethics - Standard I(A) Knowledge of the Law")
-    st.write("An analyst is covered by stricter local laws than the Code and Standards. Which should they follow?")
+    # Logic to filter questions based on the sidebar selection
+    active_questions = [q for q in st.session_state.master_db[selected_std] if q['level'] == mode]
     
-    choice = st.radio("Select Answer:", ["The Code and Standards", "The stricter local law", "The less strict law"])
-    
-    if st.button("📡 Submit to Professor G"):
-        st.session_state.scores["Total"] += 1
-        if choice == "The stricter local law":
-            st.success("✔️ CORRECT: You must follow the stricter of the two.")
-            st.session_state.scores["Correct"] += 1
-            st.session_state.db.append({"Topic": "Ethics", "Status": "Correct"})
-        else:
-            st.error("❌ INCORRECT: Always adhere to the stricter law.")
-            st.session_state.db.append({"Topic": "Ethics", "Status": "Incorrect"})
-
-# 2. LOS NOTES TAB
-with tabs[2]:
-    st.header("LOS Study Notes")
-    st.info("Generating notes for: LOS 1.a - Describe the structure of the CFA Institute Professional Conduct Program.")
-    new_note = st.text_area("Add your observations here:", placeholder="Type insights from our chat here...")
-    if st.button("💾 Save to Study Guide"):
-        st.session_state.notes += f"\n- {new_note}"
-        st.toast("Note Saved!")
-    st.markdown("### Your Compiled Study Guide")
-    st.write(st.session_state.notes)
-
-# 3. PERFORMANCE REVIEW TAB
-with tabs[3]:
-    st.header("Session History")
-    if st.session_state.db:
-        df = pd.DataFrame(st.session_state.db)
-        st.table(df)
+    if not active_questions:
+        st.info(f"The tank for {selected_std} ({mode}) is currently empty. Waiting for data drop...")
     else:
-        st.write("No questions attempted yet.")
+        # Quiz logic goes here (similar to v3.5 but pulling from master_db)
+        pass
+
+with tabs[1]:
+    st.header("Revision & Performance")
+    if st.session_state.performance:
+        st.dataframe(perf_df)
+        if st.button("Reset Performance Data"):
+            st.session_state.performance = []
+            st.rerun()
