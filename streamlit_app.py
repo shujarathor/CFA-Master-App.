@@ -3,11 +3,11 @@ import pandas as pd
 
 st.set_page_config(page_title="Professor G: Ethics Mastery", layout="wide")
 
-# --- 1. FULLY HARD-CODED DATABASE: ALL 60 QUESTIONS ---
+# --- THE PERMANENT DATABASE: 60 UNIQUE ENTRIES FOR STANDARD I ---
 if 'master_db' not in st.session_state:
     st.session_state.master_db = {
         "Standard I": [
-            # --- 30 HARD-LEARNING (1-30) ---
+            # --- HARD-LEARNING (1-30) ---
             {"id": 1, "level": "Hard-Learning", "focus": "I(A)", "question": "Analyst works in Country A (no law), trades in Country B (weak law). CFA Code is stricter. Follow which?", "options": ["Country B Law", "CFA Code", "Home Law"], "correct": "CFA Code", "rationale": "Follow the stricter of the Law or the Code."},
             {"id": 2, "level": "Hard-Learning", "focus": "I(C)", "question": "Plagiarizing a report by changing names but keeping price targets is a violation of:", "options": ["I(C) Misrepresentation", "I(B) Independence", "I(A) Law"], "correct": "I(C) Misrepresentation", "rationale": "Standard I(C) prohibits misrepresenting others' work as your own."},
             {"id": 3, "level": "Hard-Learning", "focus": "I(B)", "question": "A client offers a bonus for future performance. What is required to accept?", "options": ["Verbal consent", "Written consent from employer", "Disclosure only"], "correct": "Written consent from employer", "rationale": "Future bonuses require written permission from the employer."},
@@ -37,39 +37,39 @@ if 'master_db' not in st.session_state:
             {"id": 27, "level": "Hard-Learning", "focus": "I(B)", "question": "Writing a report on a firm where you are a Director is:", "options": ["Violation", "Best practice", "Allowed with bold text"], "correct": "Violation", "rationale": "Dire conflict of independence and objectivity."},
             {"id": 28, "level": "Hard-Learning", "focus": "I(A)", "question": "Dissociation requires notifying the government?", "options": ["Yes", "No", "Only for fraud"], "correct": "No", "rationale": "Code does not require reporting to authorities."},
             {"id": 29, "level": "Hard-Learning", "focus": "I(C)", "question": "Using a quote without citation is:", "options": ["Violation", "No violation", "Allowed if brief"], "correct": "Violation", "rationale": "Standard I(C) requires citation for all non-original work."},
-            {"id": 30, "level": "Hard-Learning", "focus": "I(D)", "question": "Cheating on a personal taxes is a violation of:", "options": ["I(D)", "VII(A)", "No violation"], "correct": "I(D)", "rationale": "Deceitful personal acts reflect on professional integrity."},
+            {"id": 30, "level": "Hard-Learning", "focus": "I(D)", "question": "Cheating on personal taxes is a violation of:", "options": ["I(D)", "VII(A)", "No violation"], "correct": "I(D)", "rationale": "Deceitful personal acts reflect on professional integrity."},
 
-            # --- 30 ABOVE-EXAM LEVEL (31-60) ---
-            {"id": 31, "level": "Above-Exam Level", "focus": "I(A)", "question": "Jurisdictional conflict: Follow the most stringent rule?", "options": ["Yes", "No", "Depends on citizenship"], "correct": "Yes", "rationale": "Standard I(A) always defaults to the strictest regulation."},
-            {"id": 32, "level": "Above-Exam Level", "focus": "I(B)", "question": "Accepting perks from a client-directed broker violates I(B)?", "options": ["Yes", "No", "Only if trade is bad"], "correct": "Yes", "rationale": "Perks compromise objectivity regardless of client direction."},
-            {"id": 33, "level": "Above-Exam Level", "focus": "I(C)", "question": "Cherry-picking the best years for a track record is:", "options": ["Marketing", "Misrepresentation", "Standard"], "correct": "Misrepresentation", "rationale": "Misleading performance presentation violates I(C)."},
-            {"id": 34, "level": "Above-Exam Level", "focus": "I(D)", "question": "A non-violent civil disobedience conviction is a violation?", "options": ["Yes", "No", "Always"], "correct": "No", "rationale": "I(D) targets acts of dishonesty or impairment of professional integrity."},
-            {"id": 35, "level": "Above-Exam Level", "focus": "I(B)", "question": "Salary tied directly to an IPO rating is a violation?", "options": ["Yes", "No", "Standard"], "correct": "Yes", "rationale": "Compensation that threatens objectivity is a violation."},
-            {"id": 36, "level": "Above-Exam Level", "focus": "I(A)", "question": "Dissociation step 1 is internal reporting?", "options": ["Yes", "No", "Only for theft"], "correct": "Yes", "rationale": "Internal reporting is the standard first step to dissociation."},
-            {"id": 37, "level": "Above-Exam Level", "focus": "I(C)", "question": "Using firm research without citing a former employee is okay?", "options": ["Yes", "No", "Only if they retired"], "correct": "Yes", "rationale": "Research belongs to the firm, not the individual employee."},
-            {"id": 38, "level": "Above-Exam Level", "focus": "I(B)", "question": "Issuer pays for private flight because no others exist. Violation?", "options": ["Yes", "No", "Depends on cost"], "correct": "Yes", "rationale": "Analyst firm must find commercial alternatives or pay for private flight."},
+            # --- ABOVE-EXAM LEVEL (31-60) ---
+            {"id": 31, "level": "Above-Exam Level", "focus": "I(A)", "question": "Global context: Country A citizen, works in B, trades in C. Which rule is the baseline?", "options": ["Host Country", "Home Country", "Strictest of all"], "correct": "Strictest of all", "rationale": "Standard I(A) mandates adherence to the most stringent rule available."},
+            {"id": 32, "level": "Above-Exam Level", "focus": "I(B)", "question": "Accepting perks from a client-directed broker violates I(B)?", "options": ["Yes", "No", "Only if trades are poor"], "correct": "Yes", "rationale": "Perks compromise objectivity regardless of client direction."},
+            {"id": 33, "level": "Above-Exam Level", "focus": "I(C)", "question": "Cherry-picking only 'up-market' years for a performance track record is:", "options": ["Marketing", "Misrepresentation", "Standard Practice"], "correct": "Misrepresentation", "rationale": "Misleading performance presentation violates I(C)."},
+            {"id": 34, "level": "Above-Exam Level", "focus": "I(D)", "question": "A non-violent civil disobedience conviction is a violation of I(D)?", "options": ["Yes", "No", "Always"], "correct": "No", "rationale": "I(D) targets acts of dishonesty or impairment of professional integrity."},
+            {"id": 35, "level": "Above-Exam Level", "focus": "I(B)", "question": "Salary tied directly to the success of an IPO the analyst is reviewing violates I(B)?", "options": ["Yes", "No", "Standard"], "correct": "Yes", "rationale": "Compensation structures threatening objectivity are violations."},
+            {"id": 36, "level": "Above-Exam Level", "focus": "I(A)", "question": "Internal reporting fulfills dissociation if the illegal act continues?", "options": ["Yes", "No", "Only for theft"], "correct": "No", "rationale": "If reporting fails and the act continues, you must stop working on that specific area."},
+            {"id": 37, "level": "Above-Exam Level", "focus": "I(C)", "question": "Using firm research without citing a former colleague is okay?", "options": ["Yes", "No", "Only if retired"], "correct": "Yes", "rationale": "Research belongs to the firm, not the individual employee."},
+            {"id": 38, "level": "Above-Exam Level", "focus": "I(B)", "question": "Issuer pays for private flight because no others exist. Violation?", "options": ["Yes", "No", "Depends on cost"], "correct": "Yes", "rationale": "Analyst firm must find commercial alternatives or pay for private flight themselves."},
             {"id": 39, "level": "Above-Exam Level", "focus": "I(D)", "question": "Involved in a legal but deceptive tax scheme. Violation?", "options": ["Yes", "No", "Only if fined"], "correct": "Yes", "rationale": "Deceptive acts, even if legal, reflect poorly on integrity."},
             {"id": 40, "level": "Above-Exam Level", "focus": "I(C)", "question": "Presenting hypothetical data as actual is a violation?", "options": ["Yes", "No", "Allowed if disclosed later"], "correct": "Yes", "rationale": "Hypothetical data must be explicitly labeled."},
-            {"id": 41, "level": "Above-Exam Level", "focus": "I(A)", "question": "Is resignation the only way to dissociate?", "options": ["No", "Yes", "Only for murder"], "correct": "No", "rationale": "Dissociation can be project-specific or internal reporting."},
-            {"id": 42, "level": "Above-Exam Level", "focus": "I(B)", "question": "Marketing team vetting research ratings is a violation?", "options": ["Yes", "No", "Standard"], "correct": "Yes", "rationale": "Threatens the independence of the research process."},
-            {"id": 43, "level": "Above-Exam Level", "focus": "I(C)", "question": "Using public data table without citation is allowed?", "options": ["Yes", "No", "Only if it is government"], "correct": "Yes", "rationale": "Public/Factual data often does not require specific citation."},
+            {"id": 41, "level": "Above-Exam Level", "focus": "I(A)", "question": "Is resignation the only way to dissociate?", "options": ["No", "Yes", "Only for felonies"], "correct": "No", "rationale": "Dissociation can be project-specific or via internal reporting."},
+            {"id": 42, "level": "Above-Exam Level", "focus": "I(B)", "question": "Marketing team vetting research ratings for 'consistency' is a violation?", "options": ["Yes", "No", "Standard"], "correct": "Yes", "rationale": "Threatens the independence of the research process."},
+            {"id": 43, "level": "Above-Exam Level", "focus": "I(C)", "question": "Using public government data without citation is allowed?", "options": ["Yes", "No", "Only if it is local"], "correct": "Yes", "rationale": "Public factual data often does not require specific citation under I(C)."},
             {"id": 44, "level": "Above-Exam Level", "focus": "I(D)", "question": "Felony drug possession conviction automatically violates I(D)?", "options": ["No", "Yes", "Only if at work"], "correct": "No", "rationale": "I(D) requires an impact on professional judgment or integrity."},
-            {"id": 45, "level": "Above-Exam Level", "focus": "I(B)", "question": "An offer of a bonus for a 'favorable' report must be reported?", "options": ["Yes", "No", "Only if accepted"], "correct": "Yes", "rationale": "Attempts to influence must be reported immediately."},
-            {"id": 46, "level": "Above-Exam Level", "focus": "I(A)", "question": "Supervisor fails to test compliance system. Violation?", "options": ["Yes", "No", "Only if fraud happens"], "correct": "Yes", "rationale": "Active testing of systems is part of supervisory duty."},
+            {"id": 45, "level": "Above-Exam Level", "focus": "I(B)", "question": "An offer of a bonus for a 'favorable' report must be reported to the firm?", "options": ["Yes", "No", "Only if accepted"], "correct": "Yes", "rationale": "Attempts to influence must be reported immediately to supervisors."},
+            {"id": 46, "level": "Above-Exam Level", "focus": "I(A)", "question": "Supervisor fails to actively test a compliance system. Violation?", "options": ["Yes", "No", "Only if fraud occurs"], "correct": "Yes", "rationale": "Active testing of systems is part of supervisory duty under I(A)."},
             {"id": 47, "level": "Above-Exam Level", "focus": "I(C)", "question": "Copying a peer's rationale but using original math is plagiarism?", "options": ["Yes", "No", "Efficiency"], "correct": "Yes", "rationale": "Plagiarism includes copying ideas and logic, not just text."},
-            {"id": 48, "level": "Above-Exam Level", "focus": "I(B)", "question": "Issuer pays for an analyst's factory tour bus transport. Okay?", "options": ["Yes", "No", "Only for 1st class"], "correct": "Yes", "rationale": "Modest local transport for tours is generally acceptable."},
+            {"id": 48, "level": "Above-Exam Level", "focus": "I(B)", "question": "Issuer pays for an analyst's factory tour bus transport. Okay?", "options": ["Yes", "No", "Only for 1st class"], "correct": "Yes", "rationale": "Modest local transport for tours is generally acceptable and not a violation."},
             {"id": 49, "level": "Above-Exam Level", "focus": "I(D)", "question": "Deceiving a charity during personal volunteering violates I(D)?", "options": ["Yes", "No", "Personal matter"], "correct": "Yes", "rationale": "Deceit in any context harms professional reputation."},
             {"id": 50, "level": "Above-Exam Level", "focus": "I(C)", "question": "Knowingly using a model with a small error is a violation?", "options": ["Yes", "No", "If error is <1%"], "correct": "Yes", "rationale": "Knowingly distributing errors is misrepresentation."},
-            {"id": 51, "level": "Above-Exam Level", "focus": "I(A)", "question": "Following a weak law because a boss ordered it is okay?", "options": ["No", "Yes", "Boss is liable"], "correct": "No", "rationale": "Individual responsibility is paramount."},
-            {"id": 52, "level": "Above-Exam Level", "focus": "I(B)", "question": "Taking discounted IPO shares from a covered company is a violation?", "options": ["Yes", "No", "Allowed if disclosed"], "correct": "Yes", "rationale": "Accepting perks from covered entities creates bias."},
-            {"id": 53, "level": "Above-Exam Level", "focus": "I(C)", "question": "Using Bloomberg chart without attribution is plagiarism?", "options": ["Yes", "No", "Only if they made it"], "correct": "Yes", "rationale": "Proper source attribution is required for terminal data."},
-            {"id": 54, "level": "Above-Exam Level", "focus": "I(D)", "question": "Personal civil lawsuit for contract dispute is a violation?", "options": ["No", "Yes", "If you lose"], "correct": "No", "rationale": "Civil disputes usually don't reflect on integrity."},
+            {"id": 51, "level": "Above-Exam Level", "focus": "I(A)", "question": "Following a weak law because a boss ordered it is okay?", "options": ["No", "Yes", "Boss is liable"], "correct": "No", "rationale": "Individual responsibility is paramount; boss orders do not excuse violations."},
+            {"id": 52, "level": "Above-Exam Level", "focus": "I(B)", "question": "Taking discounted IPO shares from a company you cover is a violation?", "options": ["Yes", "No", "Allowed if disclosed"], "correct": "Yes", "rationale": "Accepting perks from covered entities creates bias."},
+            {"id": 53, "level": "Above-Exam Level", "focus": "I(C)", "question": "Using Bloomberg terminal chart without attribution is plagiarism?", "options": ["Yes", "No", "Only if you made it"], "correct": "Yes", "rationale": "Proper source attribution is required for terminal data."},
+            {"id": 54, "level": "Above-Exam Level", "focus": "I(D)", "question": "Personal civil lawsuit for contract dispute is a violation?", "options": ["No", "Yes", "If you lose"], "correct": "No", "rationale": "Civil disputes usually don't reflect on integrity unless fraud is found."},
             {"id": 55, "level": "Above-Exam Level", "focus": "I(B)", "question": "Standard lunch provided by issuer during factory tour is okay?", "options": ["Yes", "No", "Requires CFAI report"], "correct": "Yes", "rationale": "Tokens of nominal value during meetings are acceptable."},
-            {"id": 56, "level": "Above-Exam Level", "focus": "I(A)", "question": "Dissociation requires reporting to government?", "options": ["No", "Yes", "Recommended"], "correct": "No", "rationale": "Not required by the Code itself."},
-            {"id": 57, "level": "Above-Exam Level", "focus": "I(C)", "question": "Failing to disclose change in model logic is misrepresentation?", "options": ["Yes", "No", "Only if price changed"], "correct": "Yes", "rationale": "Basis of recommendation must be clear."},
+            {"id": 56, "level": "Above-Exam Level", "focus": "I(A)", "question": "Does dissociation require reporting to the government authorities?", "options": ["No", "Yes", "Recommended"], "correct": "No", "rationale": "Not required by the CFA Code itself."},
+            {"id": 57, "level": "Above-Exam Level", "focus": "I(C)", "question": "Failing to disclose change in model logic is misrepresentation?", "options": ["Yes", "No", "Only if price changed"], "correct": "Yes", "rationale": "Basis of recommendation must be clear for the client to understand."},
             {"id": 58, "level": "Above-Exam Level", "focus": "I(D)", "question": "Plagiarizing a personal hobby blog is a violation of I(D)?", "options": ["Yes", "No", "Only for finance"], "correct": "Yes", "rationale": "Deceit reflects on professional integrity regardless of topic."},
             {"id": 59, "level": "Above-Exam Level", "focus": "I(B)", "question": "Forced attendance at lavish party threatens independence?", "options": ["Yes", "No", "Only if you drink"], "correct": "Yes", "rationale": "Lavish entertainment is a threat even if employer-mandated."},
-            {"id": 60, "level": "Above-Exam Level", "focus": "I(C)", "question": "Using firm research from 10 years ago without attribution is allowed?", "options": ["Yes", "No", "Only for seniors"], "correct": "Yes", "rationale": "Firm property can be shared internally without individual credit."},
+            {"id": 60, "level": "Above-Exam Level", "focus": "I(C)", "question": "Using firm research from 10 years ago without attribution is allowed?", "options": ["Yes", "No", "Only for seniors"], "correct": "Yes", "rationale": "Firm property can be shared internally without individual credit attribution."},
         ],
         "Standard II": [], "Standard III": [], "Standard IV": [], "Standard V": [], "Standard VI": [], "Standard VII": []
     }
@@ -90,12 +90,13 @@ if 'flashcards' not in st.session_state:
         ]
     }
 
-# --- 2. STATE & SIDEBAR ---
+# --- STATE MANAGEMENT ---
 if 'q_idx' not in st.session_state: st.session_state.q_idx = 0
 if 'f_idx' not in st.session_state: st.session_state.f_idx = 0
 if 'performance' not in st.session_state: st.session_state.performance = []
 if 'los_notes' not in st.session_state: st.session_state.los_notes = ""
 
+# --- SIDEBAR: CONTROLS ---
 st.sidebar.title("📟 Command Center")
 std = st.sidebar.selectbox("Standard Selection", list(st.session_state.master_db.keys()))
 lvl = st.sidebar.radio("Difficulty Level", ["Hard-Learning", "Above-Exam Level"])
@@ -107,14 +108,14 @@ if st.sidebar.button(f"🔄 Reset {std}"):
     st.session_state.f_idx = 0
     st.rerun()
 
-# --- 3. MAIN INTERFACE ---
+# --- MAIN INTERFACE ---
 t1, t2, t3, t4 = st.tabs(["🎯 Practice Tank", "🗂️ Flashcards", "📊 Performance Lab", "📓 LOS Notes"])
 
 with t1: # PRACTICE TANK
     if not active_pool:
         st.info("Tank empty. Data drop incoming.")
     elif st.session_state.q_idx >= len(active_pool):
-        st.success(f"🏁 {std} ({lvl}) Complete! Reset in sidebar.")
+        st.success(f"🏁 {std} ({lvl}) Complete! Reset in the sidebar.")
     else:
         q = active_pool[st.session_state.q_idx]
         st.subheader(f"Question {st.session_state.q_idx + 1} of {len(active_pool)}")
