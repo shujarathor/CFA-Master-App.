@@ -1,66 +1,164 @@
-        "Standard I: Professionalism": {
-            "Hard (Exam Level)": [
-                {"q": "1. Analyst lives in 'No Law' country, works for 'Strict Law' firm, trades in 'Weak Law' country. Follow which?", "opt": ["Residence", "Firm's Home Law", "Weak Law"], "ans": "Firm's Home Law", "why": "I(A): Follow the strictest applicable law. Firm (Strict) > Code > No/Weak Law."},
-                {"q": "2. Client offers a bonus for FUTURE performance. Requirement?", "opt": ["Disclosure", "Written Consent", "Verbal Consent"], "ans": "Written Consent", "why": "I(B): Additional comp for future work requires written consent from employer."},
-                {"q": "3. Arrested for peaceful protest (civil disobedience). Violation?", "opt": ["Yes, I(D)", "No", "Only if convicted"], "ans": "No", "why": "I(D): Targets professional dishonesty. Civil disobedience does not reflect on integrity."},
-                {"q": "4. Issuer pays for Commercial Flight to site. Policy allows. Violation?", "opt": ["Yes", "No", "Only if First Class"], "ans": "No", "why": "I(B): Modest travel is allowed if disclosed, though paying your own way is Best Practice."},
-                {"q": "5. Supervisor fails to set up compliance system. Violation?", "opt": ["IV(C)", "I(A)", "I(B)"], "ans": "I(A)", "why": "I(A): Supervisors must assume responsibility for compliance."},
-                {"q": "6. Analyst uses a firm model but claims it as their own idea. Violation?", "opt": ["Yes, I(C)", "No", "Models are shared"], "ans": "Yes, I(C)", "why": "I(C): Misrepresenting authorship is prohibited."},
-                {"q": "7. Paying a recruiter to find you a job. Violation?", "opt": ["No", "Yes", "If undisclosed"], "ans": "No", "why": "Paying for placement is standard business practice."},
-                {"q": "8. Copying a chart from the Fed website without citation. Violation?", "opt": ["No", "Yes", "Only if non-govt"], "ans": "No", "why": "I(C): Factual data from recognized public sources usually doesn't require citation."},
-                {"q": "9. Analyst forgets to update a report with new data (negligence). Violation?", "opt": ["I(C)", "No", "V(A)"], "ans": "No", "why": "I(C): Targets INTENTIONAL or RECKLESS misrepresentation, not simple negligence."},
-                {"q": "10. Accepting a 'Token' gift ($20). Violation?", "opt": ["No", "Yes", "Needs disclosure"], "ans": "No", "why": "I(B): Nominal tokens do not compromise independence."},
-                {"q": "11. Guaranteeing returns on a volatile equity fund. Violation?", "opt": ["I(C)", "I(D)", "V(B)"], "ans": "I(C)", "why": "I(C): You cannot guarantee returns on volatile assets."},
-                {"q": "12. Intoxicated at a client meeting. Violation?", "opt": ["I(D) Misconduct", "IV(A) Loyalty", "No"], "ans": "I(D) Misconduct", "why": "I(D): Conduct damaging professional reputation is a violation."},
-                {"q": "13. You suspect a colleague is violating the law. First step?", "opt": ["Report to CFAI", "Dissociate", "Consult Counsel"], "ans": "Consult Counsel", "why": "I(A): Consult counsel to confirm violation. Then dissociate."},
-                {"q": "14. Client gives a gift for PAST performance. Requirement?", "opt": ["Disclosure", "Permission", "Reject"], "ans": "Disclosure", "why": "I(B): Gifts for past performance only require disclosure."},
-                {"q": "15. Plagiarizing a report but changing the company names. Violation?", "opt": ["Yes, I(C)", "No", "Only if published"], "ans": "Yes, I(C)", "why": "I(C): Using others' work/models without attribution is misrepresentation."},
-                {"q": "16. Broker directs order flow to get 'Soft Dollar' research. Okay if?", "opt": ["Benefits Client", "Benefits Firm", "Disclosed"], "ans": "Benefits Client", "why": "I(B): Soft dollars must directly benefit the client."},
-                {"q": "17. Failing to dissociate from illegal activity after reporting it. Violation?", "opt": ["Yes", "No", "Only if you help"], "ans": "Yes", "why": "I(A): Reporting is not enough. You must stop all association."},
-                {"q": "18. Using a modified 3rd party report. Do you cite the original?", "opt": ["Yes", "No", "Only if >50% used"], "ans": "Yes", "why": "I(C): Even if modified, the core work belongs to the 3rd party."},
-                {"q": "19. Issuer pays for Private Jet (no commercial option). Violation?", "opt": ["Yes", "No", "Depends on hotel"], "ans": "Yes", "why": "I(B): Best Practice is for the FIRM to pay for the charter."},
-                {"q": "20. Lying about your University GPA on a resume. Violation?", "opt": ["I(C)", "I(D)", "Both"], "ans": "I(C)", "why": "I(C): Misrepresentation of credentials."},
-                {"q": "21. Selective Disclosure: Giving a 'heads up' to premium clients. Violation?", "opt": ["Yes", "No", "Only if paid"], "ans": "Yes", "why": "Violates fair dealing and often I(B) independence."},
-                {"q": "22. Analyst guarantees 'benchmark-beating' performance. Violation?", "opt": ["Yes", "No", "Marketing puffery"], "ans": "Yes", "why": "I(C): Cannot guarantee outperformance regarding risky assets."},
-                {"q": "23. Citing a 'leading economist' without naming them. Violation?", "opt": ["Yes", "No", "General knowledge"], "ans": "Yes", "why": "I(C): Attribution must be specific."},
-                {"q": "24. Keeping a bonus secret from employer (no written policy). Violation?", "opt": ["Yes", "No", "Personal money"], "ans": "Yes", "why": "I(B): Duty to employer requires disclosure of all independent compensation."},
-                {"q": "25. Soliciting clients for a new firm on your own time (while employed). Violation?", "opt": ["Yes", "No", "Free market"], "ans": "Yes", "why": "IV(A): Duty of Loyalty prohibits soliciting clients until you leave."},
-                {"q": "26. Whistleblowing to the SEC. Violation of Confidentiality?", "opt": ["No", "Yes", "Grey area"], "ans": "No", "why": "Code allows breach of confidentiality if required by law."},
-                {"q": "27. Using an expert network that provides 'Non-Material' non-public info. Violation?", "opt": ["No", "Yes", "Mosaic Theory"], "ans": "No", "why": "Mosaic Theory allows using non-material non-public info."},
-                {"q": "28. Personal Bankruptcy due to divorce. Violation?", "opt": ["No", "Yes", "I(D)"], "ans": "No", "why": "I(D): No deceit involved. Personal misfortune is not misconduct."},
-                {"q": "29. Sharing exam questions after the test. Violation?", "opt": ["VII(A)", "I(D)", "Both"], "ans": "Both", "why": "Compromises integrity of the exam (VII) and professional honesty (I)."},
-                {"q": "30. Accepting a lavish gift from a client without disclosure. Violation?", "opt": ["Yes", "No", "Only if >$100"], "ans": "Yes", "why": "I(B): Lavish gifts compromise independence and must be disclosed."}
-            ],
-            "Hard ++ (Brutal)": [
-                {"q": "31. Global: Citizen of Strict Law country, works in Weak Law, trades in No Law. Code is middle. Follow?", "opt": ["Strict (Home)", "Weak (Local)", "Code"], "ans": "Strict (Home)", "why": "I(A): If Home law > Code > Local, and you are a citizen, Home law applies."},
-                {"q": "32. Firm pays for analyst to attend a lavish 'Educational' conference in Vegas. Violation?", "opt": ["Yes", "No", "Only if spouse comes"], "ans": "Yes", "why": "I(B): Lavish location/entertainment overshadows education. Independence threat."},
-                {"q": "33. Analyst deletes emails that are under regulatory investigation. Violation?", "opt": ["I(D)", "I(C)", "V(C)"], "ans": "I(D)", "why": "I(D): Obstruction of justice/deceit. Also Record Retention violations."},
-                {"q": "34. Publishing a report with a typo that reverses the recommendation (Buy vs Sell). Violation?", "opt": ["V(A)", "I(C)", "None"], "ans": "V(A)", "why": "V(A): Lack of Diligence/Reasonable Basis. Not I(C) (no intent to deceive)."},
-                {"q": "35. Analyst uses a paid consultant to get 'insights' on a competitor. Consultant uses spying. Violation?", "opt": ["Yes, I(D)", "No, 3rd party", "Only if material"], "ans": "Yes, I(D)", "why": "I(D): You cannot hire others to do unethical acts you cannot do yourself."},
-                {"q": "36. Posting derogatory comments about a competitor on an anonymous forum. Violation?", "opt": ["I(D)", "II(B)", "Free Speech"], "ans": "I(D)", "why": "I(D): Professional misconduct. Damages reputation of the industry."},
-                {"q": "37. Accepting a bonus from a client for 'Doing a good job' (Past). Firm policy is silent.", "opt": ["Accept+Disclose", "Refuse", "Accept+Quiet"], "ans": "Accept+Disclose", "why": "I(B): Past work = Disclosure. Future work = Written Permission."},
-                {"q": "38. Releasing a 'Flash Note' to paid subscribers 5 mins before public release.", "opt": ["Violation", "Standard Practice", "Allowed if disclosed"], "ans": "Violation", "why": "III(B): Fair Dealing. Clients must receive info simultaneously."},
-                {"q": "39. Using a proprietary model from your old firm at your new firm. Memory only.", "opt": ["Violation", "Allowed", "Allowed if re-created"], "ans": "Violation", "why": "IV(A): Proprietary models are firm property. Re-creating from memory is theft."},
-                {"q": "40. Manager forces analyst to change 'Sell' to 'Hold' for business reasons. Analyst complies.", "opt": ["Both Violate", "Only Manager", "Only Analyst"], "ans": "Both Violate", "why": "Manager: Compromises independence. Analyst: Compromises objectivity (I(B))."},
-                {"q": "41. Analyst quotes a CEO's 'optimistic' revenue target as a fact. Violation?", "opt": ["I(C)", "V(B)", "No"], "ans": "I(C)", "why": "I(C): Misrepresentation. Opinions must be distinguished from facts."},
-                {"q": "42. Failing to disclose that your sister is the CFO of the covered company. Violation?", "opt": ["VI(A)", "I(B)", "Both"], "ans": "Both", "why": "I(B): Independence threat. VI(A): Material conflict disclosure required."},
-                {"q": "43. Trading on information overhead in a lift (Merger rumor). Violation?", "opt": ["II(A)", "No", "Mosaic"], "ans": "No", "why": "Overheard rumor is not 'Material Non-Public' if source is unknown/unreliable."},
-                {"q": "44. Allocating 'Hot IPO' shares to your personal account. Violation?", "opt": ["III(B)", "VI(B)", "Both"], "ans": "Both", "why": "Fair dealing (III(B)) and Priority of Transactions (VI(B))."},
-                {"q": "45. Analyst uses AI to write a report and does not check the output. AI hallucinates data.", "opt": ["V(A)", "I(C)", "Both"], "ans": "Both", "why": "V(A): No reasonable basis/diligence. I(C): Misrepresentation of data."},
-                {"q": "46. Client demands you vote proxies for 'Political Reason'. Standard says?", "opt": ["Vote w/ Client", "Vote Economic Value", "Abstain"], "ans": "Vote w/ Client", "why": "III(A): Loyalty. If client directs the vote, you follow instructions (unless illegal)."},
-                {"q": "47. Copying a spreadsheet layout from a blog but using your own numbers. Violation?", "opt": ["Yes", "No", "I(C)"], "ans": "No", "why": "Layouts/Ideas are generally not copyrightable in finance, only specific content."},
-                {"q": "48. Analyst accepts a paid speaking role at a conference sponsored by the issuer. Disclosed.", "opt": ["Allowed", "Violation", "Best Practice"], "ans": "Allowed", "why": "I(B): Paid work is allowed if fully disclosed to employer and clients."},
-                {"q": "49. Omitting a risk factor because 'everyone knows it'. Violation?", "opt": ["V(B)", "I(C)", "No"], "ans": "V(B)", "why": "V(B): Communication with clients must include significant limitations/risks."},
-                {"q": "50. Analyst drinks alcohol at lunch, then returns to write a research report.", "opt": ["I(D)", "No", "Depends on intoxication"], "ans": "I(D)", "why": "I(D): Intoxication impairs professional judgment. Professional misconduct."},
-                {"q": "51. Supervisor delegates compliance to a subordinate and never checks back.", "opt": ["Violation", "Allowed", "Allowed if sub is qualified"], "ans": "Violation", "why": "I(A): Supervision cannot be fully delegated. Responsibility remains."},
-                {"q": "52. Analyst uses a chart from a firm report written by a colleague who was fired.", "opt": ["Cite Firm", "Cite Colleague", "No Citation"], "ans": "No Citation", "why": "Work belongs to the firm. Internal use does not require citation."},
-                {"q": "53. Changing an investment strategy without notifying clients. Performance improves.", "opt": ["Violation", "No", "Only if performance drops"], "ans": "Violation", "why": "V(B): Must communicate changes in investment process, regardless of outcome."},
-                {"q": "54. Analyst claims to be a 'CFA Level 2 Candidate' after failing the exam.", "opt": ["VII(B)", "I(C)", "Both"], "ans": "Both", "why": "VII(B): Reference to CFA designation. I(C): Misrepresentation of status."},
-                {"q": "55. Billing a client for 'Premium Research' that is actually free Google data.", "opt": ["II(B)", "I(C)", "I(D)"], "ans": "I(C)", "why": "I(C): Misrepresenting the nature of services. Also implicates I(D) fraud."},
-                {"q": "56. Analyst ignores a conflict of interest because the deal is 'too small to matter'.", "opt": ["Violation", "No", "Materiality rule"], "ans": "Violation", "why": "VI(A): All conflicts (even potential ones) must be disclosed."},
-                {"q": "57. Guaranteeing a 'floor' on losses (Stop-loss guarantee) in a volatile market.", "opt": ["Violation", "Allowed", "Strategy"], "ans": "Violation", "why": "I(C): Execution in volatile markets cannot be guaranteed."},
-                {"q": "58. Analyst uses 'Expert Network' to fill gaps in a model. Expert is a current employee of issuer.", "opt": ["II(A) Risk", "Allowed", "Mosaic"], "ans": "II(A) Risk", "why": "High risk of receiving Material Non-Public Info. Dangerous practice."},
-                {"q": "59. Analyst records a client meeting without permission.", "opt": ["I(D)", "Privacy Law", "Both"], "ans": "Both", "why": "I(D): Deceitful/Dishonest behavior. Also likely illegal."},
-                {"q": "60. Analyst works part-time as a bartender. Does not disclose to firm.", "opt": ["IV(A)", "No", "I(B)"], "ans": "IV(A)", "why": "IV(A): Must disclose outside employment that could conflict with time/dedication."}
-            ]
-        },
+import streamlit as st
+import plotly.graph_objects as go
+import numpy as np
+
+# --- 1. APP CONFIGURATION & STYLE ---
+st.set_page_config(page_title="CFA Standard I", layout="centered")
+
+# This CSS makes it look like the Gemini Widget (Clean cards, rounded buttons)
+st.markdown("""
+<style>
+    .stApp {background-color: #ffffff;}
+    .stButton>button {
+        width: 100%;
+        border-radius: 20px;
+        background-color: #0052cc;
+        color: white;
+        font-weight: bold;
+        height: 3em;
+    }
+    .stButton>button:hover {
+        background-color: #003d99;
+        color: white;
+    }
+    div[data-testid="stExpander"] {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+    }
+    div.stProgress > div > div > div > div {
+        background-color: #0052cc;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# --- 2. THE 60-QUESTION DATABASE (STANDARD I) ---
+# I have hard-coded all 60 questions here. No indentation errors possible.
+questions = [
+    # --- HARD (EXAM LEVEL) ---
+    {"q": "1. Analyst lives in 'No Law' country, works for 'Strict Law' firm, trades in 'Weak Law' country. Follow which?", "opt": ["Residence", "Firm's Home Law", "Weak Law"], "ans": "Firm's Home Law", "why": "I(A): Follow the strictest applicable law. Firm (Strict) > Code > No/Weak Law."},
+    {"q": "2. Client offers a bonus for FUTURE performance. Requirement?", "opt": ["Disclosure", "Written Consent", "Verbal Consent"], "ans": "Written Consent", "why": "I(B): Additional comp for future work requires written consent from employer."},
+    {"q": "3. Arrested for peaceful protest (civil disobedience). Violation?", "opt": ["Yes, I(D)", "No", "Only if convicted"], "ans": "No", "why": "I(D): Targets professional dishonesty. Civil disobedience does not reflect on integrity."},
+    {"q": "4. Issuer pays for Commercial Flight to site. Policy allows. Violation?", "opt": ["Yes", "No", "Only if First Class"], "ans": "No", "why": "I(B): Modest travel is allowed if disclosed, though paying your own way is Best Practice."},
+    {"q": "5. Supervisor fails to set up compliance system. Violation?", "opt": ["IV(C)", "I(A)", "I(B)"], "ans": "I(A)", "why": "I(A): Supervisors must assume responsibility for compliance."},
+    {"q": "6. Analyst uses a firm model but claims it as their own idea. Violation?", "opt": ["Yes, I(C)", "No", "Models are shared"], "ans": "Yes, I(C)", "why": "I(C): Misrepresenting authorship is prohibited."},
+    {"q": "7. Paying a recruiter to find you a job. Violation?", "opt": ["No", "Yes", "If undisclosed"], "ans": "No", "why": "Paying for placement is standard business practice."},
+    {"q": "8. Copying a chart from the Fed website without citation. Violation?", "opt": ["No", "Yes", "Only if non-govt"], "ans": "No", "why": "I(C): Factual data from recognized public sources usually doesn't require citation."},
+    {"q": "9. Analyst forgets to update a report with new data (negligence). Violation?", "opt": ["I(C)", "No", "V(A)"], "ans": "No", "why": "I(C): Targets INTENTIONAL or RECKLESS misrepresentation, not simple negligence."},
+    {"q": "10. Accepting a 'Token' gift ($20). Violation?", "opt": ["No", "Yes", "Needs disclosure"], "ans": "No", "why": "I(B): Nominal tokens do not compromise independence."},
+    {"q": "11. Guaranteeing returns on a volatile equity fund. Violation?", "opt": ["I(C)", "I(D)", "V(B)"], "ans": "I(C)", "why": "I(C): You cannot guarantee returns on volatile assets."},
+    {"q": "12. Intoxicated at a client meeting. Violation?", "opt": ["I(D) Misconduct", "IV(A) Loyalty", "No"], "ans": "I(D) Misconduct", "why": "I(D): Conduct damaging professional reputation is a violation."},
+    {"q": "13. You suspect a colleague is violating the law. First step?", "opt": ["Report to CFAI", "Dissociate", "Consult Counsel"], "ans": "Consult Counsel", "why": "I(A): Consult counsel to confirm violation. Then dissociate."},
+    {"q": "14. Client gives a gift for PAST performance. Requirement?", "opt": ["Disclosure", "Permission", "Reject"], "ans": "Disclosure", "why": "I(B): Gifts for past performance only require disclosure."},
+    {"q": "15. Plagiarizing a report but changing the company names. Violation?", "opt": ["Yes, I(C)", "No", "Only if published"], "ans": "Yes, I(C)", "why": "I(C): Using others' work/models without attribution is misrepresentation."},
+    {"q": "16. Broker directs order flow to get 'Soft Dollar' research. Okay if?", "opt": ["Benefits Client", "Benefits Firm", "Disclosed"], "ans": "Benefits Client", "why": "I(B): Soft dollars must directly benefit the client."},
+    {"q": "17. Failing to dissociate from illegal activity after reporting it. Violation?", "opt": ["Yes", "No", "Only if you help"], "ans": "Yes", "why": "I(A): Reporting is not enough. You must stop all association."},
+    {"q": "18. Using a modified 3rd party report. Do you cite the original?", "opt": ["Yes", "No", "Only if >50% used"], "ans": "Yes", "why": "I(C): Even if modified, the core work belongs to the 3rd party."},
+    {"q": "19. Issuer pays for Private Jet (no commercial option). Violation?", "opt": ["Yes", "No", "Depends on hotel"], "ans": "Yes", "why": "I(B): Best Practice is for the FIRM to pay for the charter."},
+    {"q": "20. Lying about your University GPA on a resume. Violation?", "opt": ["I(C)", "I(D)", "Both"], "ans": "I(C)", "why": "I(C): Misrepresentation of credentials."},
+    {"q": "21. Selective Disclosure: Giving a 'heads up' to premium clients. Violation?", "opt": ["Yes", "No", "Only if paid"], "ans": "Yes", "why": "Violates fair dealing and often I(B) independence."},
+    {"q": "22. Analyst guarantees 'benchmark-beating' performance. Violation?", "opt": ["Yes", "No", "Marketing puffery"], "ans": "Yes", "why": "I(C): Cannot guarantee outperformance regarding risky assets."},
+    {"q": "23. Citing a 'leading economist' without naming them. Violation?", "opt": ["Yes", "No", "General knowledge"], "ans": "Yes", "why": "I(C): Attribution must be specific."},
+    {"q": "24. Keeping a bonus secret from employer (no written policy). Violation?", "opt": ["Yes", "No", "Personal money"], "ans": "Yes", "why": "I(B): Duty to employer requires disclosure of all independent compensation."},
+    {"q": "25. Soliciting clients for a new firm on your own time (while employed). Violation?", "opt": ["Yes", "No", "Free market"], "ans": "Yes", "why": "IV(A): Duty of Loyalty prohibits soliciting clients until you leave."},
+    {"q": "26. Whistleblowing to the SEC. Violation of Confidentiality?", "opt": ["No", "Yes", "Grey area"], "ans": "No", "why": "Code allows breach of confidentiality if required by law."},
+    {"q": "27. Using an expert network that provides 'Non-Material' non-public info. Violation?", "opt": ["No", "Yes", "Mosaic Theory"], "ans": "No", "why": "Mosaic Theory allows using non-material non-public info."},
+    {"q": "28. Personal Bankruptcy due to divorce. Violation?", "opt": ["No", "Yes", "I(D)"], "ans": "No", "why": "I(D): No deceit involved. Personal misfortune is not misconduct."},
+    {"q": "29. Sharing exam questions after the test. Violation?", "opt": ["VII(A)", "I(D)", "Both"], "ans": "Both", "why": "Compromises integrity of the exam (VII) and professional honesty (I)."},
+    {"q": "30. Accepting a lavish gift from a client without disclosure. Violation?", "opt": ["Yes", "No", "Only if >$100"], "ans": "Yes", "why": "I(B): Lavish gifts compromise independence and must be disclosed."},
+
+    # --- BRUTAL (ABOVE EXAM) ---
+    {"q": "31. Global: Citizen of Strict Law country, works in Weak Law, trades in No Law. Code is middle. Follow?", "opt": ["Strict (Home)", "Weak (Local)", "Code"], "ans": "Strict (Home)", "why": "I(A): If Home law > Code > Local, and you are a citizen, Home law applies."},
+    {"q": "32. Firm pays for analyst to attend a lavish 'Educational' conference in Vegas. Violation?", "opt": ["Yes", "No", "Only if spouse comes"], "ans": "Yes", "why": "I(B): Lavish location/entertainment overshadows education. Independence threat."},
+    {"q": "33. Analyst deletes emails that are under regulatory investigation. Violation?", "opt": ["I(D)", "I(C)", "V(C)"], "ans": "I(D)", "why": "I(D): Obstruction of justice/deceit. Also Record Retention violations."},
+    {"q": "34. Publishing a report with a typo that reverses the recommendation (Buy vs Sell). Violation?", "opt": ["V(A)", "I(C)", "None"], "ans": "V(A)", "why": "V(A): Lack of Diligence/Reasonable Basis. Not I(C) (no intent to deceive)."},
+    {"q": "35. Analyst uses a paid consultant to get 'insights' on a competitor. Consultant uses spying. Violation?", "opt": ["Yes, I(D)", "No, 3rd party", "Only if material"], "ans": "Yes, I(D)", "why": "I(D): You cannot hire others to do unethical acts you cannot do yourself."},
+    {"q": "36. Posting derogatory comments about a competitor on an anonymous forum. Violation?", "opt": ["I(D)", "II(B)", "Free Speech"], "ans": "I(D)", "why": "I(D): Professional misconduct. Damages reputation of the industry."},
+    {"q": "37. Accepting a bonus from a client for 'Doing a good job' (Past). Firm policy is silent.", "opt": ["Accept+Disclose", "Refuse", "Accept+Quiet"], "ans": "Accept+Disclose", "why": "I(B): Past work = Disclosure. Future work = Written Permission."},
+    {"q": "38. Releasing a 'Flash Note' to paid subscribers 5 mins before public release.", "opt": ["Violation", "Standard Practice", "Allowed if disclosed"], "ans": "Violation", "why": "III(B): Fair Dealing. Clients must receive info simultaneously."},
+    {"q": "39. Using a proprietary model from your old firm at your new firm. Memory only.", "opt": ["Violation", "Allowed", "Allowed if re-created"], "ans": "Violation", "why": "IV(A): Proprietary models are firm property. Re-creating from memory is theft."},
+    {"q": "40. Manager forces analyst to change 'Sell' to 'Hold' for business reasons. Analyst complies.", "opt": ["Both Violate", "Only Manager", "Only Analyst"], "ans": "Both Violate", "why": "Manager: Compromises independence. Analyst: Compromises objectivity (I(B))."},
+    {"q": "41. Analyst quotes a CEO's 'optimistic' revenue target as a fact. Violation?", "opt": ["I(C)", "V(B)", "No"], "ans": "I(C)", "why": "I(C): Misrepresentation. Opinions must be distinguished from facts."},
+    {"q": "42. Failing to disclose that your sister is the CFO of the covered company. Violation?", "opt": ["VI(A)", "I(B)", "Both"], "ans": "Both", "why": "I(B): Independence threat. VI(A): Material conflict disclosure required."},
+    {"q": "43. Trading on information overhead in a lift (Merger rumor). Violation?", "opt": ["II(A)", "No", "Mosaic"], "ans": "No", "why": "Overheard rumor is not 'Material Non-Public' if source is unknown/unreliable."},
+    {"q": "44. Allocating 'Hot IPO' shares to your personal account. Violation?", "opt": ["III(B)", "VI(B)", "Both"], "ans": "Both", "why": "Fair dealing (III(B)) and Priority of Transactions (VI(B))."},
+    {"q": "45. Analyst uses AI to write a report and does not check the output. AI hallucinates data.", "opt": ["V(A)", "I(C)", "Both"], "ans": "Both", "why": "V(A): No reasonable basis/diligence. I(C): Misrepresentation of data."},
+    {"q": "46. Client demands you vote proxies for 'Political Reason'. Standard says?", "opt": ["Vote w/ Client", "Vote Economic Value", "Abstain"], "ans": "Vote w/ Client", "why": "III(A): Loyalty. If client directs the vote, you follow instructions (unless illegal)."},
+    {"q": "47. Copying a spreadsheet layout from a blog but using your own numbers. Violation?", "opt": ["Yes", "No", "I(C)"], "ans": "No", "why": "Layouts/Ideas are generally not copyrightable in finance, only specific content."},
+    {"q": "48. Analyst accepts a paid speaking role at a conference sponsored by the issuer. Disclosed.", "opt": ["Allowed", "Violation", "Best Practice"], "ans": "Allowed", "why": "I(B): Paid work is allowed if fully disclosed to employer and clients."},
+    {"q": "49. Omitting a risk factor because 'everyone knows it'. Violation?", "opt": ["V(B)", "I(C)", "No"], "ans": "V(B)", "why": "V(B): Communication with clients must include significant limitations/risks."},
+    {"q": "50. Analyst drinks alcohol at lunch, then returns to write a research report.", "opt": ["I(D)", "No", "Depends on intoxication"], "ans": "I(D)", "why": "I(D): Intoxication impairs professional judgment. Professional misconduct."},
+    {"q": "51. Supervisor delegates compliance to a subordinate and never checks back.", "opt": ["Violation", "Allowed", "Allowed if sub is qualified"], "ans": "Violation", "why": "I(A): Supervision cannot be fully delegated. Responsibility remains."},
+    {"q": "52. Analyst uses a chart from a firm report written by a colleague who was fired.", "opt": ["Cite Firm", "Cite Colleague", "No Citation"], "ans": "No Citation", "why": "Work belongs to the firm. Internal use does not require citation."},
+    {"q": "53. Changing an investment strategy without notifying clients. Performance improves.", "opt": ["Violation", "No", "Only if performance drops"], "ans": "Violation", "why": "V(B): Must communicate changes in investment process, regardless of outcome."},
+    {"q": "54. Analyst claims to be a 'CFA Level 2 Candidate' after failing the exam.", "opt": ["VII(B)", "I(C)", "Both"], "ans": "Both", "why": "VII(B): Reference to CFA designation. I(C): Misrepresentation of status."},
+    {"q": "55. Billing a client for 'Premium Research' that is actually free Google data.", "opt": ["II(B)", "I(C)", "I(D)"], "ans": "I(C)", "why": "I(C): Misrepresenting the nature of services. Also implicates I(D) fraud."},
+    {"q": "56. Analyst ignores a conflict of interest because the deal is 'too small to matter'.", "opt": ["Violation", "No", "Materiality rule"], "ans": "Violation", "why": "VI(A): All conflicts (even potential ones) must be disclosed."},
+    {"q": "57. Guaranteeing a 'floor' on losses (Stop-loss guarantee) in a volatile market.", "opt": ["Violation", "Allowed", "Strategy"], "ans": "Violation", "why": "I(C): Execution in volatile markets cannot be guaranteed."},
+    {"q": "58. Analyst uses 'Expert Network' to fill gaps in a model. Expert is a current employee of issuer.", "opt": ["II(A) Risk", "Allowed", "Mosaic"], "ans": "II(A) Risk", "why": "High risk of receiving Material Non-Public Info. Dangerous practice."},
+    {"q": "59. Analyst records a client meeting without permission.", "opt": ["I(D)", "Privacy Law", "Both"], "ans": "Both", "why": "I(D): Deceitful/Dishonest behavior. Also likely illegal."},
+    {"q": "60. Analyst works part-time as a bartender. Does not disclose to firm.", "opt": ["IV(A)", "No", "I(B)"], "ans": "IV(A)", "why": "IV(A): Must disclose outside employment that could conflict with time/dedication."}
+]
+
+# --- 3. SESSION LOGIC ---
+if 'current_q' not in st.session_state: st.session_state.current_q = 0
+if 'score' not in st.session_state: st.session_state.score = 0
+if 'checked' not in st.session_state: st.session_state.checked = False
+
+total = len(questions)
+idx = st.session_state.current_q
+
+# --- 4. THE INTERFACE (GEMINI CANVAS CLONE) ---
+
+# Title area
+st.markdown("### Standard I: Professionalism (Hard/Brutal)")
+
+if idx < total:
+    q = questions[idx]
+    
+    # Progress Bar (Blue, simple)
+    st.progress((idx) / total)
+    st.caption(f"Question {idx + 1} of {total} | Score: {st.session_state.score}")
+
+    # The Question
+    st.markdown(f"**{q['q']}**")
+
+    # Options (Radio Button)
+    choice = st.radio("Select Answer:", q['opt'], key=f"q_{idx}")
+
+    # BUTTON LOGIC
+    c1, c2 = st.columns([1, 1])
+
+    # CHECK BUTTON
+    if c1.button("Check Answer"):
+        st.session_state.checked = True
+
+    # REVEAL LOGIC
+    if st.session_state.checked:
+        if choice == q['ans']:
+            st.success(f"✅ Correct! \n\n{q['why']}")
+            if f"scored_{idx}" not in st.session_state:
+                st.session_state.score += 1
+                st.session_state[f"scored_{idx}"] = True
+        else:
+            st.error(f"❌ Incorrect. \n\n**Correct:** {q['ans']} \n\n**Rationale:** {q['why']}")
+        
+        # NEXT BUTTON (Only appears after checking)
+        if c2.button("Next Question ➡️"):
+            st.session_state.current_q += 1
+            st.session_state.checked = False
+            st.rerun()
+else:
+    # FINISH SCREEN
+    st.balloons()
+    st.markdown(f"## Module Complete!")
+    st.markdown(f"### Final Score: {st.session_state.score} / {total}")
+    if st.button("🔄 Restart Module"):
+        st.session_state.current_q = 0
+        st.session_state.score = 0
+        st.session_state.checked = False
+        st.rerun()
+
+# --- 5. NOTES (Bottom of screen) ---
+with st.expander("📓 LOS Notes"):
+    st.text_area("Write notes here...", height=100)
