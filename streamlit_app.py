@@ -2,58 +2,37 @@ import streamlit as st
 import plotly.graph_objects as go
 import numpy as np
 
-st.set_page_config(page_title="CFA Ecosystem (iPad)", layout="centered")
+st.set_page_config(page_title="Algo Clone", layout="centered")
 
 # ==============================================================================
-# 1. THE CONTENT VAULT (YOUR QUESTION BANK)
+# 1. THE CONTENT HIERARCHY (The "Algo" Structure)
 # ==============================================================================
-# EDIT THIS SECTION TO ADD MORE QUESTIONS
+# Structure: SECTION -> FOLDER -> DECK -> [Cards]
 library = {
-    "Ethics": {
-        "Standard I: Professionalism": {
-            "Hard (Exam Level)": [
-                {"q": "1. Analyst lives in 'No Law' country, works for 'Strict Law' firm, trades in 'Weak Law' country. Follow which?", "opt": ["Residence", "Firm's Home Law", "Weak Law"], "ans": "Firm's Home Law", "why": "I(A): Follow the strictest applicable law. Firm (Strict) > Code > No/Weak Law."},
-                {"q": "2. Client offers a bonus for FUTURE performance. Requirement?", "opt": ["Disclosure", "Written Consent", "Verbal Consent"], "ans": "Written Consent", "why": "I(B): Additional comp for future work requires written consent from employer."},
-                {"q": "3. Arrested for peaceful protest (civil disobedience). Violation?", "opt": ["Yes, I(D)", "No", "Only if convicted"], "ans": "No", "why": "I(D): Targets professional dishonesty. Civil disobedience does not reflect on integrity."},
-                {"q": "4. Issuer pays for Commercial Flight to site. Policy allows. Violation?", "opt": ["Yes", "No", "Only if First Class"], "ans": "No", "why": "I(B): Modest travel is allowed if disclosed, though paying your own way is Best Practice."},
-                {"q": "5. Supervisor fails to set up compliance system. Violation?", "opt": ["IV(C)", "I(A)", "I(B)"], "ans": "I(A)", "why": "I(A): Supervisors must assume responsibility for compliance."}
+    "CFA Level 1 (The Section)": {
+        "Ethics (The Folder)": {
+            "Standard I - Hard (The Deck)": [
+                {"q": "Analyst lives in No Law country, works for Strict Law firm. Follow which?", "ans": "Firm's Home Law (Strict)", "why": "I(A): Follow the strictest applicable law."},
+                {"q": "Client offers bonus for FUTURE performance. Requirement?", "ans": "Written Consent", "why": "I(B): Future work requires written permission from employer."},
+                {"q": "Arrested for peaceful protest. Violation?", "ans": "No", "why": "I(D): Civil disobedience does not reflect on professional integrity."},
+                {"q": "Issuer pays for commercial flight. Violation?", "ans": "No", "why": "Allowed if disclosed, though paying your own way is best practice."},
+                {"q": "Supervisor fails to set up compliance system. Violation?", "ans": "Yes (I(A))", "why": "Supervisors must assume responsibility for compliance."}
             ],
-            "Hard ++ (Brutal)": [
-                {"q": "1. Global: Citizen of Strict Law country, works in Weak Law, trades in No Law. Code is middle. Follow?", "opt": ["Strict (Home)", "Weak (Local)", "Code"], "ans": "Strict (Home)", "why": "I(A): If Home law > Code > Local, and you are a citizen, Home law applies."},
-                {"q": "2. Firm pays for analyst to attend a lavish 'Educational' conference in Vegas. Violation?", "opt": ["Yes", "No", "Only if spouse comes"], "ans": "Yes", "why": "I(B): Lavish location/entertainment overshadows education. Independence threat."},
-                {"q": "3. Analyst deletes emails that are under regulatory investigation. Violation?", "opt": ["I(D)", "I(C)", "V(C)"], "ans": "I(D)", "why": "I(D): Obstruction of justice/deceit. Also Record Retention violations."}
+            "Standard I - Brutal (The Deck)": [
+                 {"q": "Citizen of Strict Law, works in Weak Law, trades in No Law. Follow?", "ans": "Strict Law (Home)", "why": "I(A): Home law applies to citizens if stricter than local/Code."}
             ]
         },
-        "Standard II: Integrity of Capital Markets": {
-            "Hard (Exam Level)": [
-                 {"q": "1. Trading on information overhead in a lift (Merger rumor). Violation?", "opt": ["II(A)", "No", "Mosaic"], "ans": "No", "why": "Overheard rumor is not 'Material Non-Public' if source is unknown/unreliable."},
-                 {"q": "2. Using a 'Mosaic' of non-material non-public info + public info. Violation?", "opt": ["Yes", "No", "Only if profits"], "ans": "No", "why": "Mosaic Theory allows using non-material non-public info to form a conclusion."}
-            ],
-            "Hard ++ (Brutal)": []
-        },
-        "ETHICS FINAL MOCK": {
-            "Full Mock (Hard++)": [
-                {"q": "Mock Q1: ... (Paste 100 Qs here later)", "opt": ["A", "B", "C"], "ans": "A", "why": "..."}
+        "Economics (The Folder)": {
+            "Elasticity (The Deck)": [
+                {"q": "Price drops, Revenue Increases. Elasticity is?", "ans": "Elastic", "why": "Quantity % change > Price % change.", "chart": "elastic"},
+                {"q": "Steep Demand Curve. Good is likely a?", "ans": "Necessity", "why": "Inelastic demand.", "chart": "inelastic"}
             ]
-        }
-    },
-    
-    "Economics": {
-        "Elasticity & Demand": {
-            "Hard (Exam Level)": [
-                 {"q": "1. Refer to Chart A (Elastic). Price drops, Revenue...?", "opt": ["Increases", "Decreases", "Same"], "ans": "Increases", "why": "Elastic Region: %Q > %P. Revenue UP.", "chart": "elastic"},
-                 {"q": "2. Refer to Chart B (Inelastic). Good is likely...?", "opt": ["Luxury", "Necessity", "Substitute"], "ans": "Necessity", "why": "Inelastic = Consumers buy regardless of price.", "chart": "inelastic"}
-            ],
-            "Hard ++ (Brutal)": []
-        },
-        "ECONOMICS FINAL MOCK": {
-            "Full Mock (Hard++)": []
         }
     }
 }
 
 # ==============================================================================
-# 2. THE CHART ENGINE (Built-in)
+# 2. THE ENGINE
 # ==============================================================================
 def get_chart(chart_type):
     fig = go.Figure()
@@ -67,107 +46,97 @@ def get_chart(chart_type):
         fig.update_layout(title="Inelastic Demand", height=250, margin=dict(l=20,r=20,t=30,b=20))
     return fig
 
-# ==============================================================================
-# 3. THE APP INTERFACE
-# ==============================================================================
-# CSS Styling to make it look like the "Gemini Widget"
+# CSS to look like a Study App
 st.markdown("""
 <style>
-    .stButton>button {width: 100%; border-radius: 12px; height: 3em; font-weight: bold; background-color: #0052cc; color: white;}
-    .stProgress > div > div > div > div {background-color: #0052cc;}
+    .stButton>button {width: 100%; border-radius: 12px; height: 3em; font-weight: bold; background-color: #4a90e2; color: white;}
+    div[data-testid="stExpander"] {background-color: #f5f7fa; border-radius: 10px;}
 </style>
 """, unsafe_allow_html=True)
 
-st.sidebar.title("🧭 CFA Ecosystem")
+st.sidebar.title("🗂️ Library")
 
 # --- HIERARCHY SELECTORS ---
-# 1. Select Module
-selected_module = st.sidebar.selectbox("1. Topic", list(library.keys()))
+# 1. SECTION
+selected_section = st.sidebar.selectbox("Section", list(library.keys()))
+# 2. FOLDER
+selected_folder = st.sidebar.selectbox("Folder", list(library[selected_section].keys()))
+# 3. DECK
+selected_deck = st.sidebar.selectbox("Deck", list(library[selected_section][selected_folder].keys()))
 
-# 2. Select Sub-Topic
-sub_topics = list(library[selected_module].keys())
-selected_topic = st.sidebar.selectbox("2. Module", sub_topics)
+# LOAD DECK
+deck = library[selected_section][selected_folder][selected_deck]
+total = len(deck)
 
-# 3. Select Difficulty
-difficulty_levels = list(library[selected_module][selected_topic].keys())
-selected_diff = st.sidebar.radio("3. Intensity", difficulty_levels)
+# SESSION STATE
+session_key = f"{selected_section}-{selected_folder}-{selected_deck}"
+if 'session_id' not in st.session_state or st.session_state.session_id != session_key:
+    st.session_state.session_id = session_key
+    st.session_state.idx = 0
+    st.session_state.flipped = False # Track if card is flipped
 
-# --- LOAD QUIZ ---
-quiz_data = library[selected_module][selected_topic][selected_diff]
-session_key = f"{selected_module}-{selected_topic}-{selected_diff}"
+idx = st.session_state.idx
+card = deck[idx]
 
-# Session State Logic
-if 'active_session' not in st.session_state or st.session_state.active_session != session_key:
-    st.session_state.active_session = session_key
-    st.session_state.current_q = 0
-    st.session_state.score = 0
-    st.session_state.checked = False
-    st.session_state.mistakes = []
+# --- THE INTERFACE ---
+st.caption(f"{selected_section} / {selected_folder} / {selected_deck}")
+st.progress((idx + 1) / total)
 
-# --- DISPLAY CARD ---
-st.caption(f"{selected_module} > {selected_topic} > {selected_diff}")
+# TABS: STUDY MODE vs QUIZ MODE
+mode = st.radio("Mode", ["Flashcard (Study)", "Quiz (Test)"], horizontal=True, label_visibility="collapsed")
 
-if not quiz_data:
-    st.info("🚧 Questions coming soon! Paste them in the 'library' dictionary in the code.")
-    st.stop()
-
-total = len(quiz_data)
-idx = st.session_state.current_q
-
-if idx < total:
-    q = quiz_data[idx]
+if mode == "Flashcard (Study)":
+    # --- FLASHCARD VIEW ---
+    st.markdown("### 🃏 Flashcard")
     
-    # Progress Bar
-    col1, col2 = st.columns([4,1])
-    col1.progress((idx) / total)
-    col2.markdown(f"**{st.session_state.score} / {total}**")
+    container = st.container(border=True)
     
-    # Chart Render
-    if "chart" in q:
-        st.plotly_chart(get_chart(q['chart']), use_container_width=True)
-
-    # Question Text
-    st.markdown(f"### Q{idx+1}: {q['q']}")
-    
-    # Options
-    choice = st.radio("Select Answer:", q['opt'], key=f"q_{idx}")
-    
-    # Buttons
-    c1, c2 = st.columns(2)
-    if c1.button("Check Answer"):
-        st.session_state.checked = True
+    # FRONT OF CARD
+    if not st.session_state.flipped:
+        if "chart" in card:
+            container.plotly_chart(get_chart(card['chart']), use_container_width=True)
+        container.markdown(f"## {card['q']}")
+        container.caption("Tap 'Flip' to see answer")
         
-    if st.session_state.checked:
-        if choice == q['ans']:
-            st.success(f"✅ Correct! \n\n{q['why']}")
-            if f"scored_{idx}" not in st.session_state:
-                st.session_state.score += 1
-                st.session_state[f"scored_{idx}"] = True
-        else:
-            st.error(f"❌ Incorrect. \n\n**Correct:** {q['ans']} \n\n**Rationale:** {q['why']}")
-            # Save mistake
-            if q not in st.session_state.mistakes: st.session_state.mistakes.append(q)
-        
-        if c2.button("Next Question ➡️"):
-            st.session_state.current_q += 1
-            st.session_state.checked = False
+        if st.button("🔄 Flip Card"):
+            st.session_state.flipped = True
             st.rerun()
+            
+    # BACK OF CARD
+    else:
+        container.markdown(f"## {card['ans']}")
+        container.info(f"**Rationale:** {card['why']}")
+        
+        c1, c2 = st.columns(2)
+        if c1.button("⬅️ Back to Front"):
+            st.session_state.flipped = False
+            st.rerun()
+        if c2.button("Next Card ➡️"):
+            if idx < total - 1:
+                st.session_state.idx += 1
+                st.session_state.flipped = False
+                st.rerun()
+            else:
+                st.success("Deck Complete!")
+                if st.button("Restart Deck"):
+                    st.session_state.idx = 0
+                    st.session_state.flipped = False
+                    st.rerun()
 
 else:
-    # --- SUMMARY SCREEN ---
-    st.balloons()
-    st.title("🏆 Module Complete")
-    st.metric("Final Score", f"{st.session_state.score}/{total}")
+    # --- QUIZ VIEW (Original) ---
+    st.markdown("### 📝 Quiz")
+    if "chart" in card:
+        st.plotly_chart(get_chart(card['chart']), use_container_width=True)
+    st.write(f"**Q{idx+1}:** {card['q']}")
     
-    if st.session_state.mistakes:
-        with st.expander("⚠️ Review Your Mistakes"):
-            for m in st.session_state.mistakes:
-                st.markdown(f"**Q:** {m['q']}")
-                st.info(f"**Answer:** {m['ans']} | {m['why']}")
-                st.markdown("---")
+    with st.expander("Show Answer"):
+        st.write(f"**Answer:** {card['ans']}")
+        st.write(f"**Why:** {card['why']}")
     
-    if st.button("🔄 Restart"):
-        st.session_state.current_q = 0
-        st.session_state.score = 0
-        st.session_state.checked = False
-        st.rerun()
+    if st.button("Next Question"):
+        if idx < total - 1:
+            st.session_state.idx += 1
+            st.rerun()
+        else:
+            st.success("Finished!")
