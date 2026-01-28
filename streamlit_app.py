@@ -186,7 +186,56 @@ library = {
                 {"q": "Diminishing Returns", "ans": "MPK falls as K rises", "why": "Solow Model key."}
             ]
         },
-        "LOS 4: Understanding Business Cycles": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
+        # --- LOS 4: FULLY LOADED ---
+        "LOS 4: Understanding Business Cycles": {
+            "Hard (Exam Level)": [
+                {"q": "A Recession is technically defined as:", "opt": ["2 consecutive quarters of declining Real GDP", "High Unemployment", "Market Crash"], "ans": "2 consecutive quarters of declining Real GDP", "why": "Standard technical definition."},
+                {"q": "Inventory-to-Sales ratio typically rises when:", "opt": ["Economy hits a Peak", "Economy is in Trough", "Early Expansion"], "ans": "Economy hits a Peak", "why": "Sales slow down but production hasn't adjusted, causing involuntary inventory buildup."},
+                {"q": "Leading Economic Indicator example:", "opt": ["S&P 500 Index", "Unemployment Rate", "Industrial Production"], "ans": "S&P 500 Index", "why": "Stock market anticipates future earnings."},
+                {"q": "Lagging Economic Indicator example:", "opt": ["Duration of Unemployment", "Building Permits", "Money Supply"], "ans": "Duration of Unemployment", "why": "Firms delay firing/hiring until trend is confirmed."},
+                {"q": "Coincident Economic Indicator example:", "opt": ["Personal Income", "Interest Rate Spread", "Orders for Capital Goods"], "ans": "Personal Income", "why": "Happens simultaneously with economic activity."},
+                {"q": "Neoclassical School believes business cycles are caused by:", "opt": ["Temporary deviations from long-run equilibrium", "Animal Spirits", "Money Supply"], "ans": "Temporary deviations from long-run equilibrium", "why": "Markets are self-correcting; cycles are short-term blips."},
+                {"q": "Keynesian School believes business cycles are driven by:", "opt": ["Aggregate Demand fluctuations", "Technology Shocks", "Central Bank errors"], "ans": "Aggregate Demand fluctuations", "why": "'Animal spirits' and business confidence drive Investment and AD."},
+                {"q": "Monetarist School believes recessions are caused by:", "opt": ["Inappropriate Money Supply growth", "Fiscal Deficits", "Market Failure"], "ans": "Inappropriate Money Supply growth", "why": "Central Bank error is the root cause."},
+                {"q": "Real Business Cycle (RBC) Theory focuses on:", "opt": ["External Shocks (Tech/Resources)", "Money Supply", "Demand"], "ans": "External Shocks (Tech/Resources)", "why": "Cycles are efficient responses to real external changes."},
+                {"q": "During an Expansion, the Output Gap is typically:", "opt": ["Positive (Inflationary)", "Negative (Recessionary)", "Zero"], "ans": "Positive (Inflationary)", "why": "Actual GDP > Potential GDP."},
+                {"q": "Discouraged Workers effect on Unemployment Rate:", "opt": ["Lowers it artificialy", "Raises it", "No effect"], "ans": "Lowers it artificialy", "why": "They leave the Labor Force, so they aren't counted as unemployed."},
+                {"q": "Underemployed workers are:", "opt": ["Employed part-time but want full-time", "Not working", "Discouraged"], "ans": "Employed part-time but want full-time", "why": "Counted as employed, masking slack in labor market."},
+                {"q": "Inflation usually peaks:", "opt": ["Lagging the cycle peak", "Leading the cycle", "Coincident"], "ans": "Lagging the cycle peak", "why": "Prices are sticky; they keep rising even after demand slows."},
+                {"q": "The 'Agency Worker' indicator is:", "opt": ["Leading", "Lagging", "Coincident"], "ans": "Leading", "why": "Firms hire temps before committing to full-time staff."},
+                {"q": "Capital Spending typically peaks:", "opt": ["Late Expansion", "Early Recession", "Trough"], "ans": "Late Expansion", "why": "Firms finally run out of capacity and invest right before the crash."}
+            ],
+            "Brutal (Above Exam)": [
+                {"q": "Austrian Business Cycle Theory blames:", "opt": ["Artificially low interest rates", "Lack of demand", "Tech shocks"], "ans": "Artificially low interest rates", "why": "Causes 'Malinvestment' in long-term projects that aren't viable."},
+                {"q": "In RBC Theory, government intervention is:", "opt": ["Counter-productive", "Necessary", "Neutral"], "ans": "Counter-productive", "why": "Markets are already optimal/efficient; intervention distorts."},
+                {"q": "The 'Yield Curve Inversion' (10y - 2y) is the most reliable predictor of:", "opt": ["Recession in 12 months", "Inflation", "Stock Rally"], "ans": "Recession in 12 months", "why": "Short rates > Long rates implies tight money/future slowdown."},
+                {"q": "Okun's Law coefficient (approx) suggests 1% excess unemployment equals:", "opt": ["2% Output Gap", "1% Output Gap", "0.5% Output Gap"], "ans": "2% Output Gap", "why": "GDP falls by 2% for every 1% rise in unemployment."},
+                {"q": "Labor Participation Rate typically:", "opt": ["Falls during recession (Lagging)", "Rises during recession", "Is constant"], "ans": "Falls during recession (Lagging)", "why": "Cyclical effect: people give up looking."},
+                {"q": "Deflation is dangerous because it increases:", "opt": ["Real value of Debt", "Nominal Interest Rates", "Tax Revenue"], "ans": "Real value of Debt", "why": "Fisher Effect: Real Liability rises, crushing borrowers (Debt Deflation)."},
+                {"q": "During early expansion, productivity usually:", "opt": ["Rises rapidly", "Falls", "Stays flat"], "ans": "Rises rapidly", "why": "Firms produce more with same staff (hoarding labor pays off)."},
+                {"q": "Unit Labor Costs are:", "opt": ["Lagging Indicator", "Leading Indicator", "Coincident"], "ans": "Lagging Indicator", "why": "Wages are sticky and last to adjust."},
+                {"q": "Building Permits vs Housing Starts:", "opt": ["Permits lead Starts", "Starts lead Permits", "Coincident"], "ans": "Permits lead Starts", "why": "Paperwork comes before the shovel hits dirt."},
+                {"q": "Change in Credit/Debt usage is:", "opt": ["Leading Indicator", "Lagging", "Irrelevant"], "ans": "Leading Indicator", "why": "Credit impulse drives spending changes."},
+                {"q": "New Keynesian theory adds what to standard Keynesianism?", "opt": ["Microfoundations & Sticky Prices", "Rational Expectations", "Real Shocks"], "ans": "Microfoundations & Sticky Prices", "why": "Explains WHY prices/wages are sticky using Menu Costs."},
+                {"q": "The 'Wealth Effect' connects:", "opt": ["Asset Prices to Consumption", "Income to Savings", "Rates to Investment"], "ans": "Asset Prices to Consumption", "why": "Stocks/Homes up -> People feel rich -> Spend more."},
+                {"q": "Hysteresis in Unemployment means:", "opt": ["Cyclical becomes Structural", "Unemployment bounces back", "Wages fall"], "ans": "Cyclical becomes Structural", "why": "Long-term unemployed lose skills and become unemployable."},
+                {"q": "Inventory-to-Sales ratio is lowest at:", "opt": ["Late Expansion/Peak", "Trough", "Early Expansion"], "ans": "Late Expansion/Peak", "why": "Sales are maxed out, inventory is flying off shelves (until the turn)."},
+                {"q": "Central Bank 'Taylor Rule' guides rates based on:", "opt": ["Inflation Gap + Output Gap", "Gold Price", "Exchange Rate"], "ans": "Inflation Gap + Output Gap", "why": "Balances price stability and growth."}
+            ],
+            "Flashcards (10 Cards)": [
+                {"q": "Recession Definition", "ans": "2 Quarters Declining Real GDP", "why": "Technical rule."},
+                {"q": "Leading Indicator", "ans": "Predicts future (e.g., Stock Market)", "why": "Changes before economy."},
+                {"q": "Lagging Indicator", "ans": "Confirms past (e.g., Unemployment Duration)", "why": "Changes after economy."},
+                {"q": "Coincident Indicator", "ans": "Current state (e.g., Industrial Prod)", "why": "Happens now."},
+                {"q": "Neoclassical View", "ans": "Cycles are temp deviations", "why": "Self-correcting markets."},
+                {"q": "Keynesian View", "ans": "Cycles driven by AD / Animal Spirits", "why": "Govt intervention needed."},
+                {"q": "Monetarist View", "ans": "Cycles driven by Money Supply errors", "why": "Keep money growth stable."},
+                {"q": "RBC Theory", "ans": "Cycles driven by Real External Shocks", "why": "No policy needed."},
+                {"q": "Austrian Theory", "ans": "Low rates cause Malinvestment", "why": "Boom-Bust cycle."},
+                {"q": "Output Gap", "ans": "Actual GDP - Potential GDP", "why": "Measure of slack."}
+            ]
+        },
+
         "LOS 5: Monetary and Fiscal Policy": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
         "LOS 6: International Trade and Capital Flows": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
         "LOS 7: Currency Exchange Rates": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
