@@ -236,7 +236,56 @@ library = {
             ]
         },
 
-        "LOS 5: Monetary and Fiscal Policy": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
+        # --- LOS 5: FULLY LOADED ---
+        "LOS 5: Monetary and Fiscal Policy": {
+            "Hard (Exam Level)": [
+                {"q": "Money Neutrality implies that in the long run, money supply changes affect:", "opt": ["Prices only", "Real Output", "Velocity"], "ans": "Prices only", "why": "Real variables (Output/Employment) are unaffected by nominal money."},
+                {"q": "Fisher Effect: Nominal Interest Rate equals:", "opt": ["Real Rate + Expected Inflation", "Real Rate - Inflation", "Inflation / Real Rate"], "ans": "Real Rate + Expected Inflation", "why": "Approximation of the cost of money."},
+                {"q": "A Central Bank's 'Policy Rate' is typically:", "opt": ["The rate at which banks lend to each other overnight", "The 10-Year Bond yield", "The Mortgage Rate"], "ans": "The rate at which banks lend to each other overnight", "why": "It anchors the short end of the yield curve."},
+                {"q": "Open Market Operations (Buying Bonds):", "opt": ["Increases Reserves & Lowers Rates", "Decreases Reserves & Raises Rates", "No effect"], "ans": "Increases Reserves & Lowers Rates", "why": "Injects liquidity into the banking system."},
+                {"q": "Fractional Reserve Banking means:", "opt": ["Banks hold only a fraction of deposits as reserves", "Banks hold 100% reserves", "Banks cannot lend"], "ans": "Banks hold only a fraction of deposits as reserves", "why": "Allows for credit creation (Money Multiplier)."},
+                {"q": "The Money Multiplier (simple) is:", "opt": ["1 / Reserve Requirement", "1 / Tax Rate", "1 / MPS"], "ans": "1 / Reserve Requirement", "why": "Maximum potential credit creation from new reserves."},
+                {"q": "Demand for Money (Liquidity Preference) rises if:", "opt": ["Nominal GDP rises", "Interest Rates rise", "Bond prices fall"], "ans": "Nominal GDP rises", "why": "Transaction demand increases with higher income/spending."},
+                {"q": "Crowding Out Effect:", "opt": ["Govt borrowing raises rates, lowering Private Investment", "Govt spending lowers rates", "Tax cuts increase Investment"], "ans": "Govt borrowing raises rates, lowering Private Investment", "why": "Public sector absorbs available loanable funds."},
+                {"q": "Ricardian Equivalence:", "opt": ["Deficits have no effect on Demand", "Deficits stimulate Demand", "Surpluses hurt Demand"], "ans": "Deficits have no effect on Demand", "why": "Private sector saves more today to pay for expected future taxes."},
+                {"q": "Automatic Stabilizers:", "opt": ["Unemployment Insurance / Progressive Taxes", "New Infrastructure Bills", "Rate Cuts"], "ans": "Unemployment Insurance / Progressive Taxes", "why": "Kick in without new legislation during a cycle."},
+                {"q": "Discretionary Fiscal Policy:", "opt": ["New Spending Laws", "Tax Receipts falling due to recession", "Welfare"], "ans": "New Spending Laws", "why": "Requires active legislative action."},
+                {"q": "Inflation Targeting is a mandate of:", "opt": ["Monetary Policy", "Fiscal Policy", "Trade Policy"], "ans": "Monetary Policy", "why": "Central Bank goal (usually 2%)."},
+                {"q": "Liquidity Trap occurs when:", "opt": ["Demand for Money is perfectly elastic", "Rates are high", "Inflation is high"], "ans": "Demand for Money is perfectly elastic", "why": "People hoard cash; lowering rates further is ineffective."},
+                {"q": "Expansionary Fiscal Policy + Tight Monetary Policy results in:", "opt": ["Higher Rates", "Lower Rates", "Lower Output"], "ans": "Higher Rates", "why": "Govt borrowing pushes rates up, Fed pushes rates up."},
+                {"q": "Quantitative Easing (QE):", "opt": ["Central Bank buys Long-term assets", "CB buys Short-term bills", "CB raises rates"], "ans": "Central Bank buys Long-term assets", "why": "Targets long-end rates when short rates are zero."}
+            ],
+            "Brutal (Above Exam)": [
+                {"q": "Taylor Rule: If Inflation > Target and Output > Potential, the CB should:", "opt": ["Raise Rates aggressively", "Lower Rates", "Do nothing"], "ans": "Raise Rates aggressively", "why": "To cool down the overheating economy."},
+                {"q": "Transmission Mechanism: 'Balance Sheet Channel' implies:", "opt": ["Lower rates boost asset prices, improving collateral", "Lower rates boost exports", "Lower rates increase cash"], "ans": "Lower rates boost asset prices, improving collateral", "why": "Better collateral allows more borrowing/lending."},
+                {"q": "Structural Deficit:", "opt": ["Deficit that exists at Full Employment", "Cyclical Deficit", "Trade Deficit"], "ans": "Deficit that exists at Full Employment", "why": "Fundamental imbalance, not caused by recession."},
+                {"q": "Repo Rate (Repurchase Agreement):", "opt": ["Rate to borrow cash against collateral", "Unsecured lending rate", "Mortgage rate"], "ans": "Rate to borrow cash against collateral", "why": "Secured short-term funding rate."},
+                {"q": "Equation of Exchange (Monetarist):", "opt": ["MV = PY", "MP = VY", "M/P = Y"], "ans": "MV = PY", "why": "Money * Velocity = Price * Real Output."},
+                {"q": "Negative Interest Rates aim to:", "opt": ["Force banks to lend reserves", "Reward savers", "Reduce inflation"], "ans": "Force banks to lend reserves", "why": "Penalizes holding excess reserves at the CB."},
+                {"q": "Fiscal Multiplier is highest when:", "opt": ["MPC is high", "MPS is high", "Tax rate is high"], "ans": "MPC is high", "why": "More spending leads to more rounds of income generation."},
+                {"q": "Balanced Budget Multiplier:", "opt": ["Equal to 1", "Equal to 0", "Negative"], "ans": "Equal to 1", "why": "Taxing $1 and spending $1 still boosts GDP by $1 (net)."},
+                {"q": "Supply-Side Fiscal Policy focuses on:", "opt": ["Lowering Marginal Tax Rates", "Increasing Transfer Payments", "Lowering Rates"], "ans": "Lowering Marginal Tax Rates", "why": "Incentivizes labor and capital investment (LRAS shift)."},
+                {"q": "Lag Time: Monetary Policy has:", "opt": ["Short Implementation, Long Impact Lag", "Long Implementation Lag", "No Lag"], "ans": "Short Implementation, Long Impact Lag", "why": "Fast to decide, slow to affect economy (12-18 months)."},
+                {"q": "Lag Time: Fiscal Policy has:", "opt": ["Long Implementation, Short Impact Lag", "Short Implementation", "No Lag"], "ans": "Long Implementation, Short Impact Lag", "why": "Slow to pass laws, fast to affect demand once checks go out."},
+                {"q": "Sterilized Intervention:", "opt": ["Forex Op offset by Open Market Op", "Forex Op only", "Capital Control"], "ans": "Forex Op offset by Open Market Op", "why": "Keeps domestic money supply unchanged while managing currency."},
+                {"q": "Pay-As-You-Go (PAYGO) rule:", "opt": ["New spending must be offset by revenue/cuts", "Deficits allowed", "Gold standard"], "ans": "New spending must be offset by revenue/cuts", "why": "Fiscal discipline rule."},
+                {"q": "Indirect Taxes (VAT/Sales Tax) are:", "opt": ["Regressive", "Progressive", "Neutral"], "ans": "Regressive", "why": "Take a higher % of income from low earners."},
+                {"q": "Debt Monetization:", "opt": ["CB buys Govt Debt directly", "Private sector buys Debt", "Paying off debt"], "ans": "CB buys Govt Debt directly", "why": "Printing money to pay bills (Hyperinflation risk)."}
+            ],
+            "Flashcards (10 Cards)": [
+                {"q": "Money Neutrality", "ans": "Money affects P, not Y (Long Run)", "why": "Real variables are independent."},
+                {"q": "Fisher Effect", "ans": "Nominal R = Real r + Exp Infl", "why": "Interest rate decomp."},
+                {"q": "Money Multiplier", "ans": "1 / Reserve Ratio", "why": "Credit creation potential."},
+                {"q": "Crowding Out", "ans": "Govt Borrowing -> Rates Up -> Inv Down", "why": "Public replaces Private."},
+                {"q": "Ricardian Equiv", "ans": "Deficits don't change Demand", "why": "Future tax expectation."},
+                {"q": "Liquidity Trap", "ans": "Monetary Policy ineffective", "why": "Rates at zero/demand flat."},
+                {"q": "Stagflation Policy", "ans": "Hard choice (Fight Infl vs Growth)", "why": "Supply shock dilemma."},
+                {"q": "Fiscal Multiplier", "ans": "1 / (1 - MPC)", "why": "Spending ripple effect."},
+                {"q": "Automatic Stabilizers", "ans": "Taxes & Welfare", "why": "Counter-cyclical without laws."},
+                {"q": "Taylor Rule", "ans": "Target Rate formula", "why": "Response to Infl & Output gaps."}
+            ]
+        },
+
         "LOS 6: International Trade and Capital Flows": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
         "LOS 7: Currency Exchange Rates": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
         "MOCK EXAM": {
