@@ -491,7 +491,6 @@ library = {
                 {"q": "98. 'Okun's Law' describes the relationship between:", "opt": ["Inflation and Unemployment", "GDP Gap and Unemployment Gap", "Tax rates and Revenue"], "ans": "GDP Gap and Unemployment Gap", "why": "High unemployment correlates with output below potential."},
                 {"q": "99. 'Gresham's Law' states:", "opt": ["Bad money drives out good", "Good money drives out bad", "Money is neutral"], "ans": "Bad money drives out good", "why": "People hoard the valuable currency (Good) and spend the debased one (Bad)."},
                 {"q": "100. If the Central Bank pegs the currency ABOVE the equilibrium value (Overvalued):", "opt": ["It gains reserves", "It loses reserves", "It has no effect"], "ans": "It loses reserves", "why": "It must buy its own currency (sell foreign reserves) to prop up the price."}
-                               ,
                 # --- BATCH 3 (Questions 101-150) ---
                 {"q": "101. A 'Corner Solution' in consumer choice theory typically occurs when:", "opt": ["Goods are Perfect Substitutes", "Goods are Perfect Complements", "MRS is diminishing"], "ans": "Goods are Perfect Substitutes", "why": "Consumer buys ONLY the cheaper good (all X or all Y)."},
                 {"q": "102. The 'Bandwagon Effect' implies that the market demand curve is:", "opt": ["More elastic than individual curves sum", "Less elastic", "Vertical"], "ans": "More elastic than individual curves sum", "why": "People buy because others are buying, amplifying price drops."},
