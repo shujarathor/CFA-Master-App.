@@ -47,17 +47,106 @@ def get_chart(chart_type):
         
     return fig
 
-# ==============================================================================
-# 3. THE DATA STRUCTURE (EMPTY FOR NOW)
-# ==============================================================================
-# WE WILL FILL THIS IN BLOCK 2, 3, 4...
-library = {
-    "Economics": {
-        # PASTE LOS BLOCKS HERE LATER
-    }
-}
+        # --- LOS 2: FULLY LOADED ---
+        "LOS 2: The Firm and Market Structures": {
+            "Hard (Exam Level)": [
+                {"q": "Perfect Competition Demand Curve is:", "opt": ["Horizontal", "Vertical", "Downward"], "ans": "Horizontal", "why": "Firm is a Price Taker.", "chart": "perfect_competition"},
+                {"q": "Profit Maximization Rule for ALL firms:", "opt": ["MR = MC", "P = ATC", "TR = TC"], "ans": "MR = MC", "why": "Universal rule for max profit."},
+                {"q": "Monopolistic Competition products are:", "opt": ["Identical", "Differentiated", "Unique"], "ans": "Differentiated", "why": "Differentiation allows some pricing power."},
+                {"q": "Kinked Demand Curve explains:", "opt": ["Price Rigidity in Oligopoly", "Monopoly Pricing", "Perfect Comp"], "ans": "Price Rigidity in Oligopoly", "why": "Competitors follow price cuts but ignore hikes."},
+                {"q": "Natural Monopoly arises from:", "opt": ["Economies of Scale", "Legal Barriers", "Collusion"], "ans": "Economies of Scale", "why": "Declining ATC over the entire range of demand."},
+                {"q": "Nash Equilibrium definition:", "opt": ["Optimal joint outcome", "Best response to rival", "Cheating"], "ans": "Best response to rival", "why": "No incentive to deviate unilaterally."},
+                {"q": "HHI (Herfindahl-Hirschman Index) measures:", "opt": ["Concentration", "Elasticity", "Inflation"], "ans": "Concentration", "why": "Sum of squared market shares."},
+                {"q": "Cartels fail mainly because:", "opt": ["Incentive to cheat", "Government regulations", "Low profits"], "ans": "Incentive to cheat", "why": "Individual MR > MC creates incentive to overproduce."},
+                {"q": "Shutdown Point in Short Run:", "opt": ["P < AVC", "P < ATC", "P < MC"], "ans": "P < AVC", "why": "Revenue cannot even cover variable costs."},
+                {"q": "Breakeven Point:", "opt": ["P = ATC", "P = AVC", "MR = MC"], "ans": "P = ATC", "why": "Zero Economic Profit."},
+                {"q": "First-Degree Price Discrimination:", "opt": ["Zero Consumer Surplus", "High Consumer Surplus", "Deadweight Loss"], "ans": "Zero Consumer Surplus", "why": "Monopolist extracts all surplus."},
+                {"q": "Long Run Profit in Monopolistic Competition:", "opt": ["Zero", "Positive", "Negative"], "ans": "Zero", "why": "Low barriers to entry erode profit."},
+                {"q": "Concentration Ratio (N-Firm):", "opt": ["Sum of top N shares", "Sum of squared shares", "Gini Coeff"], "ans": "Sum of top N shares", "why": "Simple measure of market control."},
+                {"q": "Oligopoly is characterized by:", "opt": ["Interdependence", "Independence", "Price Taking"], "ans": "Interdependence", "why": "Strategic gaming is key."},
+                {"q": "Supply Curve for Monopoly:", "opt": ["Undefined", "MC Curve", "Upward Sloping"], "ans": "Undefined", "why": "No unique P-Q relationship; depends on Demand shift."}
+            ],
+            "Brutal (Above Exam)": [
+                {"q": "Cournot Model variable:", "opt": ["Quantity", "Price", "Capacity"], "ans": "Quantity", "why": "Firms choose Q simultaneously."},
+                {"q": "Bertrand Model variable:", "opt": ["Price", "Quantity", "Entry"], "ans": "Price", "why": "Price war drives P down to MC."},
+                {"q": "Stackelberg Model feature:", "opt": ["Leader/Follower", "Simultaneous moves", "Collusion"], "ans": "Leader/Follower", "why": "First mover advantage exists."},
+                {"q": "Dominant Firm Model sets price based on:", "opt": ["Residual Demand", "Market Demand", "Marginal Cost"], "ans": "Residual Demand", "why": "Market Demand minus Fringe Supply."},
+                {"q": "HHI for a Monopoly (1 firm):", "opt": ["10,000", "1,000", "100"], "ans": "10,000", "why": "100 squared = 10,000."},
+                {"q": "Allocative Efficiency occurs when:", "opt": ["P = MC", "P = ATC", "MR = MC"], "ans": "P = MC", "why": "Value to consumer equals cost of production."},
+                {"q": "X-Inefficiency refers to:", "opt": ["Waste due to lack of competition", "Deadweight Loss", "Allocative Loss"], "ans": "Waste due to lack of competition", "why": "Monopolies become lazy on costs."},
+                {"q": "Lerner Index formula:", "opt": ["(P-MC)/P", "P/MC", "MC/P"], "ans": "(P-MC)/P", "why": "Measures market power markup."},
+                {"q": "Second-Degree Price Discrimination:", "opt": ["Quantity Discounts", "Identity-based", "Time-based"], "ans": "Quantity Discounts", "why": "Based on volume purchased."},
+                {"q": "Collusion is unstable if:", "opt": ["Cheater MR > MC", "Cheater P < ATC", "High Penalty"], "ans": "Cheater MR > MC", "why": "Profit motive to break agreement."},
+                {"q": "Kinked Demand Gap is in the:", "opt": ["MR Curve", "MC Curve", "ATC Curve"], "ans": "MR Curve", "why": "Discontinuity due to asymmetric elasticity."},
+                {"q": "Productive Efficiency:", "opt": ["Min ATC", "Min AVC", "P=MC"], "ans": "Min ATC", "why": "Producing at lowest possible cost."},
+                {"q": "Dual-Curve Monopoly transforms:", "opt": ["Consumer Surplus to Producer Surplus", "DWL to Tax", "PS to CS"], "ans": "Consumer Surplus to Producer Surplus", "why": "Extracts willingness to pay."},
+                {"q": "Contestable Market Theory:", "opt": ["Threat of entry disciplines firms", "Regulation is needed", "High Barriers"], "ans": "Threat of entry disciplines firms", "why": "Hit-and-run entry keeps prices low."},
+                {"q": "Porter's 5 Forces - High Switching Costs:", "opt": ["Low Buyer Power", "High Buyer Power", "High Rivalry"], "ans": "Low Buyer Power", "why": "Customers are locked in."}
+            ],
+            "Flashcards (10 Cards)": [
+                {"q": "Perfect Competition", "ans": "Many firms, Identical Product, Price Taker", "why": "Horizontal Demand."},
+                {"q": "Monopoly", "ans": "One Firm, Unique Product, Price Maker", "why": "High Barriers."},
+                {"q": "Oligopoly", "ans": "Few Firms, Interdependent", "why": "Strategic behavior."},
+                {"q": "Monopolistic Competition", "ans": "Differentiated Products, Low Barriers", "why": "Zero LR Economic Profit."},
+                {"q": "HHI", "ans": "Sum of Squared Market Shares", "why": "Concentration Metric."},
+                {"q": "Nash Equilibrium", "ans": "Best response to opponent's strategy", "why": "Game Theory core."},
+                {"q": "Natural Monopoly", "ans": "Falling ATC over relevant range", "why": "Economies of Scale."},
+                {"q": "Profit Max", "ans": "MR = MC", "why": "Always."},
+                {"q": "Shutdown Point (SR)", "ans": "P < AVC", "why": "Cash flow negative."},
+                {"q": "Breakeven", "ans": "P = ATC", "why": "Zero Economic Profit."}
+            ]
+        },
 
-# ==============================================================================
+        # --- LOS 3: FULLY LOADED ---
+        "LOS 3: Aggregate Output, Prices, and Growth": {
+            "Hard (Exam Level)": [
+                {"q": "GDP Deflator formula:", "opt": ["Nominal GDP / Real GDP", "Real / Nominal", "CPI / PPI"], "ans": "Nominal GDP / Real GDP", "why": "Measures price level changes."},
+                {"q": "Structural Unemployment:", "opt": ["Skills Mismatch", "Business Cycle", "Voluntary"], "ans": "Skills Mismatch", "why": "Long-term shift in economy."},
+                {"q": "Frictional Unemployment:", "opt": ["Job Search Gap", "Recession", "Skills Gap"], "ans": "Job Search Gap", "why": "Short-term transition."},
+                {"q": "Cyclical Unemployment:", "opt": ["Recession Related", "Voluntary", "Seasonal"], "ans": "Recession Related", "why": "Caused by low Aggregate Demand."},
+                {"q": "Natural Rate of Unemployment includes:", "opt": ["Frictional + Structural", "Cyclical + Frictional", "Zero Unemployment"], "ans": "Frictional + Structural", "why": "Unemployment when economy is at full potential."},
+                {"q": "Agg Demand shifts Right if:", "opt": ["Taxes Decrease", "Rates Increase", "Imports Rise"], "ans": "Taxes Decrease", "why": "More disposable income."},
+                {"q": "Short Run Agg Supply (SRAS) shifts Left if:", "opt": ["Input Costs Rise", "Tech Improves", "Taxes Fall"], "ans": "Input Costs Rise", "why": "Cost-push inflation."},
+                {"q": "Long Run Agg Supply (LRAS) is:", "opt": ["Vertical", "Horizontal", "Upward Sloping"], "ans": "Vertical", "why": "determined by potential output, independent of price."},
+                {"q": "Recessionary Gap:", "opt": ["Real GDP < Potential GDP", "Real GDP > Potential", "Full Employment"], "ans": "Real GDP < Potential GDP", "why": "High unemployment."},
+                {"q": "Inflationary Gap:", "opt": ["Real GDP > Potential GDP", "Real GDP < Potential", "Deflation"], "ans": "Real GDP > Potential GDP", "why": "Upward pressure on prices."},
+                {"q": "Sustainable Growth Rate:", "opt": ["Retention Rate x ROE", "Dividend Payout x ROE", "NI / Sales"], "ans": "Retention Rate x ROE", "why": "g = b * ROE."},
+                {"q": "Solow Growth Model Long Run driver:", "opt": ["Technology", "Capital", "Labor"], "ans": "Technology", "why": "Capital hits diminishing returns."},
+                {"q": "Capital Deepening:", "opt": ["Increase in Capital per Worker", "Increase in Tech", "Increase in Labor"], "ans": "Increase in Capital per Worker", "why": "Moving along the productivity curve."},
+                {"q": "Stagflation:", "opt": ["High Inflation + High Unemployment", "Low Infl + Low Unemp", "High Growth"], "ans": "High Inflation + High Unemployment", "why": "Caused by SRAS shift left."},
+                {"q": "Participation Rate:", "opt": ["Labor Force / Working Age Pop", "Employed / Labor Force", "Unemployed / Pop"], "ans": "Labor Force / Working Age Pop", "why": "Measure of active workforce."}
+            ],
+            "Brutal (Above Exam)": [
+                {"q": "Bernoulli's Hypothesis (Utility):", "opt": ["Marginal Utility Diminishes", "Utility is Linear", "Risk Loving"], "ans": "Marginal Utility Diminishes", "why": "Concave utility function implies risk aversion."},
+                {"q": "IS Curve represents equilibrium in:", "opt": ["Goods Market", "Money Market", "Labor Market"], "ans": "Goods Market", "why": "Investment = Savings."},
+                {"q": "LM Curve represents equilibrium in:", "opt": ["Money Market", "Goods Market", "Forex"], "ans": "Money Market", "why": "Liquidity Preference = Money Supply."},
+                {"q": "Neoclassical Growth Theory assumes:", "opt": ["Diminishing Returns to Capital", "Constant Returns", "Increasing Returns"], "ans": "Diminishing Returns to Capital", "why": "Leads to steady state."},
+                {"q": "Endogenous Growth Theory assumes:", "opt": ["Returns to Capital don't diminish", "Diminishing Returns", "Exogenous Tech"], "ans": "Returns to Capital don't diminish", "why": "R&D/Knowledge spillover prevents stagnation."},
+                {"q": "Dutch Disease:", "opt": ["Resource boom hurts manufacturing", "Banking crisis", "High Inflation"], "ans": "Resource boom hurts manufacturing", "why": "Currency appreciation makes exports uncompetitive."},
+                {"q": "Okun's Law Relationship:", "opt": ["Inverse: GDP and Unemployment", "Direct: GDP and Inflation", "Inverse: Inflation/Unemp"], "ans": "Inverse: GDP and Unemployment", "why": "High growth reduces unemployment."},
+                {"q": "Phillips Curve (Short Run):", "opt": ["Inflation vs Unemployment tradeoff", "Tax vs Revenue", "Growth vs Rates"], "ans": "Inflation vs Unemployment tradeoff", "why": "Inverse relationship."},
+                {"q": "Phillips Curve (Long Run):", "opt": ["Vertical at NAIRU", "Downward Sloping", "Horizontal"], "ans": "Vertical at NAIRU", "why": "No tradeoff in LR; money is neutral."},
+                {"q": "Laspeyres Index Bias:", "opt": ["Upward (Substitution Bias)", "Downward", "None"], "ans": "Upward (Substitution Bias)", "why": "Ignores consumers switching to cheaper goods."},
+                {"q": "Paasche Index uses:", "opt": ["Current weights", "Base weights", "Average weights"], "ans": "Current weights", "why": "Underestimates inflation due to substitution."},
+                {"q": "Fisher Index:", "opt": ["Geometric Mean of Laspeyres & Paasche", "Arithmetic Mean", "Sum"], "ans": "Geometric Mean of Laspeyres & Paasche", "why": "Removes bias."},
+                {"q": "Cost-Push Inflation caused by:", "opt": ["Left shift in SRAS", "Right shift in AD", "Money Supply"], "ans": "Left shift in SRAS", "why": "Supply shock (e.g., Oil price spike)."},
+                {"q": "Demand-Pull Inflation caused by:", "opt": ["Right shift in AD", "Right shift in SRAS", "Productivity"], "ans": "Right shift in AD", "why": "Too much money chasing too few goods."},
+                {"q": "Liquidity Trap:", "opt": ["Monetary policy ineffective", "Fiscal ineffective", "High Rates"], "ans": "Monetary policy ineffective", "why": "Demand for money is perfectly elastic at zero bound."}
+            ],
+            "Flashcards (10 Cards)": [
+                {"q": "GDP Deflator", "ans": "Nominal / Real", "why": "Price Index."},
+                {"q": "Frictional Unemp", "ans": "Job Search Gap", "why": "Short Term."},
+                {"q": "Structural Unemp", "ans": "Skills Mismatch", "why": "Long Term."},
+                {"q": "Cyclical Unemp", "ans": "Recession / Low AD", "why": "Bad Economy."},
+                {"q": "Stagflation", "ans": "High Infl + High Unemp", "why": "Supply Shock."},
+                {"q": "LRAS Curve", "ans": "Vertical", "why": "Potential Output."},
+                {"q": "Recessionary Gap", "ans": "Real < Potential GDP", "why": "Deflationary pressure."},
+                {"q": "Inflationary Gap", "ans": "Real > Potential GDP", "why": "Price pressure."},
+                {"q": "Sustainable Growth", "ans": "Retention Rate * ROE", "why": "g = b * ROE."},
+                {"q": "Diminishing Returns", "ans": "MPK falls as K rises", "why": "Solow Model key."}
+            ]
+        },
+
 # 4. STATE MANAGEMENT
 # ==============================================================================
 if 'history' not in st.session_state: st.session_state.history = []
