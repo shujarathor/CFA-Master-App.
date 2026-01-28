@@ -57,7 +57,7 @@ with tab1:
     try:
         df = pd.read_csv("ethics_questions.csv")
     except FileNotFoundError:
-        st.error("🚨 Error: 'ethics_questions.csv' not found.")
+        st.error("🚨 Error: 'ethics_questions.csv' not found in repo.")
         st.stop()
 
     # Filter Data
@@ -107,13 +107,12 @@ with tab1:
 with tab2:
     st.subheader("⚡ Rapid Fire Flashcards")
     
-    # Reuse the same dropdowns from Tab 1 to filter flashcards
     st.caption(f"Showing Flashcards for: {sub_selection}")
     
     try:
         df_flash = pd.read_csv("ethics_flashcards.csv")
     except FileNotFoundError:
-        st.error("🚨 Error: 'ethics_flashcards.csv' not found.")
+        st.error("🚨 Error: 'ethics_flashcards.csv' not found. Please create it!")
         st.stop()
         
     # Filter Flashcards
@@ -148,14 +147,11 @@ with tab2:
         navigation_buttons(fc_idx, len(fc_subset), fc_key)
         
     else:
-        st.info("No flashcards added for this topic yet.")
+        st.info("No flashcards added for this specific topic yet. (Check your CSV!)")
 
 # --- TAB 3: BRUTAL MOCK ---
 with tab3:
     st.subheader("💀 The Brutal Mock")
-    st.write("This section will pull 300 unique questions from the Mock Vault.")
-    # Placeholder for now - uses the same structure but will eventually use 'ethics_mock.csv'
-    # For testing, we just show a message.
     st.warning("Mock Vault under construction. Please use Practice Tab for now.")
 
 # --- TAB 4: PERFORMANCE ---
@@ -169,8 +165,8 @@ with tab4:
         score_pct = (total_correct / total_attempted) * 100
         
         col1, col2, col3 = st.columns(3)
-        col1.metric("Questions Attempted", total_attempted)
-        col2.metric("Correct Answers", total_correct)
+        col1.metric("Attempted", total_attempted)
+        col2.metric("Correct", total_correct)
         col3.metric("Accuracy", f"{score_pct:.1f}%")
         
         st.progress(score_pct / 100)
@@ -178,10 +174,10 @@ with tab4:
         if score_pct > 70:
             st.success("You are on track to pass!")
         else:
-            st.warning("Keep drilling. Target is 70%+")
+            st.warning("Target is 70%+")
             
         if st.button("Reset Stats"):
             st.session_state.score_history = []
             st.rerun()
     else:
-        st.info("Attempt some questions in the Practice Tab to see your stats!")
+        st.info("Attempt questions in the Practice Tab to see stats!")
