@@ -396,7 +396,7 @@ library = {
                 {"q": "5. In the Cournot Duopoly model, if one firm increases output, the reaction function of the rival firm predicts:", "opt": ["Rival will increase output", "Rival will decrease output", "Rival will hold output constant"], "ans": "Rival will decrease output", "why": "Quantities are strategic substitutes in Cournot."},
                 {"q": "6. A monopolist has a linear demand curve P = 100 - 2Q. At what price is Total Revenue maximized?", "opt": ["$50", "$25", "$75"], "ans": "$50", "why": "TR is max when MR = 0. MR = 100 - 4Q. Q=25. P = 100 - 2(25) = 50. (Midpoint of linear demand)."},
                 {"q": "7. The 'Liquidity Preference' theory implies that the yield curve is upward sloping because:", "opt": ["Short rates are expected to rise", "Investors demand a premium for interest rate risk in long bonds", "Inflation is rising"], "ans": "Investors demand a premium for interest rate risk in long bonds", "why": "Liquidity premium increases with maturity."},
-                {"q": "8. If the Paasche Index is 110 and the Laspeyres Index is 115, the Fisher Index is closest to:", "opt": ["112.5", "112.0", "113.1"], "ans": "112.5", "why": "Geometric mean of 1.10 and 115. Sqrt(1.265) ≈ 112.47."},
+                {"q": "8. If the Paasche Index is 110 and the Laspeyres Index is 115, the Fisher Index is closest to:", "opt": ["112.5", "112.0", "113.1"], "ans": "112.5", "why": "Geometric mean of 1.10 and 1.15. Sqrt(1.265) ≈ 1.1247."},
                 {"q": "9. Assuming high capital mobility, under a Fixed Exchange Rate regime, Expansionary Fiscal Policy leads to:", "opt": ["Crowding out of private investment", "A massive increase in Money Supply", "Ineffectiveness"], "ans": "A massive increase in Money Supply", "why": "Fiscal exp raises rates -> Capital inflow -> CB must sell currency (buy Forex) to maintain peg -> Money Supply expands."},
                 {"q": "10. The 'Accelerator Principle' in investment theory states that net investment depends on:", "opt": ["The level of interest rates", "The rate of change of national income", "Corporate profits"], "ans": "The rate of change of national income", "why": "Investment is derived from the *change* in demand (GDP growth)."},
                 {"q": "11. If the Nominal GDP target is growing at 5%, and Velocity is trending down by 1% per year, Money Supply must grow at:", "opt": ["4%", "5%", "6%"], "ans": "6%", "why": "%M + %V = %NomGDP. M - 1% = 5%. M = 6%."},
@@ -439,7 +439,7 @@ library = {
                 {"q": "48. 'Fiscal Drag' occurs when:", "opt": ["Inflation pushes taxpayers into higher brackets", "Govt spending is too low", "Deficits are high"], "ans": "Inflation pushes taxpayers into higher brackets", "why": "Real tax burden rises without rate changes (Bracket Creep)."},
                 {"q": "49. An inverted yield curve usually signals:", "opt": ["Future Recession", "Future Inflation", "Fiscal Surplus"], "ans": "Future Recession", "why": "Short rates high (tight money) + Long rates low (low growth expectation)."},
                 {"q": "50. If Cross Elasticity = 0, the goods are:", "opt": ["Unrelated", "Substitutes", "Complements"], "ans": "Unrelated", "why": "Price of one implies nothing about the other."},
-                
+
                 # --- BATCH 2 (Questions 51-100) ---
                 {"q": "51. If the Bid/Ask for USD/GBP is 1.2500 / 1.2510, what is the cost to BUY GBP?", "opt": ["1.2500 USD", "1.2510 USD", "1.2505 USD"], "ans": "1.2510 USD", "why": "You buy at the Dealer's Ask price."},
                 {"q": "52. Calculating the 'Cross-Rate Bid': If A/B Bid is 2.0 and B/C Bid is 3.0, what is A/C Bid?", "opt": ["6.0", "5.0", "1.5"], "ans": "6.0", "why": "Bid * Bid = Bid. (A/B) * (B/C) = A/C. 2.0 * 3.0 = 6.0."},
@@ -490,7 +490,8 @@ library = {
                 {"q": "97. 'Monetary Neutrality' suggests that doubling the money supply will eventually:", "opt": ["Double Real GDP", "Double Price Levels", "Halve Interest Rates"], "ans": "Double Price Levels", "why": "Real variables are unaffected in the long run."},
                 {"q": "98. 'Okun's Law' describes the relationship between:", "opt": ["Inflation and Unemployment", "GDP Gap and Unemployment Gap", "Tax rates and Revenue"], "ans": "GDP Gap and Unemployment Gap", "why": "High unemployment correlates with output below potential."},
                 {"q": "99. 'Gresham's Law' states:", "opt": ["Bad money drives out good", "Good money drives out bad", "Money is neutral"], "ans": "Bad money drives out good", "why": "People hoard the valuable currency (Good) and spend the debased one (Bad)."},
-                {"q": "100. If the Central Bank pegs the currency ABOVE the equilibrium value (Overvalued):", "opt": ["It gains reserves", "It loses reserves", "It has no effect"], "ans": "It loses reserves", "why": "It must buy its own currency (sell foreign reserves) to prop up the price."}
+                {"q": "100. If the Central Bank pegs the currency ABOVE the equilibrium value (Overvalued):", "opt": ["It gains reserves", "It loses reserves", "It has no effect"], "ans": "It loses reserves", "why": "It must buy its own currency (sell foreign reserves) to prop up the price."},
+                
                 # --- BATCH 3 (Questions 101-150) ---
                 {"q": "101. A 'Corner Solution' in consumer choice theory typically occurs when:", "opt": ["Goods are Perfect Substitutes", "Goods are Perfect Complements", "MRS is diminishing"], "ans": "Goods are Perfect Substitutes", "why": "Consumer buys ONLY the cheaper good (all X or all Y)."},
                 {"q": "102. The 'Bandwagon Effect' implies that the market demand curve is:", "opt": ["More elastic than individual curves sum", "Less elastic", "Vertical"], "ans": "More elastic than individual curves sum", "why": "People buy because others are buying, amplifying price drops."},
@@ -542,9 +543,9 @@ library = {
                 {"q": "148. The 'Deadweight Loss' of a tax increases with:", "opt": ["The square of the tax rate", "Linearly with tax rate", "It decreases"], "ans": "The square of the tax rate", "why": "Doubling the tax quadruples the distortion."},
                 {"q": "149. In 'Oligopoly', the Demand Curve is often assumed to be:", "opt": ["Kinked", "Horizontal", "Vertical"], "ans": "Kinked", "why": "Due to asymmetric reaction to price changes."},
                 {"q": "150. 'Utility' is best defined as:", "opt": ["Satisfaction/Benefit derived from consumption", "Usefulness", "Price"], "ans": "Satisfaction/Benefit derived from consumption", "why": "Ordinal measure of preference."}
- 
             ]
         }
+
 
     }
 }
