@@ -57,7 +57,7 @@ with tab1:
     try:
         df = pd.read_csv("ethics_questions.csv")
     except FileNotFoundError:
-        st.error("🚨 Error: 'ethics_questions.csv' not found in repo.")
+        st.error("🚨 Error: 'ethics_questions.csv' not found.")
         st.stop()
 
     # Filter Data
@@ -84,7 +84,8 @@ with tab1:
         st.info(f"**Question {curr_idx + 1} of {len(subset)}**")
         st.markdown(f"### {row['Question']}")
         
-        options = [row['OptionA'], row['OptionB'], row['OptionC'], row['OptionD']]
+        # --- FIXED: Only load 3 Options (A, B, C) ---
+        options = [row['OptionA'], row['OptionB'], row['OptionC']]
         choice = st.radio("Select Answer:", options, key=f"rad_{session_key}_{curr_idx}")
         
         if st.button("Check Answer", key=f"check_{session_key}_{curr_idx}"):
@@ -97,7 +98,6 @@ with tab1:
             st.markdown(f"**Explanation:** {row['Explanation']}")
             
         st.divider()
-        # FIXED NAVIGATION BUTTONS
         navigation_buttons(curr_idx, len(subset), session_key)
 
     else:
@@ -112,7 +112,7 @@ with tab2:
     try:
         df_flash = pd.read_csv("ethics_flashcards.csv")
     except FileNotFoundError:
-        st.error("🚨 Error: 'ethics_flashcards.csv' not found. Please create it!")
+        st.error("🚨 Error: 'ethics_flashcards.csv' not found.")
         st.stop()
         
     # Filter Flashcards
@@ -143,11 +143,10 @@ with tab2:
                 st.markdown(f"## 💡 {fc_row['Back']}")
         
         st.divider()
-        # FIXED NAVIGATION BUTTONS
         navigation_buttons(fc_idx, len(fc_subset), fc_key)
         
     else:
-        st.info("No flashcards added for this specific topic yet. (Check your CSV!)")
+        st.info("No flashcards added for this specific topic yet.")
 
 # --- TAB 3: BRUTAL MOCK ---
 with tab3:
