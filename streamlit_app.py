@@ -286,7 +286,56 @@ library = {
             ]
         },
 
-        "LOS 6: International Trade and Capital Flows": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
+        # --- LOS 6: FULLY LOADED ---
+        "LOS 6: International Trade and Capital Flows": {
+            "Hard (Exam Level)": [
+                {"q": "Comparative Advantage is based on:", "opt": ["Lower Opportunity Cost", "Lower Absolute Cost", "Higher Quality"], "ans": "Lower Opportunity Cost", "why": "The ability to produce at a lower relative cost than a trading partner."},
+                {"q": "The Ricardian Model assumes labor is:", "opt": ["The only factor of production", "One of many factors", "Mobile across countries"], "ans": "The only factor of production", "why": "Focuses on labor productivity differences."},
+                {"q": "Heckscher-Ohlin Theory attributes trade to:", "opt": ["Differences in Factor Endowments", "Technology", "Taste"], "ans": "Differences in Factor Endowments", "why": "Capital-rich countries export capital-intensive goods."},
+                {"q": "A Tariff imposed by a small country results in:", "opt": ["Deadweight Loss", "Terms of Trade Gain", "Global Efficiency"], "ans": "Deadweight Loss", "why": "Distorts production and consumption without affecting world prices."},
+                {"q": "Quota Rent typically accrues to:", "opt": ["The License Holder (Importer)", "The Government", "The Consumer"], "ans": "The License Holder (Importer)", "why": "The price gap between world and domestic price goes to whoever holds the right to import."},
+                {"q": "Voluntary Export Restraint (VER):", "opt": ["Country voluntarily limits exports", "Country limits imports", "Tax on exports"], "ans": "Country voluntarily limits exports", "why": "Usually done to avoid a tariff/trade war."},
+                {"q": "Current Account includes:", "opt": ["Merchandise, Services, Income, Transfers", "FDI and Portfolio Inv", "Gold Reserves"], "ans": "Merchandise, Services, Income, Transfers", "why": "Tracks flow of goods/services/income."},
+                {"q": "Foreign Direct Investment (FDI) is part of the:", "opt": ["Financial/Capital Account", "Current Account", "Reserves"], "ans": "Financial/Capital Account", "why": "Investment in physical assets or control of firms."},
+                {"q": "A Free Trade Area (FTA):", "opt": ["Removes barriers between members only", "Adopts common external tariff", "Common Currency"], "ans": "Removes barriers between members only", "why": "Members keep their own tariffs against non-members (e.g., USMCA)."},
+                {"q": "A Customs Union adds what to an FTA?", "opt": ["Common External Tariff", "Free movement of labor", "Common Currency"], "ans": "Common External Tariff", "why": "Members treat non-members identically."},
+                {"q": "The World Bank's primary mission is:", "opt": ["Reduce Poverty/Development", "Exchange Rate Stability", "Trade Disputes"], "ans": "Reduce Poverty/Development", "why": "Provides loans/grants for development projects."},
+                {"q": "The IMF's primary mission is:", "opt": ["Global Monetary Stability", "Infrastructure loans", "Negotiating Tariffs"], "ans": "Global Monetary Stability", "why": "Acts as lender of last resort for BOP crises."},
+                {"q": "Dumping is defined as:", "opt": ["Selling below production cost or home price", "Selling low quality goods", "Tax evasion"], "ans": "Selling below production cost or home price", "why": "Predatory pricing behavior."},
+                {"q": "Autarky Price:", "opt": ["Price in a closed economy (No Trade)", "World Price", "Tariff Price"], "ans": "Price in a closed economy (No Trade)", "why": "Equilibrium where domestic Supply = Domestic Demand."},
+                {"q": "Terms of Trade formula:", "opt": ["Index of Export Prices / Index of Import Prices", "Import P / Export P", "Vol Exp / Vol Imp"], "ans": "Index of Export Prices / Index of Import Prices", "why": "Ratio of export prices to import prices (Px/Pm)."}
+            ],
+            "Brutal (Above Exam)": [
+                {"q": "Leontief Paradox found that the U.S. (Capital rich) exported:", "opt": ["Labor-intensive goods", "Capital-intensive goods", "Land-intensive goods"], "ans": "Labor-intensive goods", "why": "Contradicted Heckscher-Ohlin; explained by human capital (skilled labor)."},
+                {"q": "Trade Diversion occurs when:", "opt": ["Regional pact shifts trade from low-cost global to high-cost member", "Trade moves to low-cost member", "Volume decreases"], "ans": "Regional pact shifts trade from low-cost global to high-cost member", "why": "Efficiency loss from preferential trade agreements."},
+                {"q": "Marshall-Lerner Condition (Sum of elasticities > 1) ensures:", "opt": ["Depreciation improves Trade Balance", "Appreciation improves Trade Balance", "Stable prices"], "ans": "Depreciation improves Trade Balance", "why": "Volume effect dominates Price effect."},
+                {"q": "The J-Curve Effect describes:", "opt": ["Initial worsening of Trade Balance after depreciation", "Immediate improvement", "Steady decline"], "ans": "Initial worsening of Trade Balance after depreciation", "why": "Contracts are fixed in SR; import costs rise before volume adjusts."},
+                {"q": "Absorption Approach: Trade Balance (X-M) equals:", "opt": ["National Income (Y) - Domestic Expenditure (E)", "S - I", "T - G"], "ans": "National Income (Y) - Domestic Expenditure (E)", "why": "If we spend more than we earn, we must have a deficit."},
+                {"q": "In a Large Country, a Tariff can:", "opt": ["Improve Terms of Trade", "Hurt Terms of Trade", "No effect"], "ans": "Improve Terms of Trade", "why": "Monopsony power forces exporters to lower prices."},
+                {"q": "Infant Industry Argument relies on:", "opt": ["Temporary protection to achieve economies of scale", "Permanent protection", "National security"], "ans": "Temporary protection to achieve economies of scale", "why": "Valid only if industry eventually becomes competitive."},
+                {"q": "An Export Subsidy by a Large Country:", "opt": ["Worsens its Terms of Trade", "Improves Terms of Trade", "Increases Global Welfare"], "ans": "Worsens its Terms of Trade", "why": "Lowers world price of its export, hurting the subsidizer."},
+                {"q": "Economic Union adds what to a Common Market?", "opt": ["Common Economic Institutions/Policy", "Common Tariff", "Free Movement"], "ans": "Common Economic Institutions/Policy", "why": "High integration (e.g., EU)."},
+                {"q": "Balance of Payments Identity:", "opt": ["Current Acct + Capital Acct + Official Res = 0", "CA = KA", "X = M"], "ans": "Current Acct + Capital Acct + Official Res = 0", "why": "Every transaction has a debit and credit."},
+                {"q": "IMF Conditionality:", "opt": ["Borrowers must adopt austerity/reforms", "Borrowers must join WTO", "None"], "ans": "Borrowers must adopt austerity/reforms", "why": "Requirement for bailout loans."},
+                {"q": "Impact of Capital Restrictions:", "opt": ["Prevents Interest Rate Parity from holding", "Ensures PPP", "Increases Efficiency"], "ans": "Prevents Interest Rate Parity from holding", "why": "Disconnects domestic rates from global rates."},
+                {"q": "Twin Deficits Hypothesis links:", "opt": ["Fiscal Deficit and Trade Deficit", "Inflation and Unemployment", "Savings and Investment"], "ans": "Fiscal Deficit and Trade Deficit", "why": "Govt borrowing sucks in foreign capital, appreciating currency, hurting exports."},
+                {"q": "Effective Rate of Protection:", "opt": ["Considers tariffs on inputs vs outputs", "Just nominal tariff", "Quota equivalent"], "ans": "Considers tariffs on inputs vs outputs", "why": "True protection for value-added."},
+                {"q": "Gravity Model of Trade predicts trade based on:", "opt": ["Economic Size and Distance", "Tariffs", "Culture"], "ans": "Economic Size and Distance", "why": "Trade is proportional to GDPs and inversely proportional to distance."}
+            ],
+            "Flashcards (10 Cards)": [
+                {"q": "Comparative Advantage", "ans": "Lower Opportunity Cost", "why": "Basis for trade."},
+                {"q": "Absolute Advantage", "ans": "Lower Input Cost/Higher Productivity", "why": "Adam Smith."},
+                {"q": "Tariff", "ans": "Tax on Imports", "why": "Protects domestic producers."},
+                {"q": "Quota", "ans": "Limit on Quantity", "why": "Generates rents."},
+                {"q": "Customs Union", "ans": "FTA + Common External Tariff", "why": "Blocks non-members."},
+                {"q": "Current Account", "ans": "Goods/Services/Income/Transfers", "why": "Real economy flows."},
+                {"q": "Capital Account", "ans": "Asset Transfers/Investments", "why": "Financial flows."},
+                {"q": "Balance of Payments", "ans": "Must Sum to Zero", "why": "Accounting Identity."},
+                {"q": "J-Curve", "ans": "Depreciation hurts TB at first", "why": "Short run vs Long run."},
+                {"q": "Terms of Trade", "ans": "Px / Pm", "why": "Ratio of export/import prices."}
+            ]
+        },
+
         "LOS 7: Currency Exchange Rates": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
         "MOCK EXAM": {
             "Full Mock": []
