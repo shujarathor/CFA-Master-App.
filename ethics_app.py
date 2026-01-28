@@ -47,44 +47,41 @@ if "ethics_db" not in st.session_state:
         "LM 1: Ethical Decision-Making": {
             "Framework Overview": {
                 "Hard (Exam Level)": [
-                    {
-                        "question": "Which of the following is the final step in the Ethical Decision-Making Framework defined by the CFA Institute?",
-                        "options": ["Act", "Reflect", "Consider", "Identify"],
-                        "answer": "Reflect",
-                        "explanation": "The framework follows a 4-step process: Identify, Consider, Act, and finally Reflect on the outcome and the decision-making process."
-                    }
+                    {"question": "Which of the following is the final step in the Ethical Decision-Making Framework?", "options": ["Act", "Reflect", "Consider", "Identify"], "answer": "Reflect", "explanation": "The framework follows a 4-step process: Identify, Consider, Act, and finally Reflect."}
                 ],
                 "Brutal (Above Exam)": [
-                    {
-                        "question": "An analyst identifies a conflict of interest but is pressured by a supervisor to ignore it to meet a quarterly target. According to the Ethical Decision-Making Framework, the analyst should 'Consider' which of the following FIRST?",
-                        "options": ["The potential for a bonus increase.", "Situational influences such as 'Obedience to Authority'.", "The technical legality of the trade.", "The Firm's internal compliance manual exclusively."],
-                        "answer": "Situational influences such as 'Obedience to Authority'.",
-                        "explanation": "The 'Consider' phase specifically requires analysts to look beyond just rules and identify situational influences like peer pressure or obedience to authority that might cloud judgment."
-                    }
+                    {"question": "According to the Framework, 'Situational Influences' should be analyzed during which phase?", "options": ["Identify", "Consider", "Act", "Reflect"], "answer": "Consider", "explanation": "The 'Consider' phase is where you analyze biases and situational influences like obedience to authority."}
+                ]
+            },
+            "Identify Phase": {
+                "Hard (Exam Level)": [
+                    {"question": "During the 'Identify' phase, a professional should point out:", "options": ["Only the primary client.", "The facts, stakeholders, and duties owed.", "The quickest way to resolve the issue.", "Who is to blame."], "answer": "The facts, stakeholders, and duties owed.", "explanation": "Identification requires looking at the facts and everyone to whom a duty is owed."}
+                ],
+                "Brutal (Above Exam)": [
+                    {"question": "Which situational influence is most likely to cause a 'blind spot' during the Identify phase?", "options": ["Focusing on short-term results.", "A clear violation of policy.", "Directly asking for a bribe.", "Presence of a verifier."], "answer": "Focusing on short-term results.", "explanation": "Short-termism is a powerful influence that can lead to 'ethical fading.'"}
+                ]
+            },
+            "Consider Phase": {
+                "Hard (Exam Level)": [
+                    {"question": "Which of the following is considered a 'situational influence'?", "options": ["A written firm policy.", "Obedience to authority.", "The GIPS standards.", "Local securities law."], "answer": "Obedience to authority.", "explanation": "Situational influences are external factors, such as pressure from a boss, that lead to poor choices."}
+                ],
+                "Brutal (Above Exam)": [
+                    {"question": "An analyst observes misrepresentation but stays silent because 'no one else is speaking up.' This is:", "options": ["Professional Prudence.", "Social Proof.", "Loyalty to Employer.", "Knowledge of Law."], "answer": "Social Proof.", "explanation": "Social Proof is a situational influence where people mirror the behavior of the group."}
                 ]
             }
         },
         "Standard I: Professionalism": {
             "I(A) Knowledge of the Law": {
                 "Hard (Exam Level)": [
-                    {
-                        "question": "An analyst lives in Country A (strict laws) but does business in Country B (loose laws). If the CFA Standards are stricter than Country B but looser than Country A, which must the analyst follow?",
-                        "options": ["Country B Law", "CFA Standards", "Country A Law", "International Law"],
-                        "answer": "Country A Law",
-                        "explanation": "Standard I(A) requires following the strictest of: 1) Local Law, 2) Applicable Law, or 3) CFA Standards. Since Country A law is the strictest, it must be followed."
-                    }
+                    {"question": "If CFA Standards are stricter than local law, which must the analyst follow?", "options": ["Local Law", "CFA Standards", "Neither", "The more lenient one"], "answer": "CFA Standards", "explanation": "Standard I(A) requires following the stricter of the two."}
                 ],
                 "Brutal (Above Exam)": [
-                    {
-                        "question": "An analyst is based in a country where no securities laws exist. They are working on a deal in a cross-border market where the local law explicitly permits a practice that the CFA Code of Ethics prohibits. The analyst's firm policy is silent. The analyst should:",
-                        "options": ["Follow the local law of the market as it is the 'Applicable Law'.", "Follow the CFA Code of Ethics as it is stricter than the local law.", "Abstain from the trade entirely until a legal opinion is sought.", "Follow the local law but disclose it to the CFA Institute."],
-                        "answer": "Follow the CFA Code of Ethics as it is stricter than the local law.",
-                        "explanation": "Standard I(A) dictates that in the absence of law or if the law is less strict than the Code and Standards, the member must follow the Code and Standards."
-                    }
+                    {"question": "An analyst knows a colleague is violating the law. According to Standard I(A), the analyst must FIRST:", "options": ["Report to the police.", "Dissociate from the activity.", "Contact the CFA Institute.", "Tell the client."], "answer": "Dissociate from the activity.", "explanation": "The first step in Knowledge of the Law is to stop participating in or being associated with the violation."}
                 ]
             }
         }
     },
+
         "Consider Phase": {
             "Hard (Exam Level)": [
                 {"question": "During the 'Consider' phase of the Ethical Decision-Making Framework, situational influences are analyzed. Which of the following is a situational influence?", "options": ["Financial technical analysis.", "Obedience to authority.", "GIPS compliance manuals.", "The firm's legal counsel."], "answer": "Obedience to authority.", "explanation": "Situational influences are external pressures, such as group norms or obedience to authority, that can bias judgment."},
