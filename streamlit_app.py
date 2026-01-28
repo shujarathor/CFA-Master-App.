@@ -47,7 +47,49 @@ def get_chart(chart_type):
         
     return fig
 
-        # --- LOS 2: FULLY LOADED ---
+# ==============================================================================
+# 3. THE DATA STRUCTURE
+# ==============================================================================
+library = {
+    "Economics": {
+        "LOS 1: Topics in Demand and Supply Analysis": {
+            "Hard (Exam Level)": [
+                {"q": "If cross-price elasticity is negative, the goods are:", "opt": ["Substitutes", "Complements", "Inferior"], "ans": "Complements", "why": "Price of A up -> Demand for B down."},
+                {"q": "Income elasticity is 1.5. The good is:", "opt": ["Necessity", "Luxury", "Inferior"], "ans": "Luxury", "why": "Income elasticity > 1."},
+                {"q": "A price ceiling set BELOW equilibrium results in:", "opt": ["Surplus", "Shortage", "No Effect"], "ans": "Shortage", "why": "Qd > Qs at the capped price."},
+                {"q": "Substitution effect is always:", "opt": ["Positive", "Negative", "Ambiguous"], "ans": "Negative", "why": "Higher price always encourages substitution away."},
+                {"q": "In the elastic region, a Price Decrease leads to:", "opt": ["Higher Revenue", "Lower Revenue", "Same Revenue"], "ans": "Higher Revenue", "why": "%Q increase > %P decrease.", "chart": "elastic"},
+                {"q": "Unit Elastic Demand means Marginal Revenue is:", "opt": ["Positive", "Negative", "Zero"], "ans": "Zero", "why": "Total Revenue is maximized at unit elasticity."},
+                {"q": "Consumer Surplus is the area:", "opt": ["Below Demand Above Price", "Above Supply Below Price", "Below Supply"], "ans": "Below Demand Above Price", "why": "Difference between willingness to pay and price paid."},
+                {"q": "For a Giffen Good, the demand curve slopes:", "opt": ["Upward", "Downward", "Vertical"], "ans": "Upward", "why": "Negative Income effect > Substitution effect."},
+                {"q": "Deadweight loss represents:", "opt": ["Allocative Inefficiency", "Excess Profit", "Tax Revenue"], "ans": "Allocative Inefficiency", "why": "Loss of total surplus due to market distortion."},
+                {"q": "The tax burden falls on the consumer if Demand is:", "opt": ["Elastic", "Inelastic", "Perfectly Elastic"], "ans": "Inelastic", "why": "Consumers cannot switch away, so they pay the tax.", "chart": "inelastic"}
+            ],
+            "Brutal (Above Exam)": [
+                {"q": "For a Giffen Good, the Income Effect is:", "opt": ["Negative & < Sub Effect", "Negative & > Sub Effect", "Positive"], "ans": "Negative & > Sub Effect", "why": "Strong negative income effect dominates substitution effect."},
+                {"q": "Stable Cobweb model requires:", "opt": ["Supply steeper than Demand", "Demand steeper than Supply", "Slopes equal"], "ans": "Demand steeper than Supply", "why": "Demand must be less elastic than supply for convergence."},
+                {"q": "If Demand is P = 100 - 2Q, Marginal Revenue (MR) is:", "opt": ["100 - 2Q", "100 - 4Q", "100 - Q"], "ans": "100 - 4Q", "why": "MR has twice the slope of a linear Demand curve."},
+                {"q": "Utility Maximization condition:", "opt": ["MUx = MUy", "MUx/Px = MUy/Py", "Px = Py"], "ans": "MUx/Px = MUy/Py", "why": "Marginal utility per dollar must be equal across goods."},
+                {"q": "Slope of the Indifference Curve is:", "opt": ["MRS", "MRT", "MPL"], "ans": "MRS", "why": "Marginal Rate of Substitution (willingness to trade)."},
+                {"q": "Income Elast -0.5, Price Elast -0.4. Price +10%, Income +10%. Q change?", "opt": ["-9%", "-1%", "+1%"], "ans": "-9%", "why": "(-0.4*10) + (-0.5*10) = -4% - 5% = -9%."},
+                {"q": "Quota Rent accrues to:", "opt": ["Government", "License Holder", "Consumer"], "ans": "License Holder", "why": "The importer captures the price gap."},
+                {"q": "A Subsidy benefits the producer most if Demand is:", "opt": ["Perfectly Elastic", "Perfectly Inelastic", "Unit Elastic"], "ans": "Perfectly Elastic", "why": "Price doesn't fall for consumers, so producers keep the full subsidy."},
+                {"q": "Production function Q = K^0.6 L^0.5. Returns to Scale?", "opt": ["Constant", "Decreasing", "Increasing"], "ans": "Increasing", "why": "Exponents sum to 1.1 (>1)."},
+                {"q": "Linear Demand intercept elasticity is:", "opt": ["Zero", "One", "Infinity"], "ans": "Infinity", "why": "At the Y-intercept, Q is zero, making ratio infinite."}
+            ],
+            "Flashcards (10 Cards)": [
+                {"q": "Elasticity Formula", "ans": "%ΔQ / %ΔP", "why": "Measure of responsiveness."},
+                {"q": "Giffen Good", "ans": "Inferior + Upward Sloping", "why": "Income Effect > Substitution Effect."},
+                {"q": "Consumer Surplus", "ans": "Area below D, above P", "why": "Net benefit to buyers."},
+                {"q": "Deadweight Loss", "ans": "Lost Total Surplus", "why": "Inefficiency marker."},
+                {"q": "Cross Elasticity (+)", "ans": "Substitutes", "why": "Move together."},
+                {"q": "Cross Elasticity (-)", "ans": "Complements", "why": "Move opposite."},
+                {"q": "Normal Good", "ans": "Income Elast > 0", "why": "Buy more as you get richer."},
+                {"q": "Inferior Good", "ans": "Income Elast < 0", "why": "Buy less as you get richer."},
+                {"q": "Price Floor", "ans": "Min Price (Surplus)", "why": "Set above equilibrium."},
+                {"q": "Price Ceiling", "ans": "Max Price (Shortage)", "why": "Set below equilibrium."}
+            ]
+        },
         "LOS 2: The Firm and Market Structures": {
             "Hard (Exam Level)": [
                 {"q": "Perfect Competition Demand Curve is:", "opt": ["Horizontal", "Vertical", "Downward"], "ans": "Horizontal", "why": "Firm is a Price Taker.", "chart": "perfect_competition"},
@@ -96,8 +138,6 @@ def get_chart(chart_type):
                 {"q": "Breakeven", "ans": "P = ATC", "why": "Zero Economic Profit."}
             ]
         },
-
-        # --- LOS 3: FULLY LOADED ---
         "LOS 3: Aggregate Output, Prices, and Growth": {
             "Hard (Exam Level)": [
                 {"q": "GDP Deflator formula:", "opt": ["Nominal GDP / Real GDP", "Real / Nominal", "CPI / PPI"], "ans": "Nominal GDP / Real GDP", "why": "Measures price level changes."},
@@ -146,7 +186,16 @@ def get_chart(chart_type):
                 {"q": "Diminishing Returns", "ans": "MPK falls as K rises", "why": "Solow Model key."}
             ]
         },
-
+        "LOS 4: Understanding Business Cycles": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
+        "LOS 5: Monetary and Fiscal Policy": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
+        "LOS 6: International Trade and Capital Flows": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
+        "LOS 7: Currency Exchange Rates": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
+        "MOCK EXAM": {
+            "Full Mock": []
+        }
+    }
+}
+        
 # 4. STATE MANAGEMENT
 # ==============================================================================
 if 'history' not in st.session_state: st.session_state.history = []
