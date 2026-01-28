@@ -1,7 +1,17 @@
 import streamlit as st
+import pandas as pd
 
-# --- ETHICS DATABASE STRUCTURE ---
-# We use a dictionary where keys are the Main Standards and values are lists of Sub-Standards.
+st.set_page_config(page_title="CFA Ethics War Room", layout="wide")
+st.title("🛡️ CFA Level 1: Ethics & GIPS")
+
+# --- INITIALIZE SESSION STATE ---
+if "score_history" not in st.session_state:
+    st.session_state.score_history = []  # Stores 1 for correct, 0 for incorrect
+
+# --- NAVIGATION TABS ---
+tab1, tab2, tab3, tab4 = st.tabs(["📝 Practice Drills", "🗂️ Flashcards", "💀 Brutal Mock", "📈 Performance"])
+
+# --- DROPDOWN MENU DATA ---
 ethics_hierarchy = {
     "LM 1: Ethical Decision-Making": ["Framework Overview", "Identify Phase", "Consider Phase", "Act/Reflect Phase"],
     "Standard I: Professionalism": ["I(A) Knowledge of the Law", "I(B) Independence & Objectivity", "I(C) Misrepresentation", "I(D) Misconduct"],
@@ -10,83 +20,168 @@ ethics_hierarchy = {
     "Standard IV: Duties to Employers": ["IV(A) Loyalty", "IV(B) Additional Compensation", "IV(C) Responsibilities of Supervisors"],
     "Standard V: Investment Analysis": ["V(A) Diligence & Reasonable Basis", "V(B) Communication", "V(C) Record Retention"],
     "Standard VI: Conflicts of Interest": ["VI(A) Disclosure", "VI(B) Priority of Transactions", "VI(C) Referral Fees"],
-    "Standard VII: Responsibility as CFA": ["VII(A) Conduct in Program", "VII(B) Reference to CFA Institute"],
-    "LM 4: Introduction to GIPS": ["GIPS Objectives", "GIPS Compliance Claims", "GIPS Nine Sections"]
+    "Standard VII: Responsibility as CFA": ["VII(A) Conduct in Program", "VII(B) Reference to CFA Institute"]
 }
 
-st.set_page_config(page_title="CFA Ethics War Room", layout="wide")
-st.title("🛡️ CFA Level 1: Ethics & GIPS")
+# --- HELPER FUNCTION: NAVIGATION ---
+def navigation_buttons(curr_idx, total_questions, session_key):
+    col_prev, col_next = st.columns([1, 1])
+    
+    with col_prev:
+        if st.button("⬅️ Previous", key=f"prev_{session_key}"):
+            if curr_idx > 0:
+                st.session_state[session_key] -= 1
+                st.rerun()
+            else:
+                st.toast("You are at the first question.")
 
-# --- NAVIGATION TABS ---
-tab1, tab2, tab3 = st.tabs(["📝 Practice Drills", "🗂️ Flashcards", "💀 Brutal Mock"])
+    with col_next:
+        if st.button("Next ➡️", key=f"next_{session_key}"):
+            if curr_idx < total_questions - 1:
+                st.session_state[session_key] += 1
+                st.rerun()
+            else:
+                st.toast("You have reached the end of this section!")
 
+# --- TAB 1: PRACTICE DRILLS ---
 with tab1:
     st.subheader("Targeted Practice")
     
-    # DOUBLE DROPDOWN LOGIC
-    # Dropdown 1: The Main Module
+    # Selection Menus
     main_selection = st.selectbox("1. Select Main Module:", list(ethics_hierarchy.keys()))
-    
-    # Dropdown 2: The Specific LOS / Sub-Standard (Dynamically updates based on Dropdown 1)
     sub_selection = st.selectbox("2. Select Sub-Topic:", ethics_hierarchy[main_selection])
-    
     st.divider()
-    
     difficulty = st.radio("Select Intensity:", ["Hard (Exam Level)", "Brutal (Above Exam)"], horizontal=True)
     
-    st.info(f"Currently Drilling: **{sub_selection}**")
+    # Load Data
+    try:
+        df = pd.read_csv("ethics_questions.csv")
+    except FileNotFoundError:
+        st.error("🚨 Error: 'ethics_questions.csv' not found.")
+        st.stop()
 
-# --- PLACEHOLDERS FOR DATA ---
-# We will populate these keys as we generate questions
-if "questions" not in st.session_state:
-    st.session_state.questions = {} 
+    # Filter Data
+    subset = df[
+        (df["Module"] == main_selection) & 
+        (df["SubTopic"] == sub_selection) & 
+        (df["Difficulty"] == difficulty)
+    ]
 
-# --- QUESTION DATABASE ---
-if "ethics_db" not in st.session_state:
-    st.session_state.ethics_db = {
-        "LM 1: Ethical Decision-Making": {
-            "Framework Overview": {
-                "Hard (Exam Level)": [
-                    {"question": "Which of the following is the final step in the Ethical Decision-Making Framework?", "options": ["Act", "Reflect", "Consider", "Identify"], "answer": "Reflect", "explanation": "The framework follows a 4-step process: Identify, Consider, Act, and finally Reflect."}
-                ],
-                "Brutal (Above Exam)": [
-                    {"question": "According to the Framework, 'Situational Influences' should be analyzed during which phase?", "options": ["Identify", "Consider", "Act", "Reflect"], "answer": "Consider", "explanation": "The 'Consider' phase is where you analyze biases and situational influences like obedience to authority."}
-                ]
-            },
-            "Identify Phase": {
-                "Hard (Exam Level)": [
-                    {"question": "During the 'Identify' phase, a professional should point out:", "options": ["Only the primary client.", "The facts, stakeholders, and duties owed.", "The quickest way to resolve the issue.", "Who is to blame."], "answer": "The facts, stakeholders, and duties owed.", "explanation": "Identification requires looking at the facts and everyone to whom a duty is owed."}
-                ],
-                "Brutal (Above Exam)": [
-                    {"question": "Which situational influence is most likely to cause a 'blind spot' during the Identify phase?", "options": ["Focusing on short-term results.", "A clear violation of policy.", "Directly asking for a bribe.", "Presence of a verifier."], "answer": "Focusing on short-term results.", "explanation": "Short-termism is a powerful influence that can lead to 'ethical fading.'"}
-                ]
-            },
-            "Consider Phase": {
-                "Hard (Exam Level)": [
-                    {"question": "Which of the following is considered a 'situational influence'?", "options": ["A written firm policy.", "Obedience to authority.", "The GIPS standards.", "Local securities law."], "answer": "Obedience to authority.", "explanation": "Situational influences are external factors, such as pressure from a boss, that lead to poor choices."}
-                ],
-                "Brutal (Above Exam)": [
-                    {"question": "An analyst observes misrepresentation but stays silent because 'no one else is speaking up.' This is:", "options": ["Professional Prudence.", "Social Proof.", "Loyalty to Employer.", "Knowledge of Law."], "answer": "Social Proof.", "explanation": "Social Proof is a situational influence where people mirror the behavior of the group."}
-                ]
-            },
-            "Act/Reflect Phase": {
-                "Hard (Exam Level)": [
-                    {"question": "The primary objective of the 'Reflect' phase is to:", "options": ["Find someone to blame.", "Maximize future bonuses.", "Strengthen future ethical decision-making.", "Ensure legal fees are minimized."], "answer": "Strengthen future ethical decision-making.", "explanation": "Reflection is a continuous improvement step to learn from the outcome."}
-                ],
-                "Brutal (Above Exam)": [
-                    {"question": "An analyst who ignores a failure to act during the 'Reflect' phase is failing in which duty?", "options": ["Duty to Employers.", "Duty to the Integrity of the Profession.", "Duty to the Government.", "Duty to themselves only."], "answer": "Duty to the Integrity of the Profession.", "explanation": "Continuous improvement through reflection is a hallmark of professional integrity."}
-                ]
-            }
-        },
-        "Standard I: Professionalism": {
-            "I(A) Knowledge of the Law": {
-                "Hard (Exam Level)": [
-                    {"question": "If CFA Standards are stricter than local law, which must the analyst follow?", "options": ["Local Law", "CFA Standards", "Neither", "The more lenient one"], "answer": "CFA Standards", "explanation": "Standard I(A) requires following the stricter of the two."}
-                ],
-                "Brutal (Above Exam)": [
-                    {"question": "An analyst knows a colleague is violating the law. According to Standard I(A), the analyst must FIRST:", "options": ["Report to the police.", "Dissociate from the activity.", "Contact the CFA Institute.", "Tell the client."], "answer": "Dissociate from the activity.", "explanation": "The first step in Knowledge of the Law is to stop participating in or being associated with the violation."}
-                ]
-            }
-        }
-    }
+    if not subset.empty:
+        session_key = f"idx_{sub_selection}_{difficulty}"
+        if session_key not in st.session_state:
+            st.session_state[session_key] = 0
+        
+        curr_idx = st.session_state[session_key]
+        
+        # Safety Check
+        if curr_idx >= len(subset):
+            curr_idx = 0
+            st.session_state[session_key] = 0
+            
+        row = subset.iloc[curr_idx]
+        
+        st.info(f"**Question {curr_idx + 1} of {len(subset)}**")
+        st.markdown(f"### {row['Question']}")
+        
+        options = [row['OptionA'], row['OptionB'], row['OptionC'], row['OptionD']]
+        choice = st.radio("Select Answer:", options, key=f"rad_{session_key}_{curr_idx}")
+        
+        if st.button("Check Answer", key=f"check_{session_key}_{curr_idx}"):
+            if choice == row['Answer']:
+                st.success("✅ Correct!")
+                st.session_state.score_history.append(1)
+            else:
+                st.error(f"❌ Incorrect. The correct answer is: {row['Answer']}")
+                st.session_state.score_history.append(0)
+            st.markdown(f"**Explanation:** {row['Explanation']}")
+            
+        st.divider()
+        # FIXED NAVIGATION BUTTONS
+        navigation_buttons(curr_idx, len(subset), session_key)
+
+    else:
+        st.warning(f"No questions found for **{sub_selection}** at **{difficulty}** level yet.")
+
+# --- TAB 2: FLASHCARDS ---
+with tab2:
+    st.subheader("⚡ Rapid Fire Flashcards")
     
+    # Reuse the same dropdowns from Tab 1 to filter flashcards
+    st.caption(f"Showing Flashcards for: {sub_selection}")
+    
+    try:
+        df_flash = pd.read_csv("ethics_flashcards.csv")
+    except FileNotFoundError:
+        st.error("🚨 Error: 'ethics_flashcards.csv' not found.")
+        st.stop()
+        
+    # Filter Flashcards
+    fc_subset = df_flash[
+        (df_flash["Module"] == main_selection) & 
+        (df_flash["SubTopic"] == sub_selection)
+    ]
+    
+    if not fc_subset.empty:
+        fc_key = f"fc_idx_{sub_selection}"
+        if fc_key not in st.session_state:
+            st.session_state[fc_key] = 0
+            
+        fc_idx = st.session_state[fc_key]
+        
+        # Safety Check
+        if fc_idx >= len(fc_subset):
+            fc_idx = 0
+            st.session_state[fc_key] = 0
+            
+        fc_row = fc_subset.iloc[fc_idx]
+        
+        # Flashcard UI
+        st.markdown(f"**Card {fc_idx + 1} of {len(fc_subset)}**")
+        with st.container(border=True):
+            st.markdown(f"## ❓ {fc_row['Front']}")
+            if st.checkbox("Show Answer", key=f"reveal_{fc_key}_{fc_idx}"):
+                st.markdown(f"## 💡 {fc_row['Back']}")
+        
+        st.divider()
+        # FIXED NAVIGATION BUTTONS
+        navigation_buttons(fc_idx, len(fc_subset), fc_key)
+        
+    else:
+        st.info("No flashcards added for this topic yet.")
+
+# --- TAB 3: BRUTAL MOCK ---
+with tab3:
+    st.subheader("💀 The Brutal Mock")
+    st.write("This section will pull 300 unique questions from the Mock Vault.")
+    # Placeholder for now - uses the same structure but will eventually use 'ethics_mock.csv'
+    # For testing, we just show a message.
+    st.warning("Mock Vault under construction. Please use Practice Tab for now.")
+
+# --- TAB 4: PERFORMANCE ---
+with tab4:
+    st.subheader("📈 Your Performance")
+    
+    history = st.session_state.score_history
+    if history:
+        total_attempted = len(history)
+        total_correct = sum(history)
+        score_pct = (total_correct / total_attempted) * 100
+        
+        col1, col2, col3 = st.columns(3)
+        col1.metric("Questions Attempted", total_attempted)
+        col2.metric("Correct Answers", total_correct)
+        col3.metric("Accuracy", f"{score_pct:.1f}%")
+        
+        st.progress(score_pct / 100)
+        
+        if score_pct > 70:
+            st.success("You are on track to pass!")
+        else:
+            st.warning("Keep drilling. Target is 70%+")
+            
+        if st.button("Reset Stats"):
+            st.session_state.score_history = []
+            st.rerun()
+    else:
+        st.info("Attempt some questions in the Practice Tab to see your stats!")
