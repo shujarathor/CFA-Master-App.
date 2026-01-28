@@ -84,16 +84,27 @@ with tab1:
         st.info(f"**Question {curr_idx + 1} of {len(subset)}**")
         st.markdown(f"### {row['Question']}")
         
-        # --- FIXED: Only load 3 Options (A, B, C) ---
-        options = [row['OptionA'], row['OptionB'], row['OptionC']]
-        choice = st.radio("Select Answer:", options, key=f"rad_{session_key}_{curr_idx}")
+        # --- THE MAPPING LOGIC FIX ---
+        # Map the text back to the Option Label (e.g., "Consider" -> "OptionC")
+        options_map = {
+            row['OptionA']: 'OptionA',
+            row['OptionB']: 'OptionB',
+            row['OptionC']: 'OptionC'
+        }
+        
+        options_text = list(options_map.keys())
+        choice_text = st.radio("Select Answer:", options_text, key=f"rad_{session_key}_{curr_idx}")
         
         if st.button("Check Answer", key=f"check_{session_key}_{curr_idx}"):
-            if choice == row['Answer']:
+            # Look up the label for the text the user selected
+            selected_label = options_map[choice_text]
+            
+            # Compare Label to Label (OptionC == OptionC)
+            if selected_label == row['Answer']:
                 st.success("✅ Correct!")
                 st.session_state.score_history.append(1)
             else:
-                st.error(f"❌ Incorrect. The correct answer is: {row['Answer']}")
+                st.error(f"❌ Incorrect. The correct answer was: {row[row['Answer']]}")
                 st.session_state.score_history.append(0)
             st.markdown(f"**Explanation:** {row['Explanation']}")
             
