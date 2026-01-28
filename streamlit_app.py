@@ -336,7 +336,56 @@ library = {
             ]
         },
 
-        "LOS 7: Currency Exchange Rates": { "Hard (Exam Level)": [], "Brutal (Above Exam)": [], "Flashcards (10 Cards)": [] },
+        # --- LOS 7: FULLY LOADED ---
+        "LOS 7: Currency Exchange Rates": {
+            "Hard (Exam Level)": [
+                {"q": "Spot Exchange Rate definition:", "opt": ["Rate for immediate delivery (T+2)", "Rate for future delivery", "Average rate"], "ans": "Rate for immediate delivery (T+2)", "why": "Standard settlement is 2 days."},
+                {"q": "Forward Exchange Rate definition:", "opt": ["Rate for future delivery", "Rate for immediate delivery", "Central Bank rate"], "ans": "Rate for future delivery", "why": "Used for hedging or speculation."},
+                {"q": "If EUR/USD moves from 1.10 to 1.15, the USD has:", "opt": ["Depreciated", "Appreciated", "Stayed constant"], "ans": "Depreciated", "why": "It takes MORE dollars to buy 1 Euro, so Dollar is weaker."},
+                {"q": "Real Exchange Rate formula:", "opt": ["Nominal Rate x (CPI Foreign / CPI Domestic)", "Nominal x (CPI Dom / CPI For)", "Nominal - Inflation"], "ans": "Nominal Rate x (CPI Foreign / CPI Domestic)", "why": "Adjusts for relative purchasing power."},
+                {"q": "Purchasing Power Parity (PPP) implies:", "opt": ["Law of One Price holds globally", "Interest rates are equal", "Inflation is zero"], "ans": "Law of One Price holds globally", "why": "Identical goods should cost the same everywhere when adjusted for FX."},
+                {"q": "If a country has higher inflation than its trading partners, its currency should:", "opt": ["Depreciate", "Appreciate", "Stay stable"], "ans": "Depreciate", "why": "To maintain PPP, the currency loses value to offset inflation."},
+                {"q": "A 'Direct Quote' in the US is:", "opt": ["DC/FC (e.g., 1.2 USD/EUR)", "FC/DC (e.g., 0.8 EUR/USD)", "Cross rate"], "ans": "DC/FC (e.g., 1.2 USD/EUR)", "why": "Price of one unit of foreign currency in domestic terms."},
+                {"q": "The 'Bid' price in a quote is:", "opt": ["Price dealer pays to buy", "Price dealer sells at", "Midpoint"], "ans": "Price dealer pays to buy", "why": "Dealer Bids low, Asks high."},
+                {"q": "The 'Ask' (Offer) price is:", "opt": ["Price dealer sells at", "Price dealer buys at", "Zero"], "ans": "Price dealer sells at", "why": "You buy from the dealer at the Ask."},
+                {"q": "Spread calculation:", "opt": ["Ask - Bid", "Bid - Ask", "Ask / Bid"], "ans": "Ask - Bid", "why": "Dealer's profit margin."},
+                {"q": "Cross Rate calculation (e.g., EUR/GBP) usually involves:", "opt": ["Using USD as a bridge", "Using Gold", "Guessing"], "ans": "Using USD as a bridge", "why": "Most currencies quote against USD."},
+                {"q": "Forward Premium means:", "opt": ["Forward Rate > Spot Rate", "Forward Rate < Spot Rate", "Forward = Spot"], "ans": "Forward Rate > Spot Rate", "why": "Currency is stronger in the forward market."},
+                {"q": "Forward Discount means:", "opt": ["Forward Rate < Spot Rate", "Forward > Spot", "Volatile"], "ans": "Forward Rate < Spot Rate", "why": "Currency is weaker in the future."},
+                {"q": "Exchange Rate Regimes: 'Floating' means:", "opt": ["Market determines rate", "Government sets rate", "Fixed to Gold"], "ans": "Market determines rate", "why": "Supply and Demand drive price."},
+                {"q": "Exchange Rate Regimes: 'Pegged' means:", "opt": ["Fixed to another currency", "Floating", "No currency"], "ans": "Fixed to another currency", "why": "Central Bank intervenes to maintain rate."}
+            ],
+            "Brutal (Above Exam)": [
+                {"q": "Interest Rate Parity (IRP) prevents:", "opt": ["Riskless Arbitrage", "Inflation", "Trade Deficits"], "ans": "Riskless Arbitrage", "why": "Forward premium/discount must offset interest rate differential."},
+                {"q": "If Country A Interest Rate > Country B Interest Rate, Country A currency should trade at a:", "opt": ["Forward Discount", "Forward Premium", "Spot Premium"], "ans": "Forward Discount", "why": "High rate currency depreciates in forward market to offset yield advantage."},
+                {"q": "Carry Trade involves:", "opt": ["Borrowing Low Yield, Investing High Yield", "Borrowing High Yield", "Hedging"], "ans": "Borrowing Low Yield, Investing High Yield", "why": "Profits from rate spread (risks currency crash)."},
+                {"q": "Marshall-Lerner Condition (Elasticities):", "opt": ["wX + wM > 1", "wX + wM < 1", "wX = wM"], "ans": "wX + wM > 1", "why": "Depreciation only improves Trade Balance if demand is elastic enough."},
+                {"q": "Absorption Approach: To improve Trade Balance, a country must:", "opt": ["Reduce Domestic Expenditure relative to Income", "Increase Spending", "Lower Taxes"], "ans": "Reduce Domestic Expenditure relative to Income", "why": "X - M = Y - E."},
+                {"q": "The J-Curve Effect is caused by:", "opt": ["Short-term contract rigidity", "Long-term elasticity", "Speculation"], "ans": "Short-term contract rigidity", "why": "Import prices rise immediately, volume adjusts slowly."},
+                {"q": "Mundell-Fleming Model (High Capital Mobility): Expansionary Fiscal Policy leads to:", "opt": ["Appreciation", "Depreciation", "No change"], "ans": "Appreciation", "why": "Higher rates attract foreign capital inflows."},
+                {"q": "Mundell-Fleming Model (High Capital Mobility): Expansionary Monetary Policy leads to:", "opt": ["Depreciation", "Appreciation", "Stable rates"], "ans": "Depreciation", "why": "Lower rates cause capital flight."},
+                {"q": "Currency Board:", "opt": ["Legislative commitment to exchange domestic currency for anchor at fixed rate", "Soft peg", "Managed Float"], "ans": "Legislative commitment to exchange domestic currency for anchor at fixed rate", "why": "Requires 100% reserve backing; imports inflation."},
+                {"q": "Impossible Trinity (Trilemma): You cannot have all three:", "opt": ["Fixed Rate, Free Capital Flow, Independent Monetary Policy", "Low Inf, High Growth, Low Tax", "Fixed Rate, Tariffs, Growth"], "ans": "Fixed Rate, Free Capital Flow, Independent Monetary Policy", "why": "Must choose two."},
+                {"q": "Calculating Forward Points: If Bid is 1.2000 and points are -10:", "opt": ["1.1990", "1.2010", "1.2100"], "ans": "1.1990", "why": "Points are added/subtracted (divide by 10,000 for standard pairs)."},
+                {"q": "Relative PPP states % change in Spot Rate equals:", "opt": ["Inflation Differential", "Interest Rate Differential", "Growth Differential"], "ans": "Inflation Differential", "why": "S1/S0 = (1+Inf_A)/(1+Inf_B)."},
+                {"q": "Uncovered Interest Parity (UIP) assumes:", "opt": ["Risk Neutral investors", "Risk Averse investors", "Capital Controls"], "ans": "Risk Neutral investors", "why": "Expected spot change equals interest differential (often fails in reality)."},
+                {"q": "Terms of Trade Improvement usually leads to:", "opt": ["Real Income Increase", "Real Income Decrease", "Inflation"], "ans": "Real Income Increase", "why": "Your exports buy more imports."},
+                {"q": "Dornbusch Overshooting Model:", "opt": ["Exchange rates overreact to monetary shocks in SR", "Rates are stable", "PPP holds always"], "ans": "Exchange rates overreact to monetary shocks in SR", "why": "Prices are sticky, so FX moves efficiently (too much) to compensate."}
+            ],
+            "Flashcards (10 Cards)": [
+                {"q": "Spot Rate", "ans": "Immediate Delivery (T+2)", "why": "Cash market."},
+                {"q": "Forward Rate", "ans": "Future Delivery", "why": "Locked in today."},
+                {"q": "Direct Quote", "ans": "Domestic / Foreign", "why": "Cost of 1 unit of foreign."},
+                {"q": "Indirect Quote", "ans": "Foreign / Domestic", "why": "Buying power of 1 unit domestic."},
+                {"q": "Real Exchange Rate", "ans": "Nominal adjusted for Price Levels", "why": "Purchasing Power."},
+                {"q": "PPP", "ans": "Law of One Price", "why": "Long run equilibrium."},
+                {"q": "Interest Rate Parity", "ans": "F/S = (1+r_d)/(1+r_f)", "why": "No Arbitrage condition."},
+                {"q": "Carry Trade", "ans": "Borrow Low, Invest High", "why": "Profits from yield spread."},
+                {"q": "J-Curve", "ans": "Depreciation worsens TB first", "why": "Price effect > Volume effect (SR)."},
+                {"q": "Impossible Trinity", "ans": "Fixed Rate, Capital Flow, Indep Policy", "why": "Pick Two."}
+            ]
+        },
+
         "MOCK EXAM": {
             "Full Mock": []
         }
