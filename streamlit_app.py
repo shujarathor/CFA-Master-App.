@@ -595,7 +595,6 @@ library = {
                 {"q": "198. The 'Sacrifice Ratio' measures:", "opt": ["GDP lost to reduce inflation by 1%", "Tax revenue lost", "Jobs gained"], "ans": "GDP lost to reduce inflation by 1%", "why": "Cost of disinflation."},
                 {"q": "199. 'Hysteresis' in economics refers to:", "opt": ["History dependence (Short run affects Long run)", "Rationality", "Efficiency"], "ans": "History dependence (Short run affects Long run)", "why": "e.g., A deep recession permanently lowers potential GDP."},
                 {"q": "200. 'Creative Destruction' (Schumpeter) means:", "opt": ["Innovation destroys old industries to create new ones", "War", "Recession"], "ans": "Innovation destroys old industries to create new ones", "why": "Essential engine of capitalist growth."},
-                                
                 # --- BATCH 5 (Questions 201-300: THE VISUAL WAR ROOM) ---
                 {"q": "201. [CHART: J-Curve] Looking at the J-Curve effect: In the short run (Phase A), a currency depreciation causes the Trade Balance to:", "opt": ["Deteriorate (Worsen)", "Improve immediately", "Stay constant"], "ans": "Deteriorate (Worsen)", "why": "Price effect dominates volume effect. Imports cost more, but volume hasn't adjusted yet.", "chart": "j_curve"},
                 {"q": "202. [CHART: Tariff] In a Tariff diagram, the 'Deadweight Loss' is represented by:", "opt": ["The two small triangles (Production & Consumption distortion)", "The rectangular tax revenue", "The Consumer Surplus"], "ans": "The two small triangles (Production & Consumption distortion)", "why": "Loss of efficiency where MC > P or Willingness to Pay > P.", "chart": "tariff_welfare"},
@@ -697,14 +696,8 @@ library = {
                 {"q": "298. 'Soft Commodities':", "opt": ["Grown (Coffee, Sugar, Corn)", "Mined (Gold)", "Oil"], "ans": "Grown (Coffee, Sugar, Corn)", "why": "Weather dependent."},
                 {"q": "299. 'Hard Commodities':", "opt": ["Mined/Extracted (Gold, Oil)", "Grown", "Cattle"], "ans": "Mined/Extracted (Gold, Oil)", "why": "Geology dependent."},
                 {"q": "300. [THE FINAL BOSS] 'Mosaic Theory' Violation? Analyst talks to CEO (Non-Material), talks to Suppliers (Non-Material), and checks Satellite Data (Public). Concludes earnings will beat. Trades.", "opt": ["Legal (Mosaic Theory)", "Illegal (Insider Trading)", "Illegal (Front Running)"], "ans": "Legal (Mosaic Theory)", "why": "Congratulations. You combined non-material non-public info with public info to create a material conclusion. This is the essence of active management."}
-            ]
+                        ]
         }
-
-            ]
-        }
-
-
-
     }
 }
         
