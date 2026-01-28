@@ -403,135 +403,164 @@ if 'm_idx' not in st.session_state: st.session_state.m_idx = 0
 if 'm_score' not in st.session_state: st.session_state.m_score = 0
 
 # ==============================================================================
-# 5. THE INTERFACE
 # ==============================================================================
-st.sidebar.title("🧭 CFA Ecosystem")
+# 5. THE INTERFACE (NAVIGATION UPGRADE)
+# ==============================================================================
+st.title("CFA Master System")
 
-# MODULE SELECTOR
+# MODULE SELECTOR (MAIN SCREEN)
 if not library["Economics"]:
-    st.warning("⚠️ Database Empty. Please Paste Data Blocks into 'library' dictionary.")
+    st.error("⚠️ Database Empty. Please Paste Data.")
     st.stop()
 
 los_keys = list(library["Economics"].keys())
 # Filter out Mock from LOS dropdown
 practice_keys = [k for k in los_keys if "MOCK" not in k]
 
-if practice_keys:
-    selected_los = st.sidebar.selectbox("Select LOS", practice_keys)
-else:
-    selected_los = None
+# --- DROPDOWN MENU ---
+selected_los = st.selectbox("📂 Select Learning Outcome (LOS):", practice_keys)
 
-# RESET BUTTON
-if st.sidebar.button("🔄 Reset All"):
+# RESET BUTTON (Small link style)
+if st.button("🔄 Reset Session"):
     for key in ['q_idx', 'score', 'checked', 'fc_flipped', 'm_idx', 'm_score']:
         if key in st.session_state: del st.session_state[key]
     st.rerun()
 
 # TABS
-tab1, tab2, tab3, tab4 = st.tabs(["📝 Practice Questions", "🃏 Flashcards", "💀 Brutal Mock", "📊 Performance"])
+tab1, tab2, tab3, tab4 = st.tabs(["📝 Practice", "🃏 Flashcards", "💀 Brutal Mock", "📊 Stats"])
 
 # --- TAB 1: PRACTICE ---
 with tab1:
     if selected_los:
-        available_levels = [k for k in library["Economics"][selected_los].keys() if "Flashcard" not in k]
-        level = st.radio("Difficulty", available_levels, horizontal=True)
-        
-        q_list = library["Economics"][selected_los][level]
-        total = len(q_list)
-        idx = st.session_state.q_idx
-        
-        if idx < total:
-            q = q_list[idx]
-            # Progress
-            c1, c2 = st.columns([5,1])
-            c1.progress((idx)/total)
-            c2.markdown(f"**{st.session_state.score}/{total}**")
-            
-            # Content
-            if "chart" in q: st.plotly_chart(get_chart(q['chart']), use_container_width=True)
-            st.markdown(f"### Q{idx+1}: {q['q']}")
-            choice = st.radio("Select:", q['opt'], key=f"q_{idx}")
-            
-            # Logic
-            b1, b2 = st.columns(2)
-            if b1.button("Check Answer"): st.session_state.checked = True
-            
-            if st.session_state.checked:
-                if choice == q['ans']:
-                    st.success(f"✅ Correct! \n\n{q['why']}")
-                    if f"done_{idx}" not in st.session_state:
-                        st.session_state.score += 1
-                        st.session_state[f"done_{idx}"] = True
-                else:
-                    st.error(f"❌ Wrong. Answer: {q['ans']} \n\n{q['why']}")
-                
-                if b2.button("Next ➡️"):
-                    st.session_state.q_idx += 1
-                    st.session_state.checked = False
-                    st.rerun()
+        # Check if empty
+        if not library["Economics"][selected_los]["Hard (Exam Level)"]:
+            st.info("🚧 Questions for this LOS are coming in the next data block.")
         else:
-            st.balloons()
-            st.success("Module Complete!")
-            # Save to History
-            st.session_state.history.append({
-                "Time": datetime.now().strftime("%H:%M"), 
-                "Module": selected_los, 
-                "Score": f"{st.session_state.score}/{total}"
-            })
+            available_levels = [k for k in library["Economics"][selected_los].keys() if "Flashcard" not in k]
+            level = st.radio("Difficulty:", available_levels, horizontal=True)
+            
+            q_list = library["Economics"][selected_los][level]
+            if not q_list:
+                st.warning("No questions in this category yet.")
+            else:
+                total = len(q_list)
+                idx = st.session_state.q_idx
+                
+                # Boundary Check
+                if idx >= total: idx = total - 1
+                if idx < 0: idx = 0
+                
+                q = q_list[idx]
+                
+                # Progress Bar
+                st.caption(f"Question {idx+1} of {total}")
+                st.progress((idx+1)/total)
+                
+                # Question & Chart
+                if "chart" in q: st.plotly_chart(get_chart(q['chart']), use_container_width=True)
+                st.markdown(f"### {q['q']}")
+                
+                choice = st.radio("Select Answer:", q['opt'], key=f"q_{idx}")
+                
+                # --- NEW NAVIGATION BUTTONS (Prev | Check | Next) ---
+                c1, c2, c3 = st.columns([1, 2, 1])
+                
+                # PREV BUTTON
+                if idx > 0:
+                    if c1.button("⬅️ Prev"):
+                        st.session_state.q_idx -= 1
+                        st.session_state.checked = False
+                        st.rerun()
+                
+                # CHECK BUTTON
+                if c2.button("Check Answer", use_container_width=True):
+                    st.session_state.checked = True
+                
+                # NEXT BUTTON
+                if idx < total - 1:
+                    if c3.button("Next ➡️"):
+                        st.session_state.q_idx += 1
+                        st.session_state.checked = False
+                        st.rerun()
+                else:
+                    if c3.button("Finish"):
+                        st.balloons()
+                        st.success(f"Module Complete! Final Score: {st.session_state.score}/{total}")
+
+                # ANSWER REVEAL
+                if st.session_state.checked:
+                    if choice == q['ans']:
+                        st.success(f"✅ Correct! \n\n{q['why']}")
+                        if f"done_{selected_los}_{idx}" not in st.session_state:
+                            st.session_state.score += 1
+                            st.session_state[f"done_{selected_los}_{idx}"] = True
+                    else:
+                        st.error(f"❌ Wrong. \n\n**Answer:** {q['ans']} \n\n**Reason:** {q['why']}")
 
 # --- TAB 2: FLASHCARDS ---
 with tab2:
     if selected_los and "Flashcards (10 Cards)" in library["Economics"][selected_los]:
         fc_deck = library["Economics"][selected_los]["Flashcards (10 Cards)"]
-        fc_idx = st.session_state.get("fc_idx", 0)
-        
-        if fc_idx < len(fc_deck):
-            card = fc_deck[fc_idx]
-            with st.container(border=True):
-                st.caption(f"Card {fc_idx+1}/{len(fc_deck)}")
-                if not st.session_state.fc_flipped:
-                    st.markdown(f"## {card['q']}")
-                    if st.button("Flip 🔄"): st.session_state.fc_flipped = True; st.rerun()
-                else:
-                    st.markdown(f"## {card['ans']}")
-                    st.info(card['why'])
-                    if st.button("Next Card ➡️"): 
-                        st.session_state.fc_idx = fc_idx + 1
-                        st.session_state.fc_flipped = False
-                        st.rerun()
+        if not fc_deck:
+             st.info("🚧 Flashcards coming soon.")
         else:
-            st.button("Restart Deck", on_click=lambda: st.session_state.update({"fc_idx":0}))
+            fc_idx = st.session_state.get("fc_idx", 0)
+            if fc_idx < len(fc_deck):
+                card = fc_deck[fc_idx]
+                with st.container(border=True):
+                    st.caption(f"Card {fc_idx+1}/{len(fc_deck)}")
+                    if not st.session_state.fc_flipped:
+                        st.markdown(f"## {card['q']}")
+                        if st.button("Flip Card 🔄"): st.session_state.fc_flipped = True; st.rerun()
+                    else:
+                        st.markdown(f"## {card['ans']}")
+                        st.info(card['why'])
+                        
+                        # FC Nav
+                        fc1, fc2 = st.columns(2)
+                        if fc_idx > 0:
+                             if fc1.button("⬅️ Back"): st.session_state.fc_idx -= 1; st.session_state.fc_flipped = False; st.rerun()
+                        if fc2.button("Next Card ➡️"): 
+                            st.session_state.fc_idx = fc_idx + 1
+                            st.session_state.fc_flipped = False
+                            st.rerun()
+            else:
+                if st.button("Restart Deck"): st.session_state.fc_idx = 0; st.rerun()
 
 # --- TAB 3: MOCK EXAM ---
 with tab3:
     st.header("💀 The 300-Question Mock")
     if "MOCK EXAM" in library["Economics"]:
         mock_qs = library["Economics"]["MOCK EXAM"]["Full Mock"]
-        m_idx = st.session_state.m_idx
-        
-        if m_idx < len(mock_qs):
-            mq = mock_qs[m_idx]
-            st.progress(m_idx/len(mock_qs))
-            st.write(f"**Mock Q{m_idx+1}**")
-            st.markdown(f"### {mq['q']}")
-            m_choice = st.radio("Select:", mq['opt'], key=f"m_{m_idx}")
-            
-            if st.button("Submit Mock Answer"):
-                if m_choice == mq['ans']: 
-                    st.success("Correct")
-                    st.session_state.m_score += 1
-                else: 
-                    st.error(f"Wrong. Answer: {mq['ans']}")
+        if not mock_qs:
+            st.info("🚧 Mock Exam loading in final block.")
+        else:
+            m_idx = st.session_state.m_idx
+            if m_idx < len(mock_qs):
+                mq = mock_qs[m_idx]
+                st.progress((m_idx+1)/len(mock_qs))
+                st.write(f"**Mock Q{m_idx+1}**")
+                st.markdown(f"### {mq['q']}")
+                m_choice = st.radio("Select:", mq['opt'], key=f"m_{m_idx}")
                 
-                if st.button("Next Mock Q"):
+                # Mock Nav
+                mc1, mc2 = st.columns(2)
+                if mc1.button("Submit Mock Answer"):
+                    if m_choice == mq['ans']: 
+                        st.success("Correct")
+                        st.session_state.m_score += 1
+                    else: 
+                        st.error(f"Wrong. Answer: {mq['ans']}")
+                
+                if mc2.button("Next Mock Q"):
                     st.session_state.m_idx += 1
                     st.rerun()
-        else:
-            st.success(f"Mock Complete! Score: {st.session_state.m_score}/{len(mock_qs)}")
+            else:
+                st.success(f"Mock Complete! Score: {st.session_state.m_score}/{len(mock_qs)}")
 
 # --- TAB 4: PERFORMANCE ---
 with tab4:
     if st.session_state.history:
         st.dataframe(st.session_state.history)
     else:
-        st.info("No practice sessions completed yet.")
+        st.info("Complete a practice session to see stats.")
