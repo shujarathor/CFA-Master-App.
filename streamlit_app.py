@@ -851,6 +851,12 @@ with tab3:
             mq = mock_qs[m_idx]
             st.progress((m_idx+1)/len(mock_qs))
             st.write(f"**Mock Q{m_idx+1}**")
+            
+            # --- THE MAGIC LINE (This displays the chart) ---
+            if "chart" in mq: 
+                st.plotly_chart(get_chart(mq['chart']), use_container_width=True)
+            # ------------------------------------------------
+
             st.markdown(f"### {mq['q']}")
             m_choice = st.radio("Select:", mq['opt'], key=f"m_{m_idx}")
             
@@ -878,6 +884,7 @@ with tab3:
                     st.rerun()
             else:
                 st.success(f"Mock Complete! Final Score: {st.session_state.m_score}/{len(mock_qs)}")
+
 
 # --- TAB 4: HISTORY ---
 with tab4:
