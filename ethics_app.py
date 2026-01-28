@@ -84,7 +84,7 @@ if "ethics_db" not in st.session_state:
                 ]
             }
         }
-    }        ,
+    },
         "Consider Phase": {
             "Hard (Exam Level)": [
                 {"question": "During the 'Consider' phase of the Ethical Decision-Making Framework, situational influences are analyzed. Which of the following is a situational influence?", "options": ["Financial technical analysis.", "Obedience to authority.", "GIPS compliance manuals.", "The firm's legal counsel."], "answer": "Obedience to authority.", "explanation": "Situational influences are external pressures, such as group norms or obedience to authority, that can bias judgment."},
