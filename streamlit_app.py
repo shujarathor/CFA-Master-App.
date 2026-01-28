@@ -19,32 +19,86 @@ st.markdown("""
 # ==============================================================================
 # 2. THE GRAPH ENGINE
 # ==============================================================================
-def get_chart(chart_type):
+def get_chart(type):
     fig = go.Figure()
-    layout_args = dict(height=300, margin=dict(l=20,r=20,t=40,b=20), paper_bgcolor='rgba(0,0,0,0)')
     
-    if chart_type == "elastic":
-        x = np.linspace(0, 10, 100); y = 10 - 0.5 * x
-        fig.add_trace(go.Scatter(x=x, y=y, mode='lines', line=dict(color='#0052cc', width=4), name='Demand'))
-        fig.update_layout(title="Elastic Demand", xaxis_title="Q", yaxis_title="P", **layout_args)
-        
-    elif chart_type == "inelastic":
-        x = np.linspace(0, 5, 100); y = 10 - 2 * x
-        fig.add_trace(go.Scatter(x=x, y=y, mode='lines', line=dict(color='#d93025', width=4), name='Demand'))
-        fig.update_layout(title="Inelastic Demand", xaxis_title="Q", yaxis_title="P", **layout_args)
-
-    elif chart_type == "perfect_competition":
+    # --- MOCK EXAM CHARTS (BATCH 5) ---
+    if type == 'j_curve':
+        # J-Curve: Time vs Net Exports
         x = np.linspace(0, 10, 100)
-        fig.add_trace(go.Scatter(x=x, y=[5]*100, mode='lines', line=dict(color='#0052cc', width=4), name='P=MR'))
-        fig.update_layout(title="Perfect Competition (Price Taker)", xaxis_title="Q", yaxis_title="P", **layout_args)
+        y = -5 * np.exp(-0.5 * x) + 2 * np.log(x + 1)
+        fig.add_trace(go.Scatter(x=x, y=y, mode='lines', name='Trade Balance', line=dict(color='red', width=3)))
+        fig.add_hline(y=0, line_dash="dash", annotation_text="Balanced Trade")
+        fig.update_layout(title="The J-Curve Effect", xaxis_title="Time (Post-Devaluation)", yaxis_title="Net Exports (X - M)")
+        fig.add_annotation(x=1, y=-3, text="Phase A: Price Effect", showarrow=True)
+        fig.add_annotation(x=8, y=3, text="Phase B: Volume Effect", showarrow=True)
 
-    elif chart_type == "shift_right":
+    elif type == 'tariff_welfare':
+        # Tariff Welfare Loss
+        p = np.linspace(0, 10, 100)
+        d = 10 - p
+        s = p
+        fig.add_trace(go.Scatter(x=d, y=p, name='Demand', line=dict(color='blue')))
+        fig.add_trace(go.Scatter(x=s, y=p, name='Supply', line=dict(color='red')))
+        fig.add_hline(y=3, line_dash="dot", annotation_text="World Price (Pw)", line_color="green")
+        fig.add_hline(y=5, line_dash="solid", annotation_text="Tariff Price (Pt)", line_color="orange")
+        # Deadweight Loss (Polygons)
+        fig.add_trace(go.Scatter(x=[3, 5, 5, 3], y=[3, 5, 3, 3], fill="toself", fillcolor="rgba(255,0,0,0.3)", line=dict(width=0), name="Deadweight Loss", showlegend=True))
+        fig.add_trace(go.Scatter(x=[5, 7, 5, 5], y=[5, 3, 3, 5], fill="toself", fillcolor="rgba(255,0,0,0.3)", line=dict(width=0), showlegend=False))
+        fig.update_layout(title="Welfare Loss from Tariff", xaxis_title="Quantity", yaxis_title="Price")
+
+    elif type == 'phillips_curve':
+        u = np.linspace(2, 10, 100)
+        i = 10 / u
+        fig.add_trace(go.Scatter(x=u, y=i, mode='lines', name='SRPC', line=dict(color='purple', width=3)))
+        fig.update_layout(title="Short-Run Phillips Curve", xaxis_title="Unemployment Rate (%)", yaxis_title="Inflation Rate (%)")
+
+    elif type == 'laffer_curve':
+        t = np.linspace(0, 100, 100)
+        r = -0.1 * (t - 50)**2 + 250
+        fig.add_trace(go.Scatter(x=t, y=r, mode='lines', name='Tax Revenue', line=dict(color='green', width=3)))
+        fig.update_layout(title="Laffer Curve", xaxis_title="Tax Rate (%)", yaxis_title="Tax Revenue")
+        fig.add_vline(x=50, line_dash="dash", annotation_text="Optimal Rate")
+
+    elif type == 'is_lm':
+        y = np.linspace(0, 10, 100)
+        lm = np.full_like(y, 5) # Vertical LM
+        is_curve = 10 - y
+        is_shift = 12 - y
+        fig.add_trace(go.Scatter(x=np.full(100, 5), y=y, name='LM (Classical)', line=dict(color='red')))
+        fig.add_trace(go.Scatter(x=y, y=is_curve, name='IS Initial', line=dict(color='blue')))
+        fig.add_trace(go.Scatter(x=y, y=is_shift, name='IS Shift (Fiscal)', line=dict(color='blue', dash='dot')))
+        fig.update_layout(title="IS-LM: Crowding Out", xaxis_title="Output (Y)", yaxis_title="Interest Rate (r)")
+
+    # --- EXISTING CHARTS ---
+    elif type == 'supply_demand':
         x = np.linspace(0, 10, 100)
-        fig.add_trace(go.Scatter(x=x, y=10-x, mode='lines', line=dict(color='grey', dash='dot'), name='D'))
-        fig.add_trace(go.Scatter(x=x, y=x, mode='lines', line=dict(color='black'), name='S1'))
-        fig.add_trace(go.Scatter(x=x, y=x-2, mode='lines', line=dict(color='green', width=3), name='S2 (Shift)'))
-        fig.update_layout(title="Supply Shift Right", xaxis_title="Q", yaxis_title="P", **layout_args)
+        fig.add_trace(go.Scatter(x=x, y=x, name='Supply', line=dict(color='red')))
+        fig.add_trace(go.Scatter(x=x, y=10-x, name='Demand', line=dict(color='blue')))
+        fig.update_layout(title="Supply & Demand Equilibrium")
         
+    elif type == 'ad_as':
+        x = np.linspace(0, 10, 100)
+        fig.add_trace(go.Scatter(x=x, y=x, name='SRAS', line=dict(color='orange')))
+        fig.add_trace(go.Scatter(x=x, y=10-x, name='AD', line=dict(color='blue')))
+        fig.add_vline(x=5, line_dash="dash", annotation_text="LRAS (Potential GDP)")
+        fig.update_layout(title="AD/AS Model")
+        
+    elif type == 'consumer_choice':
+        x = np.linspace(1, 10, 100)
+        y = 10/x
+        fig.add_trace(go.Scatter(x=x, y=y, name='Indifference Curve', line=dict(color='purple')))
+        fig.add_trace(go.Scatter(x=x, y=12-x, name='Budget Constraint', line=dict(color='green', dash='dot')))
+        fig.update_layout(title="Consumer Choice Optimization")
+        
+    elif type == 'market_structure':
+        q = np.linspace(1, 10, 100)
+        mr = 10 - 2*q
+        mc = q
+        fig.add_trace(go.Scatter(x=q, y=mr, name='Marginal Revenue', line=dict(color='green')))
+        fig.add_trace(go.Scatter(x=q, y=mc, name='Marginal Cost', line=dict(color='red')))
+        fig.update_layout(title="Monopoly Pricing (MR=MC)")
+
     return fig
 
 # ==============================================================================
