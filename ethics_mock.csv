@@ -1,3 +1,4 @@
+Module,SubTopic,Difficulty,Question,OptionA,OptionB,OptionC,Answer,Explanation
 Mock,Exam 1,Hard (Exam Level),Standard I(A): If a country has no securities laws a CFA member must follow?,The Code and Standards,Local Law,US Law,OptionA,Correct - When local law is silent you must follow the Code and Standards
 Mock,Exam 1,Hard (Exam Level),Standard I(B): An analyst pays for their own travel to a company headquarters. This is?,Best Practice to maintain independence,Required by law,A violation of Standard I(B),OptionA,Correct - Paying your own way ensures no perception of bribery or influence
 Mock,Exam 1,Hard (Exam Level),Standard I(C): Using a third-party chart in a report without citation is?,Plagiarism and a violation,Allowed if you paid for the report,Allowed if you modify the colors,OptionA,Correct - You must acknowledge the source of data
