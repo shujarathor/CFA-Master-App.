@@ -12,7 +12,7 @@ if "score_history" not in st.session_state:
 tab1, tab2, tab3, tab4 = st.tabs(["📝 Practice Drills", "🗂️ Flashcards", "💀 Brutal Mock", "📈 Performance"])
 
 # --- DROPDOWN MENU DATA ---
-# FIXED: III(A) removed the comma to match the CSV data structure
+# FIXED: Updated VI(A) to "Disclosure of Conflicts" to match CSV
 ethics_hierarchy = {
     "LM 1: Ethical Decision-Making": ["Framework Overview", "Identify Phase", "Consider Phase", "Act/Reflect Phase"],
     "Standard I: Professionalism": ["I(A) Knowledge of the Law", "I(B) Independence & Objectivity", "I(C) Misrepresentation", "I(D) Misconduct"],
@@ -20,7 +20,7 @@ ethics_hierarchy = {
     "Standard III: Duties to Clients": ["III(A) Loyalty Prudence & Care", "III(B) Suitability", "III(C) Performance Presentation", "III(D) Confidentiality"],
     "Standard IV: Duties to Employers": ["IV(A) Loyalty", "IV(B) Additional Compensation", "IV(C) Responsibilities of Supervisors"],
     "Standard V: Investment Analysis": ["V(A) Diligence & Reasonable Basis", "V(B) Communication", "V(C) Record Retention"],
-    "Standard VI: Conflicts of Interest": ["VI(A) Disclosure", "VI(B) Priority of Transactions", "VI(C) Referral Fees"],
+    "Standard VI: Conflicts of Interest": ["VI(A) Disclosure of Conflicts", "VI(B) Priority of Transactions", "VI(C) Referral Fees"],
     "Standard VII: Responsibility as CFA": ["VII(A) Conduct in Program", "VII(B) Reference to CFA Institute"],
     "Global Investment Performance Standards (GIPS)": ["GIPS Fundamentals", "GIPS Composite Construction", "GIPS Presentation & Reporting"]
 }
@@ -97,7 +97,6 @@ with tab1:
         choice_text = st.radio("Select Answer:", options_text, key=f"rad_{session_key}_{curr_idx}")
         
         if st.button("Check Answer", key=f"check_{session_key}_{curr_idx}"):
-            # Handle potential lookup errors if text doesn't match exactly
             if choice_text in options_map:
                 selected_label = options_map[choice_text]
                 if selected_label == row['Answer']:
