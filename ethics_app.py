@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import time
 
 st.set_page_config(page_title="CFA Ethics War Room", layout="wide")
 st.title("🛡️ CFA Level 1: Ethics & GIPS")
@@ -8,11 +9,15 @@ st.title("🛡️ CFA Level 1: Ethics & GIPS")
 if "score_history" not in st.session_state:
     st.session_state.score_history = []  # Stores 1 for correct, 0 for incorrect
 
+if "mock_started" not in st.session_state:
+    st.session_state.mock_started = False
+if "mock_answers" not in st.session_state:
+    st.session_state.mock_answers = {}  # Stores user answers for mock
+
 # --- NAVIGATION TABS ---
 tab1, tab2, tab3, tab4 = st.tabs(["📝 Practice Drills", "🗂️ Flashcards", "💀 Brutal Mock", "📈 Performance"])
 
 # --- DROPDOWN MENU DATA ---
-# FIXED: Updated VI(A) to "Disclosure of Conflicts" to match CSV
 ethics_hierarchy = {
     "LM 1: Ethical Decision-Making": ["Framework Overview", "Identify Phase", "Consider Phase", "Act/Reflect Phase"],
     "Standard I: Professionalism": ["I(A) Knowledge of the Law", "I(B) Independence & Objectivity", "I(C) Misrepresentation", "I(D) Misconduct"],
@@ -162,8 +167,66 @@ with tab2:
 
 # --- TAB 3: BRUTAL MOCK ---
 with tab3:
-    st.subheader("💀 The Brutal Mock")
-    st.warning("Mock Vault under construction. Please use Practice Tab for now.")
+    st.subheader("💀 The Brutal Mock Exam")
+    st.write("This is a 36-question simulated exam block. No immediate feedback. Score revealed at the end.")
+    
+    try:
+        mock_df = pd.read_csv("ethics_mock.csv")
+    except FileNotFoundError:
+        st.error("🚨 Error: 'ethics_mock.csv' not found.")
+        st.stop()
+    
+    # Filter for Mock 1
+    mock_subset = mock_df[mock_df["SubTopic"] == "Exam 1"]
+    
+    if st.button("🚀 Start Mock Exam 1") or st.session_state.mock_started:
+        st.session_state.mock_started = True
+        
+        with st.form("mock_form"):
+            for idx, row in mock_subset.iterrows():
+                st.markdown(f"**{idx + 1}. {row['Question']}**")
+                
+                # Simple unique key for radio group
+                options = [row['OptionA'], row['OptionB'], row['OptionC']]
+                # Randomize logic could go here, but kept simple for stability
+                
+                # Save answer to session state
+                user_choice = st.radio(
+                    "Choose:", 
+                    options, 
+                    key=f"mock_{idx}", 
+                    index=None
+                )
+            
+            submitted = st.form_submit_button("🏁 Submit Exam")
+            
+            if submitted:
+                score = 0
+                st.session_state.mock_started = False # Reset
+                
+                st.divider()
+                st.subheader("📋 Results")
+                
+                for idx, row in mock_subset.iterrows():
+                    user_ans = st.session_state.get(f"mock_{idx}")
+                    
+                    # Map User Text back to Option Label (OptionA, OptionB...)
+                    correct_text = row[row['Answer']] # The actual text of the correct answer
+                    
+                    if user_ans == correct_text:
+                        score += 1
+                        st.caption(f"Question {idx+1}: ✅ Correct")
+                    else:
+                        st.caption(f"Question {idx+1}: ❌ Incorrect. (Answer: {correct_text})")
+                        
+                final_score = (score / len(mock_subset)) * 100
+                st.metric("Final Score", f"{final_score:.1f}%")
+                
+                if final_score >= 70:
+                    st.success("🎉 You PASSED this Mock Block!")
+                else:
+                    st.error("You failed this block. Review the weak areas.")
+
 
 # --- TAB 4: PERFORMANCE ---
 with tab4:
