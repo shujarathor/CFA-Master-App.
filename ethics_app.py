@@ -11,12 +11,13 @@ if "score_history" not in st.session_state:
 # --- NAVIGATION TABS ---
 tab1, tab2, tab3, tab4 = st.tabs(["📝 Practice Drills", "🗂️ Flashcards", "💀 Brutal Mock", "📈 Performance"])
 
-# --- DROPDOWN MENU DATA (UPDATED WITH GIPS) ---
+# --- DROPDOWN MENU DATA ---
+# FIXED: III(A) removed the comma to match the CSV data structure
 ethics_hierarchy = {
     "LM 1: Ethical Decision-Making": ["Framework Overview", "Identify Phase", "Consider Phase", "Act/Reflect Phase"],
     "Standard I: Professionalism": ["I(A) Knowledge of the Law", "I(B) Independence & Objectivity", "I(C) Misrepresentation", "I(D) Misconduct"],
     "Standard II: Integrity of Capital Markets": ["II(A) Material Nonpublic Info", "II(B) Market Manipulation"],
-    "Standard III: Duties to Clients": ["III(A) Loyalty, Prudence & Care", "III(B) Suitability", "III(C) Performance Presentation", "III(D) Confidentiality"],
+    "Standard III: Duties to Clients": ["III(A) Loyalty Prudence & Care", "III(B) Suitability", "III(C) Performance Presentation", "III(D) Confidentiality"],
     "Standard IV: Duties to Employers": ["IV(A) Loyalty", "IV(B) Additional Compensation", "IV(C) Responsibilities of Supervisors"],
     "Standard V: Investment Analysis": ["V(A) Diligence & Reasonable Basis", "V(B) Communication", "V(C) Record Retention"],
     "Standard VI: Conflicts of Interest": ["VI(A) Disclosure", "VI(B) Priority of Transactions", "VI(C) Referral Fees"],
@@ -96,15 +97,18 @@ with tab1:
         choice_text = st.radio("Select Answer:", options_text, key=f"rad_{session_key}_{curr_idx}")
         
         if st.button("Check Answer", key=f"check_{session_key}_{curr_idx}"):
-            selected_label = options_map[choice_text]
-            
-            if selected_label == row['Answer']:
-                st.success("✅ Correct!")
-                st.session_state.score_history.append(1)
+            # Handle potential lookup errors if text doesn't match exactly
+            if choice_text in options_map:
+                selected_label = options_map[choice_text]
+                if selected_label == row['Answer']:
+                    st.success("✅ Correct!")
+                    st.session_state.score_history.append(1)
+                else:
+                    st.error(f"❌ Incorrect. The correct answer was: {row[row['Answer']]}")
+                    st.session_state.score_history.append(0)
+                st.markdown(f"**Explanation:** {row['Explanation']}")
             else:
-                st.error(f"❌ Incorrect. The correct answer was: {row[row['Answer']]}")
-                st.session_state.score_history.append(0)
-            st.markdown(f"**Explanation:** {row['Explanation']}")
+                st.error("Error: Option mismatch. Please report this question.")
             
         st.divider()
         navigation_buttons(curr_idx, len(subset), session_key)
