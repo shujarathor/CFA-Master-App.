@@ -19,3 +19,48 @@ LM 1: Ethical Decision-Making,Identify Phase,What is 'Ethical Framing'?,How a si
 LM 1: Ethical Decision-Making,Identify Phase,Why map out 'Duties'?,To see if duties to different stakeholders conflict (e.g. Duty to Client vs Duty to Boss).
 LM 1: Ethical Decision-Making,Identify Phase,Is legal analysis part of this phase?,Yes - identifying applicable laws and standards is part of 'Facts'.
 LM 1: Ethical Decision-Making,Identify Phase,What if facts are missing?,You must identify what you *don't* know and try to find it before moving on.
+LM 1: Ethical Decision-Making,Consider Phase,What is the main goal of the Consider phase?,Brainstorm options and identify situational influences
+LM 1: Ethical Decision-Making,Consider Phase,What is a Situational Influence?,External factors like bonus pressure or obedience to authority
+LM 1: Ethical Decision-Making,Consider Phase,Why seek 'Additional Guidance'?,To get an unbiased opinion from compliance or legal
+LM 1: Ethical Decision-Making,Consider Phase,What is the 'Bystander Effect'?,Assuming someone else will report the issue so you do nothing
+LM 1: Ethical Decision-Making,Act/Reflect Phase,What does 'Act' include besides deciding?,Elevating the issue to a supervisor
+LM 1: Ethical Decision-Making,Act/Reflect Phase,When does 'Reflect' happen?,After the decision and outcome are known
+LM 1: Ethical Decision-Making,Act/Reflect Phase,What is the main question in Reflect?,Did the outcome match the ethical intent
+Standard I: Professionalism,I(A) Knowledge of the Law,If laws and standards conflict which do you follow?,The Stricter of the two
+Standard I: Professionalism,I(A) Knowledge of the Law,What if local law is silent?,Follow CFA Standards
+Standard I: Professionalism,I(A) Knowledge of the Law,What is Dissociation?,Resigning or asking to be removed from a violation
+Standard I: Professionalism,I(A) Knowledge of the Law,If a client asks for an illegal trade?,Refuse and explain - Dissociate if they persist
+Standard I: Professionalism,I(A) Knowledge of the Law,Who is responsible for violations by subordinates?,The supervisor - if they failed to prevent it
+Standard I: Professionalism,I(B) Independence & Objectivity,Can you accept gifts from clients?,Yes - if disclosed to employer
+Standard I: Professionalism,I(B) Independence & Objectivity,Can you accept gifts from stock issuers?,Ideally No - but modest gifts are okay if disclosed
+Standard I: Professionalism,I(B) Independence & Objectivity,Best practice for travel expenses?,Analyst pays their own way
+Standard I: Professionalism,I(B) Independence & Objectivity,What is 'Firewall'?,Separation between Investment Banking and Research
+Standard I: Professionalism,I(B) Independence & Objectivity,Can you hold stock in companies you cover?,Yes - but it must be disclosed and trading restricted
+Standard I: Professionalism,I(C) Misrepresentation,What counts as Plagiarism?,Using work without citing the source
+Standard I: Professionalism,I(C) Misrepresentation,Can you guarantee returns?,No - unless the product is truly risk-free like T-Bills
+Standard I: Professionalism,I(C) Misrepresentation,What is Cherry Picking?,Showing only best performing accounts
+Standard I: Professionalism,I(C) Misrepresentation,Omitting a risk factor is?,Misrepresentation by omission
+Standard I: Professionalism,I(D) Misconduct,Does Misconduct apply to private life?,Yes - if it reflects on professional integrity (e.g. fraud)
+Standard I: Professionalism,I(D) Misconduct,Is Civil Disobedience (Protest) misconduct?,Generally No
+Standard I: Professionalism,I(D) Misconduct,Is drinking at a client lunch misconduct?,Yes - if it leads to embarrassment or breach of confidentiality
+Standard II: Integrity of Capital Markets,II(A) Material Nonpublic Info,What is Material Info?,Info that would change the stock price
+Standard II: Integrity of Capital Markets,II(A) Material Nonpublic Info,What is Nonpublic Info?,Info not yet released to the general market
+Standard II: Integrity of Capital Markets,II(A) Material Nonpublic Info,What is Mosaic Theory?,Combining public info + non-material nonpublic info (Allowed)
+Standard II: Integrity of Capital Markets,II(A) Material Nonpublic Info,If you accidentally get MNPI?,Freeze - Do not trade or share it
+Standard II: Integrity of Capital Markets,II(B) Market Manipulation,What is Pump and Dump?,Spreading false positive info to sell high
+Standard II: Integrity of Capital Markets,II(B) Market Manipulation,What is Wash Trading?,Buying and selling to yourself to fake volume
+Standard III: Duties to Clients,III(A) Loyalty Prudence & Care,Who comes first?,Client > Employer > Self
+Standard III: Duties to Clients,III(A) Loyalty Prudence & Care,What are Soft Dollars?,Client commissions used to buy research
+Standard III: Duties to Clients,III(A) Loyalty Prudence & Care,How should proxies be voted?,To maximize shareowner value
+Standard III: Duties to Clients,III(A) Loyalty Prudence & Care,What is Best Execution?,Optimizing price - speed - and cost (not just low comms)
+Standard III: Duties to Clients,III(B) Suitability,What document governs suitability?,The IPS (Investment Policy Statement)
+Standard III: Duties to Clients,III(B) Suitability,How often should IPS be updated?,Annually or after major life events
+Standard III: Duties to Clients,III(B) Suitability,Can you make a high risk trade for a conservative client?,No - unless it hedges overall portfolio risk
+Standard III: Duties to Clients,III(B) Suitability,If a client demands an unsuitable trade?,Discuss - Educate - and if necessary separate the account
+Standard III: Duties to Clients,III(C) Performance Presentation,Standard for presentation?,Fair - Accurate - and Complete
+Standard III: Duties to Clients,III(C) Performance Presentation,Can you show Gross returns?,Yes - if you disclose the fee schedule
+Standard III: Duties to Clients,III(C) Performance Presentation,What is a Composite?,Grouping of portfolios with similar strategies
+Standard III: Duties to Clients,III(C) Performance Presentation,Can you delete old accounts?,No - terminated accounts must stay in history
+Standard III: Duties to Clients,III(D) Confidentiality,Does confidentiality expire?,No - it continues after client leaves or dies
+Standard III: Duties to Clients,III(D) Confidentiality,When can you disclose?,If client permits - or Law requires it
+Standard III: Duties to Clients,III(D) Confidentiality,Is illegal activity protected?,No - The Standards do not protect crime
