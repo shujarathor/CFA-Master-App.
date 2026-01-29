@@ -176,19 +176,20 @@ with tab3:
         st.error("🚨 Error: 'ethics_mock.csv' not found.")
         st.stop()
     
-    # Filter for Mock 1
-    mock_subset = mock_df[mock_df["SubTopic"] == "Exam 1"]
+    # --- MOCK SELECTOR ---
+    mock_choice = st.selectbox("Select Exam Version:", ["Exam 1", "Exam 2", "Exam 3"])
     
-    if st.button("🚀 Start Mock Exam 1") or st.session_state.mock_started:
+    # Filter for Selected Mock
+    mock_subset = mock_df[mock_df["SubTopic"] == mock_choice]
+    
+    if st.button(f"🚀 Start {mock_choice}") or st.session_state.mock_started:
         st.session_state.mock_started = True
         
         with st.form("mock_form"):
             for idx, row in mock_subset.iterrows():
                 st.markdown(f"**{idx + 1}. {row['Question']}**")
                 
-                # Simple unique key for radio group
                 options = [row['OptionA'], row['OptionB'], row['OptionC']]
-                # Randomize logic could go here, but kept simple for stability
                 
                 # Save answer to session state
                 user_choice = st.radio(
@@ -209,9 +210,7 @@ with tab3:
                 
                 for idx, row in mock_subset.iterrows():
                     user_ans = st.session_state.get(f"mock_{idx}")
-                    
-                    # Map User Text back to Option Label (OptionA, OptionB...)
-                    correct_text = row[row['Answer']] # The actual text of the correct answer
+                    correct_text = row[row['Answer']] 
                     
                     if user_ans == correct_text:
                         score += 1
@@ -226,7 +225,6 @@ with tab3:
                     st.success("🎉 You PASSED this Mock Block!")
                 else:
                     st.error("You failed this block. Review the weak areas.")
-
 
 # --- TAB 4: PERFORMANCE ---
 with tab4:
