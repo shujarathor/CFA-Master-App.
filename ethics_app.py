@@ -168,7 +168,7 @@ with tab2:
 # --- TAB 3: BRUTAL MOCK ---
 with tab3:
     st.subheader("💀 The Brutal Mock Exam")
-    st.write("This is a 36-question simulated exam block. No immediate feedback. Score revealed at the end.")
+    st.write("This is a simulated exam block. No immediate feedback. Score revealed at the end.")
     
     try:
         mock_df = pd.read_csv("ethics_mock.csv")
@@ -177,7 +177,8 @@ with tab3:
         st.stop()
     
     # --- MOCK SELECTOR ---
-    mock_choice = st.selectbox("Select Exam Version:", ["Exam 1", "Exam 2", "Exam 3"])
+    # ADDED: "Exam 4" to the list
+    mock_choice = st.selectbox("Select Exam Version:", ["Exam 1", "Exam 2", "Exam 3", "Exam 4"])
     
     # Filter for Selected Mock
     mock_subset = mock_df[mock_df["SubTopic"] == mock_choice]
